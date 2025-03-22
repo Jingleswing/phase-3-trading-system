@@ -1,0 +1,27 @@
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Python bytecode files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local development settings
+.env
+.vscode/
+*.swp
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Testing
+.coverage
+htmlcov/
+
+# Local database files
+*.db
+*.sqlite3

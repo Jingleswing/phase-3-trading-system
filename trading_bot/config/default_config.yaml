@@ -1,0 +1,35 @@
+# trading_bot/config/default_config.yaml
+# Trading bot default configuration
+
+# Exchange settings
+exchange:
+  id: bybit  # Exchange ID (binance, coinbase, etc.)
+  api_key: "hG1MT0tQlGIvLCOx1R"  # API key (fill in your own)
+  secret: "Ho7rwpJqdVfcOqbt7bEm3fIp6lww3NCBkJ4l"   # API secret (fill in your own)
+  params:
+    enableRateLimit: true
+
+# Trading parameters
+trading:
+  enabled: true  # Set to true to enable live trading
+  symbols:
+    - ETH/USDT
+  timeframe: 1m
+  
+# Strategy configuration
+strategy:
+  type: moving_average_crossover
+  params:
+    short_period: 20
+    long_period: 50
+
+# Risk management
+risk:
+  max_open_trades: 1
+  risk_per_trade: 0.5  # 2% of portfolio per trade
+  stop_loss_pct: 0.2   # 5% stop loss
+
+# System settings
+system:
+  loop_interval: 60  # Seconds between iterations
+  log_level: INFO
