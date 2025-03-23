@@ -32,9 +32,8 @@ class TradingBot(LoggerMixin):
         default_config_path = os.path.join(os.path.dirname(__file__), 'config', 'default_config.yaml')
         self.config = Config(config_path, default_config_path)
         
-        # Set up logging
-        log_level = self.config.get('system.log_level', 'INFO')
-        setup_logging(level=log_level)
+        # Set up logging with config
+        setup_logging(config=self.config.config)
         
         # Create event bus
         self.event_bus = EventBus()

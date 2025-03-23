@@ -33,3 +33,5 @@ risk:
 system:
   loop_interval: 60  # Seconds between iterations
   log_level: INFO
+  log_file: logs/trading_bot.log  # Path to log file
+  log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"  # Log format
