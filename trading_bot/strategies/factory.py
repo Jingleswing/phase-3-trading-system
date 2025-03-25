@@ -43,20 +43,16 @@ class StrategyFactory(LoggerMixin):
             short_period = params.get('short_period', 20)
             long_period = params.get('long_period', 50)
             leverage = params.get('leverage', 5)
-            stop_loss_pct = params.get('stop_loss_pct', 0.2)
-            take_profit_pct = params.get('take_profit_pct', 0.5)
             
             instance = MovingAverageCrossoverFutures(
                 short_period=short_period,
                 long_period=long_period,
-                leverage=leverage,
-                stop_loss_pct=stop_loss_pct,
-                take_profit_pct=take_profit_pct
+                leverage=leverage
             )
             
             cls().logger.info(
                 f"Created {strategy_type} strategy with short_period={short_period}, "
-                f"long_period={long_period}, leverage={leverage}, "
+                f"long_period={long_period}, leverage={leverage}"
             )
             return instance
         

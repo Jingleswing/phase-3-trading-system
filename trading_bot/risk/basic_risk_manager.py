@@ -12,8 +12,7 @@ class BasicRiskManager(RiskManager, LoggerMixin):
     def __init__(self, 
                  exchange,  # CCXT exchange instance
                  risk_per_trade: float = 0.02,  # 2% of portfolio per trade
-                 max_open_trades: int = 3,
-                 stop_loss_pct: float = 0.05):  # 5% stop loss
+                 max_open_trades: int = 3):  # Maximum number of open trades
         """
         Initialize the risk manager
         
@@ -21,12 +20,10 @@ class BasicRiskManager(RiskManager, LoggerMixin):
             exchange: CCXT exchange instance for account info
             risk_per_trade: Percentage of portfolio to risk per trade
             max_open_trades: Maximum number of open trades
-            stop_loss_pct: Stop loss percentage
         """
         self.exchange = exchange
         self.risk_per_trade = risk_per_trade
         self.max_open_trades = max_open_trades
-        self.stop_loss_pct = stop_loss_pct
         self.logger.info(f"Initialized BasicRiskManager (risk_per_trade={risk_per_trade}, max_open_trades={max_open_trades})")
     
     def validate_signal(self, signal: Signal) -> Tuple[bool, str]:
@@ -141,33 +138,13 @@ class BasicRiskManager(RiskManager, LoggerMixin):
     
     def set_stop_loss(self, signal: Signal) -> Optional[Order]:
         """
-        Create a stop loss order for a signal
+        This method is required by the RiskManager interface but is not implemented
+        as stop loss functionality has been disabled.
         
         Args:
             signal: Trading signal
             
         Returns:
-            Stop loss order or None if not applicable
+            None as stop loss is disabled
         """
-        if signal.signal_type != 'buy':
-            # Only set stop loss for buy signals
-            return None
-        
-        # Calculate stop loss price
-        stop_price = signal.price * (1 - self.stop_loss_pct)
-        
-        # Create stop loss order
-        stop_loss_order = Order(
-            symbol=signal.symbol,
-            order_type='stop',  # This may need to be adjusted based on the exchange
-            side='sell',
-            amount=0,  # Will be filled in later
-            price=stop_price,
-            params={
-                'stopPrice': stop_price,
-                'reduceOnly': True
-            }
-        )
-        
-        self.logger.info(f"Created stop loss order at {stop_price} ({self.stop_loss_pct*100}% below entry)")
-        return stop_loss_order
+        return None

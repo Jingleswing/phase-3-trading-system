@@ -2,3 +2,76 @@
 2025-03-25 09:40:21,274 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/futures_trading.log
 2025-03-25 09:40:21,278 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
 2025-03-25 09:40:28,617 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-25 09:55:15,033 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-25 09:55:15,033 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/futures_trading.log
+2025-03-25 09:55:15,039 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-25 09:55:20,825 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-25 09:55:20,826 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Initialized MA_Crossover_Futures_20_50 strategy for futures market with leverage=3x
+2025-03-25 09:55:20,826 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_futures strategy with short_period=20, long_period=50, leverage=3
+2025-03-25 09:55:20,826 - __main__.TradingBot - INFO - Created futures strategy for ETH/USDT:USDT
+2025-03-25 09:55:20,827 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Initialized MA_Crossover_Futures_20_50 strategy for futures market with leverage=2x
+2025-03-25 09:55:20,827 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_futures strategy with short_period=20, long_period=50, leverage=2
+2025-03-25 09:55:20,827 - __main__.TradingBot - INFO - Created futures strategy for BTC/USDT:USDT
+2025-03-25 09:55:20,827 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Initialized MA_Crossover_Futures_20_50 strategy for futures market with leverage=2x
+2025-03-25 09:55:20,828 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_futures strategy with short_period=20, long_period=50, leverage=2
+2025-03-25 09:55:20,828 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-25 09:58:04,269 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-25 09:58:04,269 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/futures_trading.log
+2025-03-25 09:58:04,274 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-25 09:58:08,765 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-25 09:58:08,766 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Initialized MA_Crossover_Futures_20_50 strategy for futures market with leverage=3x
+2025-03-25 09:58:08,766 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_futures strategy with short_period=20, long_period=50, leverage=3
+2025-03-25 09:58:08,767 - __main__.TradingBot - INFO - Created futures strategy for ETH/USDT:USDT
+2025-03-25 09:58:08,767 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Initialized MA_Crossover_Futures_20_50 strategy for futures market with leverage=2x
+2025-03-25 09:58:08,768 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_futures strategy with short_period=20, long_period=50, leverage=2
+2025-03-25 09:58:08,768 - __main__.TradingBot - INFO - Created futures strategy for BTC/USDT:USDT
+2025-03-25 09:58:08,768 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Initialized MA_Crossover_Futures_20_50 strategy for futures market with leverage=2x
+2025-03-25 09:58:08,769 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_futures strategy with short_period=20, long_period=50, leverage=2
+2025-03-25 09:58:08,769 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-25 09:58:08,769 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager (risk_per_trade=0.5, max_open_trades=1)
+2025-03-25 09:58:08,769 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-25 09:58:08,770 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-25 09:58:08,770 - __main__.TradingBot - INFO - Trading ['ETH/USDT:USDT', 'BTC/USDT:USDT'] on 1m timeframe
+2025-03-25 10:01:34,711 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-25 10:01:34,711 - __main__.TradingBot - INFO - Stopping trading bot...
+2025-03-25 10:02:24,856 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-25 10:02:24,856 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/futures_trading.log
+2025-03-25 10:02:24,861 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-25 10:02:30,302 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-25 10:02:30,303 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Initialized MA_Crossover_Futures_20_50 strategy for futures market with leverage=3x
+2025-03-25 10:02:30,303 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_futures strategy with short_period=20, long_period=50, leverage=3
+2025-03-25 10:02:30,304 - __main__.TradingBot - INFO - Created futures strategy for ETH/USDT:USDT
+2025-03-25 10:02:30,304 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Initialized MA_Crossover_Futures_20_50 strategy for futures market with leverage=2x
+2025-03-25 10:02:30,305 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_futures strategy with short_period=20, long_period=50, leverage=2
+2025-03-25 10:02:30,305 - __main__.TradingBot - INFO - Created futures strategy for BTC/USDT:USDT
+2025-03-25 10:02:30,305 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Initialized MA_Crossover_Futures_20_50 strategy for futures market with leverage=2x
+2025-03-25 10:02:30,306 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_futures strategy with short_period=20, long_period=50, leverage=2
+2025-03-25 10:02:30,306 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-25 10:02:30,306 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager (risk_per_trade=0.5, max_open_trades=1)
+2025-03-25 10:02:30,306 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-25 10:02:30,307 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-25 10:02:30,307 - __main__.TradingBot - INFO - Trading ['ETH/USDT:USDT', 'BTC/USDT:USDT'] on 1m timeframe
+2025-03-25 10:02:30,527 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2053.32, Long(50)=2055.36, Price=2058.01, Diff=-2.04 (-0.10%)
+2025-03-25 10:02:31,094 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for BTC/USDT:USDT: Short(20)=86415.88, Long(50)=86448.26, Price=86506.30, Diff=-32.38 (-0.04%)
+2025-03-25 10:03:31,321 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2053.70, Long(50)=2055.32, Price=2058.22, Diff=-1.62 (-0.08%)
+2025-03-25 10:03:31,536 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for BTC/USDT:USDT: Short(20)=86424.39, Long(50)=86448.52, Price=86511.70, Diff=-24.12 (-0.03%)
+2025-03-25 10:04:32,098 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2054.15, Long(50)=2055.28, Price=2058.43, Diff=-1.12 (-0.05%)
+2025-03-25 10:04:32,319 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for BTC/USDT:USDT: Short(20)=86434.69, Long(50)=86448.36, Price=86519.00, Diff=-13.66 (-0.02%)
+2025-03-25 10:05:32,882 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2054.52, Long(50)=2055.22, Price=2057.50, Diff=-0.69 (-0.03%)
+2025-03-25 10:05:33,102 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for BTC/USDT:USDT: Short(20)=86439.19, Long(50)=86447.51, Price=86492.10, Diff=-8.32 (-0.01%)
+2025-03-25 10:06:33,311 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2054.88, Long(50)=2055.17, Price=2058.90, Diff=-0.28 (-0.01%)
+2025-03-25 10:06:33,524 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for BTC/USDT:USDT: Short(20)=86442.16, Long(50)=86445.98, Price=86492.00, Diff=-3.82 (-0.00%)
+2025-03-25 10:07:33,747 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2055.23, Long(50)=2055.09, Price=2058.92, Diff=0.14 (0.01%)
+2025-03-25 10:07:33,748 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Generated BUY signal for ETH/USDT:USDT at 2058.92 in futures market (leverage: 3x)
+2025-03-25 10:07:33,748 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT:USDT at 2058.92
+2025-03-25 10:07:34,663 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - No available balance in USDT:USDT
+2025-03-25 10:07:34,664 - __main__.TradingBot - WARNING - Position size is zero or negative, skipping order
+2025-03-25 10:07:34,887 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for BTC/USDT:USDT: Short(20)=86443.88, Long(50)=86443.15, Price=86471.30, Diff=0.73 (0.00%)
+2025-03-25 10:07:34,888 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Generated BUY signal for BTC/USDT:USDT at 86471.3 in futures market (leverage: 2x)
+2025-03-25 10:07:34,888 - __main__.TradingBot - INFO - Received signal: buy BTC/USDT:USDT at 86471.3
+2025-03-25 10:07:35,664 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - No available balance in USDT:USDT
+2025-03-25 10:07:35,665 - __main__.TradingBot - WARNING - Position size is zero or negative, skipping order
+2025-03-25 10:08:35,888 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2055.47, Long(50)=2054.99, Price=2058.21, Diff=0.48 (0.02%)
+2025-03-25 10:08:36,108 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for BTC/USDT:USDT: Short(20)=86447.76, Long(50)=86441.15, Price=86512.50, Diff=6.61 (0.01%)
+2025-03-25 10:09:35,078 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-25 10:09:35,079 - __main__.TradingBot - INFO - Stopping trading bot...

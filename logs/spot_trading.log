@@ -25,3 +25,20 @@
 2025-03-25 09:37:23,062 - __main__.TradingBot - WARNING - Received close signal for ETH/USDT but no position exists
 2025-03-25 09:38:26,481 - __main__.TradingBot - INFO - Received signal 2, shutting down...
 2025-03-25 09:38:26,481 - __main__.TradingBot - INFO - Stopping trading bot...
+2025-03-25 10:09:49,639 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-25 10:09:49,639 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/spot_trading.log
+2025-03-25 10:09:49,645 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-25 10:09:56,314 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-25 10:09:56,315 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-25 10:09:56,315 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-25 10:09:56,315 - __main__.TradingBot - INFO - Created spot strategy for ETH/USDT
+2025-03-25 10:09:56,315 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-25 10:09:56,316 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-25 10:09:56,316 - __main__.TradingBot - INFO - Created spot strategy for BTC/USDT
+2025-03-25 10:09:56,316 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-25 10:09:56,316 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-25 10:09:56,316 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-25 10:09:56,316 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager (risk_per_trade=0.5, max_open_trades=1)
+2025-03-25 10:09:56,316 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-25 10:09:56,317 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-25 10:09:56,317 - __main__.TradingBot - INFO - Trading ['ETH/USDT', 'BTC/USDT'] on 1m timeframe

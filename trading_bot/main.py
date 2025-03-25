@@ -128,8 +128,7 @@ class TradingBot(LoggerMixin):
         self.risk_manager = BasicRiskManager(
             exchange=self.data_provider.exchange,
             risk_per_trade=risk_config.get('risk_per_trade', 0.02),
-            max_open_trades=risk_config.get('max_open_trades', 3),
-            stop_loss_pct=risk_config.get('stop_loss_pct', 0.05)
+            max_open_trades=risk_config.get('max_open_trades', 3)
         )
     
     def _register_events(self):
@@ -219,20 +218,6 @@ class TradingBot(LoggerMixin):
                     'order': order_result
                 }
             ))
-            
-            # Set stop loss if needed
-            if signal.signal_type == 'buy' and not self.executor.dry_run:
-                stop_loss = self.risk_manager.set_stop_loss(signal)
-                if stop_loss:
-                    # Update stop loss amount
-                    stop_loss.amount = position_size
-                    
-                    # Place stop loss order
-                    try:
-                        sl_result = self.executor.place_order(stop_loss)
-                        self.logger.info(f"Stop loss order placed: {sl_result}")
-                    except Exception as e:
-                        self.logger.error(f"Error placing stop loss order: {e}")
         
         except Exception as e:
             self.logger.error(f"Error executing order: {e}")

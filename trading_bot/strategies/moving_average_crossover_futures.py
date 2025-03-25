@@ -104,6 +104,21 @@ class MovingAverageCrossoverFutures(Strategy, LoggerMixin):
             current = data.iloc[-1]
             previous = data.iloc[-2]
             
+            # Log current SMA values and their relationship
+            current_short = current[short_col]
+            current_long = current[long_col]
+            current_price = current['close']
+            short_long_diff = current_short - current_long
+            short_long_diff_pct = (short_long_diff / current_long) * 100
+            
+            self.logger.info(
+                f"Current SMAs for {current['symbol']}: "
+                f"Short({self.short_period})={current_short:.2f}, "
+                f"Long({self.long_period})={current_long:.2f}, "
+                f"Price={current_price:.2f}, "
+                f"Diff={short_long_diff:.2f} ({short_long_diff_pct:.2f}%)"
+            )
+            
             # Check for crossover (short above long)
             if (previous[short_col] <= previous[long_col] and 
                 current[short_col] > current[long_col]):

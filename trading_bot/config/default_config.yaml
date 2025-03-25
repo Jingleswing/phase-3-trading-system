@@ -15,15 +15,26 @@ trading:
   symbols:
     - symbol: ETH/USDT
       market_type: spot
+      strategy: moving_average_crossover_spot
+      params:
+        short_period: 20
+        long_period: 50
     - symbol: ETH/USDT:USDT
       market_type: futures
+      strategy: moving_average_crossover_futures
       leverage: 5
       margin_type: isolated
+      params:
+        short_period: 20
+        long_period: 50
+        leverage: 5
+        stop_loss_pct: 0.2
+        take_profit_pct: 0.5
   timeframe: 1m
   
-# Strategy configuration
+# Default strategy configuration (used if symbol-specific strategy not defined)
 strategy:
-  type: moving_average_crossover
+  type: moving_average_crossover_spot
   params:
     short_period: 20
     long_period: 50
