@@ -37,8 +37,13 @@ class BasicRiskManager(RiskManager, LoggerMixin):
             signal: Signal to validate
             
         Returns:
-            Tuple of (is_valid, reason)
+            (valid, reason) tuple where valid is a boolean and reason is a string
         """
+
+        # For close signals, always validate them
+        if signal.signal_type == 'close':
+            return True, "Close signals are always valid"
+
         # Check if we already have too many open trades
         try:
             # Get positions through the exchange
@@ -61,6 +66,34 @@ class BasicRiskManager(RiskManager, LoggerMixin):
         # e.g., check if we have enough balance, check market conditions, etc.
         
         return True, "Signal validated"
+    
+    def get_position(self, symbol: str):
+        """
+        Get current position for a symbol
+        
+        Args:
+            symbol: Trading symbol
+            
+        Returns:
+            Position object or None if no position exists
+        """
+        try:
+            positions = self.exchange.fetch_positions([symbol])
+            if positions and len(positions) > 0:
+                position_data = positions[0]
+                # Create Position object from exchange data
+                return Position(
+                    symbol=symbol,
+                    side='long' if position_data['side'] == 'long' else 'short',
+                    amount=float(position_data['contracts']),
+                    entry_price=float(position_data['entryPrice']),
+                    current_price=float(position_data['markPrice']),
+                    unrealized_pnl=float(position_data['unrealizedPnl'])
+                )
+            return None
+        except Exception as e:
+            self.logger.error(f"Error fetching position for {symbol}: {e}")
+            return None
     
     def calculate_position_size(self, signal: Signal) -> float:
         """
@@ -89,6 +122,13 @@ class BasicRiskManager(RiskManager, LoggerMixin):
             
             # Calculate position size based on price
             position_size = amount_to_risk / signal.price
+            
+            # Apply leverage for futures markets if specified
+            market_type = signal.params.get('market_type', 'spot')
+            if market_type == 'futures' and 'leverage' in signal.params:
+                leverage = signal.params.get('leverage', 1)
+                position_size = position_size * leverage
+                self.logger.info(f"Applied {leverage}x leverage to position size")
             
             self.logger.info(f"Calculated position size: {position_size} {signal.symbol.split('/')[0]} "
                             f"(risking {amount_to_risk} {quote_currency}, {self.risk_per_trade*100}% of {available_balance})")

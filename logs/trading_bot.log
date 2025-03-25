@@ -1,0 +1,24 @@
+2025-03-23 06:37:04,544 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-23 06:37:04,545 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/trading_bot.log
+2025-03-23 06:37:04,550 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-23 06:37:10,907 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-23 06:37:10,908 - trading_bot.strategies.moving_average.MovingAverageCrossover - INFO - Initialized MA_Crossover_20_50 strategy
+2025-03-23 06:37:10,918 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover strategy with short_period=20, long_period=50
+2025-03-23 06:37:10,918 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-23 06:37:10,918 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager (risk_per_trade=0.5, max_open_trades=1)
+2025-03-23 06:37:10,918 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-23 06:37:10,918 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-23 06:37:10,918 - __main__.TradingBot - INFO - Trading ['ETH/USDT'] on 1m timeframe
+2025-03-23 06:37:11,153 - trading_bot.strategies.moving_average.MovingAverageCrossover - INFO - Generated SELL signal for ETH/USDT at 2002.15
+2025-03-23 06:37:11,156 - __main__.TradingBot - INFO - Received signal: sell ETH/USDT at 2002.15
+2025-03-23 06:37:12,070 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 0.002493817663511725 ETH (risking 4.992997035 USDT, 50.0% of 9.98599407)
+2025-03-23 06:37:12,070 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.002493817663511725 ETH/USDT at market price
+2025-03-23 06:37:12,287 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170131,"retMsg":"Insufficient balance.","result":{},"retExtInfo":{},"time":1742704632188}
+2025-03-23 06:37:12,288 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170131,"retMsg":"Insufficient balance.","result":{},"retExtInfo":{},"time":1742704632188}
+2025-03-23 06:37:12,288 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170131,"retMsg":"Insufficient balance.","result":{},"retExtInfo":{},"time":1742704632188}
+2025-03-23 06:37:18,178 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-23 06:37:18,178 - __main__.TradingBot - INFO - Stopping trading bot...
+2025-03-25 09:20:40,994 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-25 09:20:40,995 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/trading_bot.log
+2025-03-25 09:20:41,000 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-25 09:20:46,669 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit

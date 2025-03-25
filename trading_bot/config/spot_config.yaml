@@ -1,5 +1,5 @@
-# trading_bot/config/default_config.yaml
-# Trading bot default configuration
+# trading_bot/config/spot_config.yaml
+# Spot-only trading bot configuration
 
 # Exchange settings
 exchange:
@@ -11,19 +11,17 @@ exchange:
 
 # Trading parameters
 trading:
-  enabled: true  # Set to true to enable live trading
+  enabled: true  # Set to false for initial testing
   symbols:
     - symbol: ETH/USDT
       market_type: spot
-    - symbol: ETH/USDT:USDT
-      market_type: futures
-      leverage: 5
-      margin_type: isolated
+    - symbol: BTC/USDT
+      market_type: spot
   timeframe: 1m
   
-# Strategy configuration
+# Strategy configuration (fallback if symbol-specific strategy not defined)
 strategy:
-  type: moving_average_crossover
+  type: moving_average_crossover_spot
   params:
     short_period: 20
     long_period: 50
@@ -31,12 +29,12 @@ strategy:
 # Risk management
 risk:
   max_open_trades: 1
-  risk_per_trade: 0.5  # 2% of portfolio per trade
-  stop_loss_pct: 0.2   # 5% stop loss
+  risk_per_trade: 0.5  # 1% of portfolio per trade - conservative for testing
+  stop_loss_pct: 0.05   # 5% stop loss
 
 # System settings
 system:
   loop_interval: 60  # Seconds between iterations
   log_level: INFO
-  log_file: logs/trading_bot.log  # Path to log file
+  log_file: logs/spot_trading.log  # Path to log file
   log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"  # Log format

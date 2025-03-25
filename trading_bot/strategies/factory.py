@@ -3,6 +3,8 @@ from typing import Dict, Any
 from trading_bot.interfaces.strategy import Strategy
 from trading_bot.utils.logging import LoggerMixin
 from trading_bot.strategies.moving_average import MovingAverageCrossover
+from trading_bot.strategies.moving_average_crossover_spot import MovingAverageCrossoverSpot
+from trading_bot.strategies.moving_average_crossover_futures import MovingAverageCrossoverFutures
 
 class StrategyFactory(LoggerMixin):
     """
@@ -23,17 +25,40 @@ class StrategyFactory(LoggerMixin):
         strategy_type = config.get('type')
         params = config.get('params', {})
         
-        if strategy_type == 'moving_average_crossover':
+        if strategy_type == 'moving_average_crossover_spot':
             # Extract parameters with defaults
             short_period = params.get('short_period', 20)
             long_period = params.get('long_period', 50)
             
-            instance = MovingAverageCrossover(
+            instance = MovingAverageCrossoverSpot(
                 short_period=short_period,
                 long_period=long_period
             )
             
             cls().logger.info(f"Created {strategy_type} strategy with short_period={short_period}, long_period={long_period}")
             return instance
+            
+        elif strategy_type == 'moving_average_crossover_futures':
+            # Extract parameters with defaults
+            short_period = params.get('short_period', 20)
+            long_period = params.get('long_period', 50)
+            leverage = params.get('leverage', 5)
+            stop_loss_pct = params.get('stop_loss_pct', 0.2)
+            take_profit_pct = params.get('take_profit_pct', 0.5)
+            
+            instance = MovingAverageCrossoverFutures(
+                short_period=short_period,
+                long_period=long_period,
+                leverage=leverage,
+                stop_loss_pct=stop_loss_pct,
+                take_profit_pct=take_profit_pct
+            )
+            
+            cls().logger.info(
+                f"Created {strategy_type} strategy with short_period={short_period}, "
+                f"long_period={long_period}, leverage={leverage}, "
+            )
+            return instance
+        
         else:
-            raise ValueError(f"Unknown strategy type: {strategy_type}")
+            raise ValueError(f"Unknown strategy type: {strategy_type}") 

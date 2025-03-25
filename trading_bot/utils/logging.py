@@ -21,10 +21,11 @@ def setup_logging(
         config: Configuration dictionary (optional)
     """
     # Get logging configuration from config if provided
-    if config:
-        level = config.get('system.log_level', level)
-        log_file = config.get('system.log_file', log_file)
-        log_format = config.get('system.log_format', log_format)
+    if config and 'system' in config:
+        system_config = config['system']
+        level = system_config.get('log_level', level)
+        log_file = system_config.get('log_file', log_file)
+        log_format = system_config.get('log_format', log_format)
     
     # Set numeric level
     numeric_level = getattr(logging, level.upper(), logging.INFO)
@@ -33,7 +34,7 @@ def setup_logging(
     if not log_format:
         log_format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     
-    # Configure root logger
+    # Configure handlers
     handlers = []
     
     # Always add console handler
@@ -43,25 +44,34 @@ def setup_logging(
     
     # Add file handler if log file specified
     if log_file:
-        # Ensure directory exists
-        log_dir = os.path.dirname(log_file)
-        if log_dir:
-            os.makedirs(log_dir, exist_ok=True)
+        # Use absolute path if log_file is a relative path
+        if not os.path.isabs(log_file):
+            # Get the absolute path to the project root
+            project_root = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+            log_file = os.path.join(project_root, log_file)
             
+        # Ensure directory exists
+        os.makedirs(os.path.dirname(log_file), exist_ok=True)
+        
+        # Create file handler
         file_handler = logging.FileHandler(log_file)
         file_handler.setFormatter(logging.Formatter(log_format))
         handlers.append(file_handler)
     
-    # Configure root logger
-    logging.basicConfig(
-        level=numeric_level,
-        format=log_format,
-        handlers=handlers
-    )
+    # Configure root logger - reset first to ensure our config takes effect
+    root = logging.getLogger()
+    for handler in root.handlers[:]:
+        root.removeHandler(handler)
     
-    # Create a logger for this module
-    logger = logging.getLogger(__name__)
-    logger.info(f"Logging initialized at level {level}")
+    # Add our handlers and set level
+    for handler in handlers:
+        root.addHandler(handler)
+    root.setLevel(numeric_level)
+    
+    # Log setup information
+    logging.getLogger(__name__).info(f"Logging initialized at level {level}")
+    if log_file:
+        logging.getLogger(__name__).info(f"Logging to file: {log_file}")
 
 def get_logger(name: str) -> logging.Logger:
     """

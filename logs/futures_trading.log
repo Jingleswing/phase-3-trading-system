@@ -1,0 +1,4 @@
+2025-03-25 09:40:21,273 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-25 09:40:21,274 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/futures_trading.log
+2025-03-25 09:40:21,278 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-25 09:40:28,617 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit

@@ -68,9 +68,52 @@ class TradingBot(LoggerMixin):
             params=params
         )
         
-        # Set up strategy
+        # Create strategies for different market types
+        self.strategies = {}
+        
+        # Get trading symbols
+        trading_symbols = self.config.get('trading.symbols', [])
+        
+        for symbol_config in trading_symbols:
+            if isinstance(symbol_config, dict):
+                symbol = symbol_config.get('symbol')
+                market_type = symbol_config.get('market_type')
+                
+                # Create the appropriate strategy based on market type
+                if market_type == 'futures':
+                    strategy_config = {
+                        'type': 'moving_average_crossover_futures',
+                        'params': {
+                            'short_period': 20,
+                            'long_period': 50,
+                            'leverage': symbol_config.get('leverage', 5)
+                        }
+                    }
+                else:  # Default to spot
+                    strategy_config = {
+                        'type': 'moving_average_crossover_spot',
+                        'params': {
+                            'short_period': 20,
+                            'long_period': 50
+                        }
+                    }
+                
+                self.strategies[symbol] = StrategyFactory.create_strategy(strategy_config)
+                self.logger.info(f"Created {market_type} strategy for {symbol}")
+            else:
+                # If symbol is just a string, assume it's a spot market
+                self.strategies[symbol_config] = StrategyFactory.create_strategy({
+                    'type': 'moving_average_crossover_spot',
+                    'params': {
+                        'short_period': 20,
+                        'long_period': 50
+                    }
+                })
+                self.logger.info(f"Created spot strategy for {symbol_config}")
+        
+        # Fallback to default strategy config if needed
         strategy_config = self.config.get('strategy', {})
-        self.strategy = StrategyFactory.create_strategy(strategy_config)
+        self.default_strategy = StrategyFactory.create_strategy(strategy_config)
         
         # Set up order executor
         trading_enabled = self.config.get('trading.enabled', False)
@@ -101,6 +144,48 @@ class TradingBot(LoggerMixin):
         signal = event.data
         self.logger.info(f"Received signal: {signal.signal_type} {signal.symbol} at {signal.price}")
         
+        # Special handling for "close" signals from spot strategies
+        if signal.signal_type == 'close':
+            # Find existing position for this symbol
+            position = self.risk_manager.get_position(signal.symbol)
+            if position is None or position.amount == 0:
+                self.logger.warning(f"Received close signal for {signal.symbol} but no position exists")
+                return
+                
+            # Create an order to close the position
+            order = Order(
+                symbol=signal.symbol,
+                order_type='market',
+                side='sell',  # Use 'sell' for the actual order execution to close the position
+                amount=position.amount
+            )
+            
+            try:
+                order_result = self.executor.place_order(order)
+                self.logger.info(f"Position closed: {order_result}")
+                
+                # Publish order placed event
+                self.event_bus.publish(Event(
+                    EventType.ORDER_PLACED,
+                    {
+                        'signal': signal,
+                        'order': order_result
+                    }
+                ))
+            except Exception as e:
+                self.logger.error(f"Error closing position: {e}")
+                # Publish error event
+                self.event_bus.publish(Event(
+                    EventType.ERROR,
+                    {
+                        'source': 'order_execution',
+                        'message': str(e),
+                        'signal': signal
+                    }
+                ))
+            return
+        
+        # Continue with existing code for buy/sell signals
         # Validate signal with risk manager
         valid, reason = self.risk_manager.validate_signal(signal)
         if not valid:
@@ -196,7 +281,7 @@ class TradingBot(LoggerMixin):
         ))
         
         # Get trading parameters
-        symbols = self.config.get('trading.symbols', ['ETH/USDT'])
+        symbols = [s.get('symbol') if isinstance(s, dict) else s for s in self.config.get('trading.symbols', ['ETH/USDT'])]
         timeframe = self.config.get('trading.timeframe', '1m')
         loop_interval = self.config.get('system.loop_interval', 60)
         
@@ -217,8 +302,11 @@ class TradingBot(LoggerMixin):
                             self.logger.warning(f"Not enough data for {symbol}, skipping")
                             continue
                         
+                        # Use the appropriate strategy for this symbol
+                        strategy = self.strategies.get(symbol, self.default_strategy)
+                        
                         # Generate signals
-                        signals = self.strategy.generate_signals(data)
+                        signals = strategy.generate_signals(data)
                         
                         # Process signals
                         for signal in signals:

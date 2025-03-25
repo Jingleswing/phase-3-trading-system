@@ -1,0 +1,45 @@
+# trading_bot/config/futures_config.yaml
+# Futures-only trading bot configuration
+
+# Exchange settings
+exchange:
+  id: bybit  # Exchange ID (binance, coinbase, etc.)
+  api_key: "hG1MT0tQlGIvLCOx1R"  # API key (fill in your own)
+  secret: "Ho7rwpJqdVfcOqbt7bEm3fIp6lww3NCBkJ4l"   # API secret (fill in your own)
+  params:
+    enableRateLimit: true
+
+# Trading parameters
+trading:
+  enabled: true  # Set to false for initial testing
+  symbols:
+    - symbol: ETH/USDT:USDT
+      market_type: futures
+      leverage: 3  # Using lower leverage for safer testing
+      margin_type: isolated
+    - symbol: BTC/USDT:USDT
+      market_type: futures
+      leverage: 2  # Using lower leverage for safer testing
+      margin_type: isolated
+  timeframe: 1m
+  
+# Strategy configuration (fallback if symbol-specific strategy not defined)
+strategy:
+  type: moving_average_crossover_futures
+  params:
+    short_period: 20
+    long_period: 50
+    leverage: 2  # Default leverage if not specified at symbol level
+
+# Risk management
+risk:
+  max_open_trades: 1
+  risk_per_trade: 0.5  # 0.5% of portfolio per trade - more conservative for futures
+  stop_loss_pct: 0.05    # 5% stop loss
+
+# System settings
+system:
+  loop_interval: 60  # Seconds between iterations
+  log_level: INFO
+  log_file: logs/futures_trading.log  # Path to log file
+  log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"  # Log format
