@@ -109,11 +109,15 @@ class TradingBot(LoggerMixin):
             dry_run=dry_run
         )
         
-        # Set up risk manager with total trading pairs
+        # Set up risk manager with total trading pairs and max drawdown
+        max_drawdown = self.config.get('risk.max_drawdown', 0.25)  # Default 25% max drawdown
         self.risk_manager = BasicRiskManager(
             exchange=self.data_provider.exchange,
-            max_open_trades=total_trading_pairs  # Use total trading pairs as max open trades
+            max_open_trades=total_trading_pairs,  # Use total trading pairs as max open trades
+            max_drawdown=max_drawdown
         )
+        
+        self.logger.info(f"Risk manager configured with max drawdown: {max_drawdown*100}%")
     
     def _register_events(self):
         """Register event handlers"""
@@ -249,70 +253,110 @@ class TradingBot(LoggerMixin):
             {'timestamp': time.time()}
         ))
         
+        # Interval for checking drawdown (in seconds)
+        drawdown_check_interval = self.config.get('risk.drawdown_check_interval', 300)  # Default 5 minutes
+        last_drawdown_check = 0
+        
         try:
             while self.running:
-                try:
-                    # Get current time
-                    current_time = time.time()
+                # Process each trading symbol
+                for symbol in self.strategies.keys():
+                    # Skip if key isn't in strategies (shouldn't happen, but better be safe)
+                    if symbol not in self.strategies:
+                        continue
                     
-                    # Process each trading symbol
-                    for symbol_config in self.config.get('trading.symbols', []):
-                        # Get symbol and market type
-                        if isinstance(symbol_config, dict):
-                            symbol = symbol_config.get('symbol')
-                            market_type = symbol_config.get('market_type')
-                        else:
-                            symbol = symbol_config
-                            market_type = 'spot'
+                    # Fetch latest market data
+                    try:
+                        # Determine timeframe from strategy
+                        timeframe = getattr(self.strategies[symbol], 'timeframe', '1h')
                         
-                        # Skip if no strategy configured
-                        if symbol not in self.strategies:
-                            self.logger.warning(f"No strategy configured for {symbol}, skipping")
-                            continue
+                        # Get required data points from strategy
+                        required_candles = getattr(self.strategies[symbol], 'get_required_data_points', lambda: 100)()
                         
-                        # Get strategy and required indicators
-                        strategy = self.strategies[symbol]
-                        required_indicators = strategy.get_required_indicators()
-                        
-                        # Get required number of data points from strategy
-                        required_data_points = strategy.get_required_data_points()
-                        
-                        # Get historical data with exactly the required number of periods
-                        timeframe = self.config.get('trading.timeframe', '1m')
-                        data = self.data_provider.get_historical_data(
+                        # Fetch candles
+                        candles = self.data_provider.get_historical_data(
                             symbol=symbol,
                             timeframe=timeframe,
-                            limit=required_data_points  # Use exactly what the strategy needs
+                            limit=required_candles
                         )
                         
-                        # Generate signals
-                        signals = strategy.generate_signals(data)
+                        # Skip if not enough candles
+                        if len(candles) < required_candles:
+                            self.logger.warning(f"Not enough candles for {symbol}: {len(candles)}/{required_candles}")
+                            continue
                         
-                        # Publish signals
+                        # Generate signals from strategy
+                        signals = self.strategies[symbol].generate_signals(candles)
+                        
+                        # Process signals
                         for signal in signals:
+                            # Publish signal event
                             self.event_bus.publish(Event(
                                 EventType.SIGNAL_GENERATED,
                                 signal
                             ))
+                            
+                    except Exception as e:
+                        self.logger.error(f"Error processing {symbol}: {e}")
+                
+                # Check for drawdown limit breaches at regular intervals
+                current_time = time.time()
+                if current_time - last_drawdown_check > drawdown_check_interval:
+                    self.logger.debug("Checking positions against drawdown limits")
+                    symbols_to_close = self.risk_manager.check_drawdown_limits()
                     
-                    # Wait for next iteration
-                    loop_interval = self.config.get('system.loop_interval', 60)
-                    time.sleep(max(0, loop_interval - (time.time() - current_time)))
+                    # Generate close signals for positions that breached drawdown limits
+                    for symbol in symbols_to_close:
+                        self.logger.warning(f"Maximum drawdown exceeded for {symbol}, generating close signal")
+                        
+                        # Get position details 
+                        position = self.risk_manager.get_position(symbol)
+                        if position and position.amount > 0:
+                            try:
+                                # Create an order to close the position
+                                order = Order(
+                                    symbol=symbol,
+                                    order_type='market',
+                                    side='sell',  # Use 'sell' for spot positions
+                                    amount=position.amount
+                                )
+                                
+                                # Execute order
+                                order_result = self.executor.place_order(order)
+                                self.logger.info(f"Position closed due to max drawdown: {order_result}")
+                                
+                                # Publish order placed event
+                                self.event_bus.publish(Event(
+                                    EventType.ORDER_PLACED,
+                                    {
+                                        'signal': None,  # No signal for this order
+                                        'order': order_result,
+                                        'reason': 'max_drawdown'
+                                    }
+                                ))
+                            except Exception as e:
+                                self.logger.error(f"Error closing position due to max drawdown: {e}")
                     
-                except Exception as e:
-                    self.logger.error(f"Error in main loop: {e}")
-                    # Publish error event
-                    self.event_bus.publish(Event(
-                        EventType.ERROR,
-                        {
-                            'source': 'main_loop',
-                            'message': str(e)
-                        }
-                    ))
-                    # Wait a bit before retrying
-                    time.sleep(5)
+                    # Update last check time
+                    last_drawdown_check = current_time
+                
+                # Throttle the loop to avoid excessive CPU usage
+                time.sleep(1)
+                
+        except Exception as e:
+            self.logger.error(f"Error in main loop: {e}")
+            # Publish error event
+            self.event_bus.publish(Event(
+                EventType.ERROR,
+                {
+                    'source': 'main_loop',
+                    'message': str(e)
+                }
+            ))
+            
         finally:
-            self.stop()
+            # Clean shutdown
+            self.logger.info("Trading bot stopped")
     
     def stop(self):
         """Stop the trading bot"""

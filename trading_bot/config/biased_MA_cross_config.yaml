@@ -38,3 +38,7 @@ system:
   log_level: INFO
   log_file: logs/biased_spot_trading.log
   log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+risk:
+  max_drawdown: 0.1  # Maximum allowed drawdown (10%)
+  drawdown_check_interval: 300  # Check every 5 minutes (300 seconds)

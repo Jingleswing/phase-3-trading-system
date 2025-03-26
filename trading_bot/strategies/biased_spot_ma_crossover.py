@@ -161,6 +161,12 @@ class BiasedSpotMACrossover(Strategy, LoggerMixin):
                     params={
                         'buy_short_period': self.buy_short_period,
                         'buy_long_period': self.buy_long_period,
+                        'sell_short_period': self.sell_short_period,
+                        'sell_long_period': self.sell_long_period,
+                        'buy_short_ma_value': current[buy_short_col],
+                        'buy_long_ma_value': current[buy_long_col],
+                        'sell_short_ma_value': current[sell_short_col],
+                        'sell_long_ma_value': current[sell_long_col],
                         'market_type': 'spot'
                     },
                     strength=1.0
@@ -182,6 +188,10 @@ class BiasedSpotMACrossover(Strategy, LoggerMixin):
                     params={
                         'sell_short_period': self.sell_short_period,
                         'sell_long_period': self.sell_long_period,
+                        'sell_short_ma_value': current[sell_short_col],
+                        'sell_long_ma_value': current[sell_long_col], 
+                        'buy_short_ma_value': current[buy_short_col],
+                        'buy_long_ma_value': current[buy_long_col],
                         'market_type': 'spot',
                         'action': 'close_position'
                     },

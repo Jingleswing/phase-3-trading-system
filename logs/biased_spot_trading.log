@@ -524,3 +524,77 @@
 2025-03-26 12:30:13,506 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager with max_open_trades=4
 2025-03-26 12:30:13,507 - __main__.TradingBot - INFO - Trading bot initialized
 2025-03-26 12:30:13,507 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-26 12:57:14,200 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003753 in spot market
+2025-03-26 12:57:14,201 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003753
+2025-03-26 12:57:15,114 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Using equal division position sizing: 0.8346161325 USDT (1/4 of 3.33846453)
+2025-03-26 12:57:15,114 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 222.38639288569146 BLAST
+2025-03-26 12:57:15,115 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 222.38639288569146 BLAST/USDT at market price
+2025-03-26 12:57:15,344 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742986635260}
+2025-03-26 12:57:15,345 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742986635260}
+2025-03-26 12:57:15,345 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742986635260}
+2025-03-26 13:18:14,365 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003756 in spot market
+2025-03-26 13:18:14,365 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003756
+2025-03-26 13:18:14,794 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Using equal division position sizing: 0.8346161325 USDT (1/4 of 3.33846453)
+2025-03-26 13:18:14,795 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 222.208767971246 BLAST
+2025-03-26 13:18:14,795 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 222.208767971246 BLAST/USDT at market price
+2025-03-26 13:18:15,017 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742987894944}
+2025-03-26 13:18:15,017 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742987894944}
+2025-03-26 13:18:15,018 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742987894944}
+2025-03-26 13:21:14,264 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003755 in spot market
+2025-03-26 13:21:14,265 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003755
+2025-03-26 13:21:14,732 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Using equal division position sizing: 0.8346161325 USDT (1/4 of 3.33846453)
+2025-03-26 13:21:14,733 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 222.2679447403462 BLAST
+2025-03-26 13:21:14,733 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 222.2679447403462 BLAST/USDT at market price
+2025-03-26 13:21:15,314 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742988075242}
+2025-03-26 13:21:15,315 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742988075242}
+2025-03-26 13:21:15,316 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742988075242}
+2025-03-26 13:37:20,741 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-26 13:37:20,742 - __main__.TradingBot - INFO - Stopping trading bot...
+2025-03-26 13:42:17,113 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-26 13:42:17,118 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/biased_spot_trading.log
+2025-03-26 13:42:17,123 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-26 13:42:22,305 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-26 13:42:22,305 - __main__.TradingBot - INFO - Total trading pairs: 4
+2025-03-26 13:42:22,306 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:42:22,306 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:42:22,306 - __main__.TradingBot - INFO - Created spot strategy for ETH/USDT
+2025-03-26 13:42:22,306 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:42:22,307 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:42:22,307 - __main__.TradingBot - INFO - Created spot strategy for ENA/USDT
+2025-03-26 13:42:22,308 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:42:22,308 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:42:22,308 - __main__.TradingBot - INFO - Created spot strategy for BLAST/USDT
+2025-03-26 13:42:22,308 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:42:22,309 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:42:22,309 - __main__.TradingBot - INFO - Created spot strategy for EIGEN/USDT
+2025-03-26 13:42:22,309 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-26 13:42:22,310 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager with max_open_trades=4, max_drawdown=10.0%
+2025-03-26 13:42:22,310 - __main__.TradingBot - INFO - Risk manager configured with max drawdown: 10.0%
+2025-03-26 13:42:22,310 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-26 13:42:22,310 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-26 13:42:27,271 - trading_bot.models.data_models - ERROR - Error updating positions: 'int' object has no attribute 'get'
+2025-03-26 13:44:00,787 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-26 13:44:00,787 - __main__.TradingBot - INFO - Stopping trading bot...
+2025-03-26 13:44:01,577 - __main__.TradingBot - INFO - Trading bot stopped
+2025-03-26 13:44:20,367 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-26 13:44:20,367 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/biased_spot_trading.log
+2025-03-26 13:44:20,372 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-26 13:44:25,491 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-26 13:44:25,491 - __main__.TradingBot - INFO - Total trading pairs: 4
+2025-03-26 13:44:25,492 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:44:25,492 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:44:25,493 - __main__.TradingBot - INFO - Created spot strategy for ETH/USDT
+2025-03-26 13:44:25,493 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:44:25,493 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:44:25,493 - __main__.TradingBot - INFO - Created spot strategy for ENA/USDT
+2025-03-26 13:44:25,494 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:44:25,494 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:44:25,495 - __main__.TradingBot - INFO - Created spot strategy for BLAST/USDT
+2025-03-26 13:44:25,495 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:44:25,495 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 13:44:25,495 - __main__.TradingBot - INFO - Created spot strategy for EIGEN/USDT
+2025-03-26 13:44:25,495 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-26 13:44:25,495 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager with max_open_trades=4, max_drawdown=10.0%
+2025-03-26 13:44:25,495 - __main__.TradingBot - INFO - Risk manager configured with max drawdown: 10.0%
+2025-03-26 13:44:25,495 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-26 13:44:25,495 - __main__.TradingBot - INFO - Starting trading bot...

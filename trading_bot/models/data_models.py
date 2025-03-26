@@ -1,7 +1,7 @@
 # trading_bot/models/data_models.py
 from dataclasses import dataclass
 from typing import Dict, List, Any, Optional
-from datetime import datetime
+from datetime import datetime, timedelta
 import pandas as pd
 
 @dataclass
@@ -67,15 +67,86 @@ class Position:
     current_price: float
     unrealized_pnl: float = 0.0
     realized_pnl: float = 0.0
+    entry_time: Optional[datetime] = None
+    max_price: float = 0.0
+    min_price: float = 0.0
+    
+    def __post_init__(self):
+        """Initialize max and min prices if not set"""
+        if self.max_price == 0.0:
+            self.max_price = self.current_price
+        if self.min_price == 0.0:
+            self.min_price = self.current_price
+        if self.entry_time is None:
+            self.entry_time = datetime.now()
     
     def update_price(self, price: float) -> None:
-        """Update the current price and unrealized PnL"""
+        """
+        Update the current price and unrealized PnL
+        Also track max and min prices for drawdown calculation
+        """
         self.current_price = price
+        
+        # Update max and min prices
+        if price > self.max_price:
+            self.max_price = price
+        if price < self.min_price or self.min_price == 0:
+            self.min_price = price
+            
         # Calculate unrealized PnL
         if self.side.lower() == 'long':
             self.unrealized_pnl = (self.current_price - self.entry_price) * self.amount
         else:
             self.unrealized_pnl = (self.entry_price - self.current_price) * self.amount
+    
+    @property
+    def current_drawdown_percentage(self) -> float:
+        """
+        Calculate current drawdown as a percentage from the highest point
+        For long positions, drawdown is (max_price - current_price) / max_price
+        For short positions, drawdown is (current_price - min_price) / min_price
+        
+        Returns:
+            Drawdown as a decimal (0.1 = 10% drawdown)
+        """
+        if self.side.lower() == 'long':
+            # For long positions, we care about drawdown from the highest price
+            if self.max_price <= 0:
+                return 0.0
+            return (self.max_price - self.current_price) / self.max_price
+        else:
+            # For short positions, we care about drawdown from the lowest price
+            if self.min_price <= 0:
+                return 0.0
+            return (self.current_price - self.min_price) / self.min_price
+    
+    @property
+    def profit_percentage(self) -> float:
+        """
+        Calculate current profit as a percentage of entry price
+        
+        Returns:
+            Profit percentage as a decimal (0.1 = 10% profit)
+        """
+        if self.entry_price <= 0:
+            return 0.0
+            
+        if self.side.lower() == 'long':
+            return (self.current_price - self.entry_price) / self.entry_price
+        else:
+            return (self.entry_price - self.current_price) / self.entry_price
+    
+    @property
+    def duration(self) -> timedelta:
+        """
+        Calculate how long the position has been open
+        
+        Returns:
+            Time duration since position entry
+        """
+        if self.entry_time is None:
+            return timedelta(0)
+        return datetime.now() - self.entry_time
 
 @dataclass
 class Signal:
@@ -116,3 +187,250 @@ class Order:
         # For limit orders, price is required
         elif self.price is None and self.order_type.lower() == 'limit':
             raise ValueError("Price is required for limit orders")
+
+class PositionTracker:
+    """
+    Tracks the state of open positions including entry price, current price,
+    and drawdown metrics to enable risk management based on position performance.
+    """
+    
+    def __init__(self, exchange):
+        """
+        Initialize the position tracker
+        
+        Args:
+            exchange: CCXT exchange instance used to fetch current positions
+        """
+        self.exchange = exchange
+        self._positions: Dict[str, Position] = {}  # Symbol -> Position
+        self._closed_positions: List[Position] = []  # History of closed positions
+    
+    def update_positions(self) -> None:
+        """
+        Update position information from the exchange
+        
+        This should be called regularly to keep position data current
+        """
+        try:
+            # Get exchange positions (for futures)
+            exchange_positions = []
+            if hasattr(self.exchange, 'fetch_positions'):
+                try:
+                    exchange_positions = self.exchange.fetch_positions()
+                    for pos_data in exchange_positions:
+                        # Skip if pos_data is not a dictionary
+                        if not isinstance(pos_data, dict):
+                            continue
+                            
+                        symbol = pos_data.get('symbol', '')
+                        
+                        # Safely convert contracts to float or use 0 if not present or not convertible
+                        contracts = 0
+                        try:
+                            contracts_value = pos_data.get('contracts', 0)
+                            contracts = float(contracts_value) if contracts_value is not None else 0
+                        except (ValueError, TypeError):
+                            continue  # Skip if can't convert to float
+                        
+                        # Only process if position size > 0
+                        if contracts > 0:
+                            # Safely extract and convert other values
+                            try:
+                                entry_price = float(pos_data.get('entryPrice', 0) or 0)
+                                mark_price = float(pos_data.get('markPrice', 0) or 0)
+                                side = str(pos_data.get('side', 'long')).lower()
+                                unrealized_pnl = float(pos_data.get('unrealizedPnl', 0) or 0)
+                                
+                                # Update existing position or create new one
+                                if symbol in self._positions:
+                                    self._positions[symbol].update_price(mark_price)
+                                else:
+                                    # Create new position
+                                    self._positions[symbol] = Position(
+                                        symbol=symbol,
+                                        side=side,
+                                        amount=contracts,
+                                        entry_price=entry_price,
+                                        current_price=mark_price,
+                                        unrealized_pnl=unrealized_pnl,
+                                        entry_time=datetime.now()
+                                    )
+                            except (ValueError, TypeError) as e:
+                                import logging
+                                logging.getLogger(__name__).debug(f"Error processing position data for {symbol}: {e}")
+                                continue
+                except Exception as e:
+                    import logging
+                    logging.getLogger(__name__).error(f"Error fetching positions: {e}")
+            
+            # Get spot balances (for spot positions)
+            balance = {}
+            try:
+                balance = self.exchange.fetch_balance()
+            except Exception as e:
+                import logging
+                logging.getLogger(__name__).error(f"Error fetching balance: {e}")
+                balance = {}
+            
+            # Process non-quote currency balances (spot positions)
+            for currency, data in balance.items():
+                # Skip checking quote currencies like USDT
+                if currency in ['USDT', 'USD', 'BUSD', 'USDC']:
+                    continue
+                
+                # Skip if data is not a dictionary
+                if not isinstance(data, dict):
+                    continue
+                    
+                # Safely extract free amount
+                free_amount = 0
+                try:
+                    free_value = data.get('free', 0)
+                    free_amount = float(free_value) if free_value is not None else 0
+                except (ValueError, TypeError):
+                    continue
+                
+                # Only process if balance > 0
+                if free_amount > 0:
+                    # Try to get current price for this asset
+                    symbol = f"{currency}/USDT"  # Simplification for USDT pairs
+                    try:
+                        ticker = self.exchange.fetch_ticker(symbol)
+                        if not isinstance(ticker, dict):
+                            continue
+                            
+                        current_price = 0
+                        try:
+                            price_value = ticker.get('last', 0)
+                            current_price = float(price_value) if price_value is not None else 0
+                        except (ValueError, TypeError):
+                            continue
+                        
+                        # Only process if we can get a price
+                        if current_price > 0:
+                            # Update existing position or create new one
+                            if symbol in self._positions:
+                                self._positions[symbol].update_price(current_price)
+                            else:
+                                # For spot positions, we don't know the entry price
+                                # It would require tracking trades history
+                                # As an approximation, use current price
+                                self._positions[symbol] = Position(
+                                    symbol=symbol,
+                                    side='long',  # Spot positions are always long
+                                    amount=free_amount,
+                                    entry_price=current_price,  # Approximation
+                                    current_price=current_price,
+                                    entry_time=datetime.now()
+                                )
+                    except Exception as e:
+                        import logging
+                        logging.getLogger(__name__).debug(f"Error getting price for {symbol}: {e}")
+                        # Skip if we can't get price info
+                        pass
+                        
+            # Remove closed positions
+            symbols_to_remove = []
+            for symbol, position in self._positions.items():
+                try:
+                    # For spot, check if the balance is now zero
+                    if ':USDT' not in symbol:  # Spot market
+                        currency = symbol.split('/')[0]
+                        if currency not in balance:
+                            symbols_to_remove.append(symbol)
+                        elif isinstance(balance[currency], dict):
+                            free_value = balance[currency].get('free', 0)
+                            free_amount = float(free_value) if free_value is not None else 0
+                            if free_amount <= 0:
+                                symbols_to_remove.append(symbol)
+                                # Add to closed positions history
+                                self._closed_positions.append(position)
+                    
+                    # For futures, check if not in exchange positions
+                    else:
+                        exchange_symbols = []
+                        for p in exchange_positions:
+                            if isinstance(p, dict):
+                                sym = p.get('symbol', '')
+                                if sym:
+                                    exchange_symbols.append(sym)
+                                    
+                        if symbol not in exchange_symbols:
+                            symbols_to_remove.append(symbol)
+                            # Add to closed positions history
+                            self._closed_positions.append(position)
+                except Exception as e:
+                    import logging
+                    logging.getLogger(__name__).debug(f"Error checking if position is closed for {symbol}: {e}")
+            
+            # Remove the closed positions
+            for symbol in symbols_to_remove:
+                del self._positions[symbol]
+                
+        except Exception as e:
+            import logging
+            logging.getLogger(__name__).error(f"Error updating positions: {e}")
+    
+    def get_position(self, symbol: str) -> Optional[Position]:
+        """
+        Get position information for a specific symbol
+        
+        Args:
+            symbol: Trading pair symbol
+            
+        Returns:
+            Position object or None if no position exists
+        """
+        return self._positions.get(symbol)
+    
+    def get_all_positions(self) -> List[Position]:
+        """
+        Get all current positions
+        
+        Returns:
+            List of Position objects
+        """
+        return list(self._positions.values())
+    
+    def get_closed_positions(self) -> List[Position]:
+        """
+        Get history of closed positions
+        
+        Returns:
+            List of closed Position objects
+        """
+        return self._closed_positions
+    
+    def record_position(self, symbol: str, side: str, amount: float, 
+                       entry_price: float, current_price: float) -> None:
+        """
+        Manually record a new position
+        
+        Args:
+            symbol: Trading pair symbol
+            side: 'long' or 'short'
+            amount: Position size
+            entry_price: Entry price
+            current_price: Current price
+        """
+        self._positions[symbol] = Position(
+            symbol=symbol,
+            side=side,
+            amount=amount,
+            entry_price=entry_price,
+            current_price=current_price,
+            entry_time=datetime.now()
+        )
+    
+    def close_position(self, symbol: str) -> None:
+        """
+        Mark a position as closed and move it to closed_positions
+        
+        Args:
+            symbol: Trading pair symbol
+        """
+        if symbol in self._positions:
+            # Add to closed positions history
+            self._closed_positions.append(self._positions[symbol])
+            # Remove from active positions
+            del self._positions[symbol]
