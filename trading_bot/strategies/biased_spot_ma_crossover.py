@@ -148,16 +148,6 @@ class BiasedSpotMACrossover(Strategy, LoggerMixin):
             current = data.iloc[-1]
             previous = data.iloc[-2]
             
-            # Log current MA values
-            self.logger.info(
-                f"Current MAs for {current['symbol']}: "
-                f"Buy Short({self.buy_short_period})={current[buy_short_col]:.2f}, "
-                f"Buy Long({self.buy_long_period})={current[buy_long_col]:.2f}, "
-                f"Sell Short({self.sell_short_period})={current[sell_short_col]:.2f}, "
-                f"Sell Long({self.sell_long_period})={current[sell_long_col]:.2f}, "
-                f"Price={current['close']:.2f}"
-            )
-            
             # Check for BUY signal (buy_short crosses above buy_long)
             if (previous[buy_short_col] <= previous[buy_long_col] and 
                 current[buy_short_col] > current[buy_long_col]):
