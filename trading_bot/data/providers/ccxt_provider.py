@@ -84,7 +84,7 @@ class CCXTProvider(DataProvider, LoggerMixin):
             
             # Set default limit if not provided
             if limit is None:
-                limit = 100  # Default to 100 candles
+                limit = 500  # Default to 500 candles to ensure enough data for strategies
             
             # Fetch OHLCV data
             ohlcv = self.exchange.fetch_ohlcv(

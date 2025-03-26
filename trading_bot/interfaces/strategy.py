@@ -37,3 +37,13 @@ class Strategy(ABC):
             ]
         """
         pass
+    
+    @abstractmethod
+    def get_required_data_points(self) -> int:
+        """
+        Get the minimum number of data points required by this strategy
+        
+        Returns:
+            Minimum number of data points needed
+        """
+        pass

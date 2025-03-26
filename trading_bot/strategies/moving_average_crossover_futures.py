@@ -19,9 +19,9 @@ class MovingAverageCrossoverFutures(Strategy, LoggerMixin):
     """
     
     def __init__(self, 
-                short_period: int = 20, 
-                long_period: int = 50,
-                leverage: int = 5):
+                short_period: int, 
+                long_period: int,
+                leverage: int):
         """
         Initialize the strategy
         
@@ -65,6 +65,16 @@ class MovingAverageCrossoverFutures(Strategy, LoggerMixin):
                 'output_column': f'sma_{self.long_period}'
             }
         ]
+    
+    def get_required_data_points(self) -> int:
+        """
+        Get the minimum number of data points required by this strategy
+        
+        Returns:
+            Minimum number of data points needed
+        """
+        # We need the maximum of both MA periods plus 1 for the current candle
+        return max(self.short_period, self.long_period) + 1
     
     def generate_signals(self, data: pd.DataFrame) -> List[Signal]:
         """

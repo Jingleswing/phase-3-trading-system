@@ -20,7 +20,7 @@ class MovingAverageCrossoverSpot(Strategy, LoggerMixin):
     and later close positions, rather than actively shorting.
     """
     
-    def __init__(self, short_period: int = 20, long_period: int = 50):
+    def __init__(self, short_period: int, long_period: int):
         """
         Initialize the strategy
         
@@ -59,6 +59,16 @@ class MovingAverageCrossoverSpot(Strategy, LoggerMixin):
                 'output_column': f'sma_{self.long_period}'
             }
         ]
+    
+    def get_required_data_points(self) -> int:
+        """
+        Get the minimum number of data points required by this strategy
+        
+        Returns:
+            Minimum number of data points needed
+        """
+        # We need the maximum of both MA periods plus 1 for the current candle
+        return max(self.short_period, self.long_period) + 1
     
     def generate_signals(self, data: pd.DataFrame) -> List[Signal]:
         """

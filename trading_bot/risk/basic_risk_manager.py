@@ -6,25 +6,23 @@ from trading_bot.utils.logging import LoggerMixin
 
 class BasicRiskManager(RiskManager, LoggerMixin):
     """
-    Basic risk management implementation
+    Basic risk management implementation that uses equal division sizing
+    based on total number of trading pairs.
     """
     
     def __init__(self, 
                  exchange,  # CCXT exchange instance
-                 risk_per_trade: float = 0.02,  # 2% of portfolio per trade
-                 max_open_trades: int = 3):  # Maximum number of open trades
+                 max_open_trades: int):  # Maximum number of open trades
         """
         Initialize the risk manager
         
         Args:
             exchange: CCXT exchange instance for account info
-            risk_per_trade: Percentage of portfolio to risk per trade
-            max_open_trades: Maximum number of open trades
+            max_open_trades: Maximum number of open trades (equal to total trading pairs)
         """
         self.exchange = exchange
-        self.risk_per_trade = risk_per_trade
         self.max_open_trades = max_open_trades
-        self.logger.info(f"Initialized BasicRiskManager (risk_per_trade={risk_per_trade}, max_open_trades={max_open_trades})")
+        self.logger.info(f"Initialized BasicRiskManager with max_open_trades={max_open_trades}")
     
     def validate_signal(self, signal: Signal) -> Tuple[bool, str]:
         """
@@ -36,7 +34,6 @@ class BasicRiskManager(RiskManager, LoggerMixin):
         Returns:
             (valid, reason) tuple where valid is a boolean and reason is a string
         """
-
         # For close signals, always validate them
         if signal.signal_type == 'close':
             return True, "Close signals are always valid"
@@ -58,9 +55,6 @@ class BasicRiskManager(RiskManager, LoggerMixin):
         except Exception as e:
             self.logger.error(f"Error checking open positions: {e}")
             # Continue anyway, don't block the signal
-        
-        # TODO: Add more validation rules as needed
-        # e.g., check if we have enough balance, check market conditions, etc.
         
         return True, "Signal validated"
     
@@ -106,7 +100,8 @@ class BasicRiskManager(RiskManager, LoggerMixin):
     
     def calculate_position_size(self, signal: Signal) -> float:
         """
-        Calculate appropriate position size for a signal
+        Calculate position size using equal division of available balance
+        based on total number of trading pairs.
         
         Args:
             signal: Trading signal
@@ -126,11 +121,12 @@ class BasicRiskManager(RiskManager, LoggerMixin):
                 self.logger.warning(f"No available balance in {quote_currency}")
                 return 0
             
-            # Calculate amount to risk
-            amount_to_risk = available_balance * self.risk_per_trade
+            # Calculate amount to use based on equal division
+            amount_to_use = available_balance / self.max_open_trades
+            self.logger.info(f"Using equal division position sizing: {amount_to_use} {quote_currency} (1/{self.max_open_trades} of {available_balance})")
             
             # Calculate position size based on price
-            position_size = amount_to_risk / signal.price
+            position_size = amount_to_use / signal.price
             
             # Apply leverage for futures markets if specified
             market_type = signal.params.get('market_type', 'spot')
@@ -139,8 +135,7 @@ class BasicRiskManager(RiskManager, LoggerMixin):
                 position_size = position_size * leverage
                 self.logger.info(f"Applied {leverage}x leverage to position size")
             
-            self.logger.info(f"Calculated position size: {position_size} {signal.symbol.split('/')[0]} "
-                            f"(risking {amount_to_risk} {quote_currency}, {self.risk_per_trade*100}% of {available_balance})")
+            self.logger.info(f"Calculated position size: {position_size} {signal.symbol.split('/')[0]}")
             
             return position_size
             

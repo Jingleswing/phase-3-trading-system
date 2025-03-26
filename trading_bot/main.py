@@ -76,41 +76,25 @@ class TradingBot(LoggerMixin):
         # Get trading symbols
         trading_symbols = self.config.get('trading.symbols', [])
         
+        # Count total trading pairs for position sizing
+        total_trading_pairs = len(trading_symbols)
+        self.logger.info(f"Total trading pairs: {total_trading_pairs}")
+        
         for symbol_config in trading_symbols:
             if isinstance(symbol_config, dict):
                 symbol = symbol_config.get('symbol')
                 market_type = symbol_config.get('market_type')
                 
-                # Create the appropriate strategy based on market type
-                if market_type == 'futures':
-                    strategy_config = {
-                        'type': 'moving_average_crossover_futures',
-                        'params': {
-                            'short_period': 20,
-                            'long_period': 50,
-                            'leverage': symbol_config.get('leverage', 5)
-                        }
-                    }
-                else:  # Default to spot
-                    strategy_config = {
-                        'type': 'moving_average_crossover_spot',
-                        'params': {
-                            'short_period': 20,
-                            'long_period': 50
-                        }
-                    }
+                # Get strategy configuration from config file
+                strategy_config = self.config.get('strategy', {})
                 
+                # Create the strategy
                 self.strategies[symbol] = StrategyFactory.create_strategy(strategy_config)
                 self.logger.info(f"Created {market_type} strategy for {symbol}")
             else:
                 # If symbol is just a string, assume it's a spot market
-                self.strategies[symbol_config] = StrategyFactory.create_strategy({
-                    'type': 'moving_average_crossover_spot',
-                    'params': {
-                        'short_period': 20,
-                        'long_period': 50
-                    }
-                })
+                strategy_config = self.config.get('strategy', {})
+                self.strategies[symbol_config] = StrategyFactory.create_strategy(strategy_config)
                 self.logger.info(f"Created spot strategy for {symbol_config}")
         
         # Check if any valid strategies were created
@@ -125,12 +109,10 @@ class TradingBot(LoggerMixin):
             dry_run=dry_run
         )
         
-        # Set up risk manager
-        risk_config = self.config.get('risk', {})
+        # Set up risk manager with total trading pairs
         self.risk_manager = BasicRiskManager(
             exchange=self.data_provider.exchange,
-            risk_per_trade=risk_config.get('risk_per_trade', 0.02),
-            max_open_trades=risk_config.get('max_open_trades', 3)
+            max_open_trades=total_trading_pairs  # Use total trading pairs as max open trades
         )
     
     def _register_events(self):
@@ -267,68 +249,68 @@ class TradingBot(LoggerMixin):
             {'timestamp': time.time()}
         ))
         
-        # Get trading parameters
-        symbols = [s.get('symbol') if isinstance(s, dict) else s for s in self.config.get('trading.symbols', [])]
-        if not symbols:
-            self.logger.warning("No trading symbols configured, bot will not perform any trades")
-            return
-            
-        timeframe = self.config.get('trading.timeframe', '1m')
-        loop_interval = self.config.get('system.loop_interval', 60)
-        
-        self.logger.info(f"Trading {symbols} on {timeframe} timeframe")
-        
         try:
             while self.running:
-                for symbol in symbols:
-                    try:
-                        # Skip symbols without configured strategies
+                try:
+                    # Get current time
+                    current_time = time.time()
+                    
+                    # Process each trading symbol
+                    for symbol_config in self.config.get('trading.symbols', []):
+                        # Get symbol and market type
+                        if isinstance(symbol_config, dict):
+                            symbol = symbol_config.get('symbol')
+                            market_type = symbol_config.get('market_type')
+                        else:
+                            symbol = symbol_config
+                            market_type = 'spot'
+                        
+                        # Skip if no strategy configured
                         if symbol not in self.strategies:
                             self.logger.warning(f"No strategy configured for {symbol}, skipping")
                             continue
-                            
-                        # Fetch latest data
+                        
+                        # Get strategy and required indicators
+                        strategy = self.strategies[symbol]
+                        required_indicators = strategy.get_required_indicators()
+                        
+                        # Get required number of data points from strategy
+                        required_data_points = strategy.get_required_data_points()
+                        
+                        # Get historical data with exactly the required number of periods
+                        timeframe = self.config.get('trading.timeframe', '1m')
                         data = self.data_provider.get_historical_data(
                             symbol=symbol,
                             timeframe=timeframe,
-                            limit=100  # Fetch enough data for indicators
+                            limit=required_data_points  # Use exactly what the strategy needs
                         )
-                        
-                        if len(data) < 50:  # Make sure we have enough data
-                            self.logger.warning(f"Not enough data for {symbol}, skipping")
-                            continue
-                        
-                        # Use the appropriate strategy for this symbol
-                        strategy = self.strategies[symbol]
                         
                         # Generate signals
                         signals = strategy.generate_signals(data)
                         
-                        # Process signals
+                        # Publish signals
                         for signal in signals:
                             self.event_bus.publish(Event(
                                 EventType.SIGNAL_GENERATED,
                                 signal
                             ))
                     
-                    except Exception as e:
-                        self.logger.error(f"Error processing {symbol}: {e}")
-                        
-                        # Publish error event
-                        self.event_bus.publish(Event(
-                            EventType.ERROR,
-                            {
-                                'source': 'data_processing',
-                                'message': str(e),
-                                'symbol': symbol
-                            }
-                        ))
-                
-                # Sleep until next iteration
-                time.sleep(loop_interval)
-                
-        except Exception as e:
-            self.logger.critical(f"Unhandled exception: {e}")
+                    # Wait for next iteration
+                    loop_interval = self.config.get('system.loop_interval', 60)
+                    time.sleep(max(0, loop_interval - (time.time() - current_time)))
+                    
+                except Exception as e:
+                    self.logger.error(f"Error in main loop: {e}")
+                    # Publish error event
+                    self.event_bus.publish(Event(
+                        EventType.ERROR,
+                        {
+                            'source': 'main_loop',
+                            'message': str(e)
+                        }
+                    ))
+                    # Wait a bit before retrying
+                    time.sleep(5)
         finally:
             self.stop()
     

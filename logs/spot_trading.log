@@ -216,3 +216,42 @@
 2025-03-26 08:59:44,527 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742972384446}
 2025-03-26 08:59:44,527 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742972384446}
 2025-03-26 08:59:44,528 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742972384446}
+2025-03-26 09:23:14,302 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated CLOSE signal for SOL/USDT at 143.76 in spot market
+2025-03-26 09:23:14,303 - __main__.TradingBot - INFO - Received signal: close SOL/USDT at 143.76
+2025-03-26 09:23:14,521 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.007992 SOL/USDT at market price
+2025-03-26 09:23:14,747 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914597390086839296
+2025-03-26 09:23:14,747 - __main__.TradingBot - INFO - Position closed: {'info': {'orderId': '1914597390086839296', 'orderLinkId': '1914597390086839297'}, 'id': '1914597390086839296', 'clientOrderId': '1914597390086839297', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'SOL/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 09:23:14,748 - __main__.TradingBot - INFO - Order placed successfully: 1914597390086839296
+2025-03-26 09:24:16,276 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated BUY signal for COOK/USDT at 0.010508 in spot market
+2025-03-26 09:24:16,277 - __main__.TradingBot - INFO - Received signal: buy COOK/USDT at 0.010508
+2025-03-26 09:24:16,724 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 112.47104491815759 COOK (risking 1.18184574 USDT, 50.0% of 2.36369148)
+2025-03-26 09:24:16,725 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 112.47104491815759 COOK/USDT at market price
+2025-03-26 09:24:17,458 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914597916144835584
+2025-03-26 09:24:17,458 - __main__.TradingBot - INFO - Order placed: {'info': {'orderId': '1914597916144835584', 'orderLinkId': '1914597916144835585'}, 'id': '1914597916144835584', 'clientOrderId': '1914597916144835585', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'COOK/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 09:24:17,459 - __main__.TradingBot - INFO - Order placed successfully: 1914597916144835584
+2025-03-26 10:12:18,803 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated CLOSE signal for ETH/USDT at 2065.22 in spot market
+2025-03-26 10:12:18,804 - __main__.TradingBot - INFO - Received signal: close ETH/USDT at 2065.22
+2025-03-26 10:12:19,018 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00238801 ETH/USDT at market price
+2025-03-26 10:12:19,233 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914622090225654784
+2025-03-26 10:12:19,233 - __main__.TradingBot - INFO - Position closed: {'info': {'orderId': '1914622090225654784', 'orderLinkId': '1914622090225654785'}, 'id': '1914622090225654784', 'clientOrderId': '1914622090225654785', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ETH/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 10:12:19,234 - __main__.TradingBot - INFO - Order placed successfully: 1914622090225654784
+2025-03-26 10:12:19,451 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated CLOSE signal for BTC/USDT at 88020.6 in spot market
+2025-03-26 10:12:19,451 - __main__.TradingBot - INFO - Received signal: close BTC/USDT at 88020.6
+2025-03-26 10:12:19,668 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 2.895e-05 BTC/USDT at market price
+2025-03-26 10:12:19,891 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914622095753747456
+2025-03-26 10:12:19,892 - __main__.TradingBot - INFO - Position closed: {'info': {'orderId': '1914622095753747456', 'orderLinkId': '1914622095753747457'}, 'id': '1914622095753747456', 'clientOrderId': '1914622095753747457', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'BTC/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 10:12:19,893 - __main__.TradingBot - INFO - Order placed successfully: 1914622095753747456
+2025-03-26 10:13:22,402 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated CLOSE signal for SOL/USDT at 144.19 in spot market
+2025-03-26 10:13:22,402 - __main__.TradingBot - INFO - Received signal: close SOL/USDT at 144.19
+2025-03-26 10:13:22,624 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.000992 SOL/USDT at market price
+2025-03-26 10:13:22,626 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of SOL/USDT must be greater than minimum amount precision of 0.001
+2025-03-26 10:13:22,627 - __main__.TradingBot - ERROR - Error closing position: bybit amount of SOL/USDT must be greater than minimum amount precision of 0.001
+2025-03-26 10:13:22,627 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of SOL/USDT must be greater than minimum amount precision of 0.001
+2025-03-26 10:18:29,591 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated CLOSE signal for COOK/USDT at 0.010611 in spot market
+2025-03-26 10:18:29,592 - __main__.TradingBot - INFO - Received signal: close COOK/USDT at 0.010611
+2025-03-26 10:18:29,804 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 111.888 COOK/USDT at market price
+2025-03-26 10:18:30,036 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914625200679558144
+2025-03-26 10:18:30,037 - __main__.TradingBot - INFO - Position closed: {'info': {'orderId': '1914625200679558144', 'orderLinkId': '1914625200679558145'}, 'id': '1914625200679558144', 'clientOrderId': '1914625200679558145', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'COOK/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 10:18:30,037 - __main__.TradingBot - INFO - Order placed successfully: 1914625200679558144
+2025-03-26 10:23:44,389 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-26 10:23:44,390 - __main__.TradingBot - INFO - Stopping trading bot...

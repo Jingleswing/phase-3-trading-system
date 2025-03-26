@@ -1,0 +1,135 @@
+2025-03-26 10:57:05,432 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-26 10:57:05,432 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/biased_spot_trading.log
+2025-03-26 10:57:05,438 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-26 10:57:09,779 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-26 10:57:09,780 - __main__.TradingBot - INFO - Total trading pairs: 4
+2025-03-26 10:57:09,780 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 10:57:09,781 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 10:57:09,781 - __main__.TradingBot - INFO - Created spot strategy for ETH/USDT
+2025-03-26 10:57:09,781 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 10:57:09,781 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 10:57:09,781 - __main__.TradingBot - INFO - Created spot strategy for ENA/USDT
+2025-03-26 10:57:09,781 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 10:57:09,783 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 10:57:09,783 - __main__.TradingBot - INFO - Created spot strategy for BLAST/USDT
+2025-03-26 10:57:09,783 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 10:57:09,783 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 10:57:09,783 - __main__.TradingBot - INFO - Created spot strategy for EIGEN/USDT
+2025-03-26 10:57:09,783 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-26 10:57:09,783 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager with max_open_trades=4
+2025-03-26 10:57:09,783 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-26 10:57:09,784 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-26 10:57:09,784 - __main__.TradingBot - INFO - Trading ['ETH/USDT', 'ENA/USDT', 'BLAST/USDT', 'EIGEN/USDT'] on 1m timeframe
+2025-03-26 10:57:10,020 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - WARNING - Not enough data for biased MA crossover strategy
+2025-03-26 10:57:10,260 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - WARNING - Not enough data for biased MA crossover strategy
+2025-03-26 10:57:10,502 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - WARNING - Not enough data for biased MA crossover strategy
+2025-03-26 10:57:10,737 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - WARNING - Not enough data for biased MA crossover strategy
+2025-03-26 10:58:11,026 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - WARNING - Not enough data for biased MA crossover strategy
+2025-03-26 10:58:11,357 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - WARNING - Not enough data for biased MA crossover strategy
+2025-03-26 10:58:11,647 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - WARNING - Not enough data for biased MA crossover strategy
+2025-03-26 10:58:11,931 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - WARNING - Not enough data for biased MA crossover strategy
+2025-03-26 10:59:12,172 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - WARNING - Not enough data for biased MA crossover strategy
+2025-03-26 10:59:12,407 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - WARNING - Not enough data for biased MA crossover strategy
+2025-03-26 10:59:12,649 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - WARNING - Not enough data for biased MA crossover strategy
+2025-03-26 10:59:12,895 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - WARNING - Not enough data for biased MA crossover strategy
+2025-03-26 10:59:55,369 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-26 10:59:55,369 - __main__.TradingBot - INFO - Stopping trading bot...
+2025-03-26 11:00:34,758 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-26 11:00:34,759 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/biased_spot_trading.log
+2025-03-26 11:00:34,764 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-26 11:00:38,461 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-26 11:00:38,462 - __main__.TradingBot - INFO - Total trading pairs: 4
+2025-03-26 11:00:38,462 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:00:38,462 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:00:38,462 - __main__.TradingBot - INFO - Created spot strategy for ETH/USDT
+2025-03-26 11:00:38,463 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:00:38,463 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:00:38,463 - __main__.TradingBot - INFO - Created spot strategy for ENA/USDT
+2025-03-26 11:00:38,463 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:00:38,464 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:00:38,464 - __main__.TradingBot - INFO - Created spot strategy for BLAST/USDT
+2025-03-26 11:00:38,465 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:00:38,465 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:00:38,465 - __main__.TradingBot - INFO - Created spot strategy for EIGEN/USDT
+2025-03-26 11:00:38,465 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-26 11:00:38,466 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager with max_open_trades=4
+2025-03-26 11:00:38,466 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-26 11:00:38,466 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-26 11:00:39,179 - __main__.TradingBot - ERROR - Error in main loop: 'buy_sma_10'
+2025-03-26 11:00:39,179 - __main__.TradingBot - ERROR - Error in main_loop: 'buy_sma_10'
+2025-03-26 11:00:44,883 - __main__.TradingBot - ERROR - Error in main loop: 'buy_sma_10'
+2025-03-26 11:00:44,883 - __main__.TradingBot - ERROR - Error in main_loop: 'buy_sma_10'
+2025-03-26 11:00:50,127 - __main__.TradingBot - ERROR - Error in main loop: 'buy_sma_10'
+2025-03-26 11:00:50,128 - __main__.TradingBot - ERROR - Error in main_loop: 'buy_sma_10'
+2025-03-26 11:00:55,364 - __main__.TradingBot - ERROR - Error in main loop: 'buy_sma_10'
+2025-03-26 11:00:55,365 - __main__.TradingBot - ERROR - Error in main_loop: 'buy_sma_10'
+2025-03-26 11:00:58,357 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-26 11:00:58,357 - __main__.TradingBot - INFO - Stopping trading bot...
+2025-03-26 11:03:44,716 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-26 11:03:44,717 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/biased_spot_trading.log
+2025-03-26 11:03:44,722 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-26 11:03:50,559 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-26 11:03:50,560 - __main__.TradingBot - INFO - Total trading pairs: 4
+2025-03-26 11:03:50,560 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:03:50,561 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:03:50,561 - __main__.TradingBot - INFO - Created spot strategy for ETH/USDT
+2025-03-26 11:03:50,561 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:03:50,562 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:03:50,562 - __main__.TradingBot - INFO - Created spot strategy for ENA/USDT
+2025-03-26 11:03:50,563 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:03:50,563 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:03:50,563 - __main__.TradingBot - INFO - Created spot strategy for BLAST/USDT
+2025-03-26 11:03:50,563 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:03:50,564 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 11:03:50,564 - __main__.TradingBot - INFO - Created spot strategy for EIGEN/USDT
+2025-03-26 11:03:50,564 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-26 11:03:50,565 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager with max_open_trades=4
+2025-03-26 11:03:50,565 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-26 11:03:50,566 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-26 11:03:51,309 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ETH/USDT: Buy Short(10)=2063.99, Buy Long(30)=2065.75, Sell Short(50)=2066.40, Sell Long(200)=2065.32, Price=2063.27
+2025-03-26 11:03:52,223 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ENA/USDT: Buy Short(10)=0.43, Buy Long(30)=0.43, Sell Short(50)=0.43, Sell Long(200)=0.42, Price=0.43
+2025-03-26 11:03:53,135 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for BLAST/USDT: Buy Short(10)=0.00, Buy Long(30)=0.00, Sell Short(50)=0.00, Sell Long(200)=0.00, Price=0.00
+2025-03-26 11:03:53,875 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for EIGEN/USDT: Buy Short(10)=1.20, Buy Long(30)=1.21, Sell Short(50)=1.21, Sell Long(200)=1.21, Price=1.20
+2025-03-26 11:04:50,801 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ETH/USDT: Buy Short(10)=2063.90, Buy Long(30)=2065.53, Sell Short(50)=2066.33, Sell Long(200)=2065.31, Price=2062.49
+2025-03-26 11:04:51,022 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ENA/USDT: Buy Short(10)=0.43, Buy Long(30)=0.43, Sell Short(50)=0.43, Sell Long(200)=0.42, Price=0.43
+2025-03-26 11:04:51,259 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for BLAST/USDT: Buy Short(10)=0.00, Buy Long(30)=0.00, Sell Short(50)=0.00, Sell Long(200)=0.00, Price=0.00
+2025-03-26 11:04:51,475 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for EIGEN/USDT: Buy Short(10)=1.20, Buy Long(30)=1.21, Sell Short(50)=1.21, Sell Long(200)=1.21, Price=1.20
+2025-03-26 11:04:51,476 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for EIGEN/USDT at 1.2 in spot market
+2025-03-26 11:04:51,477 - __main__.TradingBot - INFO - Received signal: close EIGEN/USDT at 1.2
+2025-03-26 11:04:52,168 - __main__.TradingBot - WARNING - Received close signal for EIGEN/USDT but no position exists
+2025-03-26 11:05:50,788 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ETH/USDT: Buy Short(10)=2063.75, Buy Long(30)=2065.28, Sell Short(50)=2066.22, Sell Long(200)=2065.31, Price=2062.01
+2025-03-26 11:05:51,013 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ENA/USDT: Buy Short(10)=0.43, Buy Long(30)=0.43, Sell Short(50)=0.43, Sell Long(200)=0.42, Price=0.43
+2025-03-26 11:05:51,746 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for BLAST/USDT: Buy Short(10)=0.00, Buy Long(30)=0.00, Sell Short(50)=0.00, Sell Long(200)=0.00, Price=0.00
+2025-03-26 11:05:51,971 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for EIGEN/USDT: Buy Short(10)=1.20, Buy Long(30)=1.21, Sell Short(50)=1.21, Sell Long(200)=1.21, Price=1.20
+2025-03-26 11:06:50,963 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ETH/USDT: Buy Short(10)=2063.62, Buy Long(30)=2065.09, Sell Short(50)=2066.12, Sell Long(200)=2065.31, Price=2063.20
+2025-03-26 11:06:51,187 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ENA/USDT: Buy Short(10)=0.43, Buy Long(30)=0.43, Sell Short(50)=0.43, Sell Long(200)=0.42, Price=0.43
+2025-03-26 11:06:51,411 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for BLAST/USDT: Buy Short(10)=0.00, Buy Long(30)=0.00, Sell Short(50)=0.00, Sell Long(200)=0.00, Price=0.00
+2025-03-26 11:06:51,636 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for EIGEN/USDT: Buy Short(10)=1.20, Buy Long(30)=1.20, Sell Short(50)=1.21, Sell Long(200)=1.21, Price=1.20
+2025-03-26 11:07:50,791 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ETH/USDT: Buy Short(10)=2063.51, Buy Long(30)=2064.94, Sell Short(50)=2066.07, Sell Long(200)=2065.32, Price=2063.81
+2025-03-26 11:07:51,185 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ENA/USDT: Buy Short(10)=0.43, Buy Long(30)=0.43, Sell Short(50)=0.43, Sell Long(200)=0.42, Price=0.43
+2025-03-26 11:07:51,414 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for BLAST/USDT: Buy Short(10)=0.00, Buy Long(30)=0.00, Sell Short(50)=0.00, Sell Long(200)=0.00, Price=0.00
+2025-03-26 11:07:51,638 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for EIGEN/USDT: Buy Short(10)=1.20, Buy Long(30)=1.20, Sell Short(50)=1.21, Sell Long(200)=1.21, Price=1.20
+2025-03-26 11:08:50,966 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ETH/USDT: Buy Short(10)=2063.41, Buy Long(30)=2064.76, Sell Short(50)=2066.04, Sell Long(200)=2065.34, Price=2063.43
+2025-03-26 11:08:51,185 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ENA/USDT: Buy Short(10)=0.43, Buy Long(30)=0.43, Sell Short(50)=0.43, Sell Long(200)=0.42, Price=0.43
+2025-03-26 11:08:51,185 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4269 in spot market
+2025-03-26 11:08:51,185 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4269
+2025-03-26 11:08:51,630 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Using equal division position sizing: 2.433784925 USDT (1/4 of 9.7351397)
+2025-03-26 11:08:51,631 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 5.701065647692667 ENA
+2025-03-26 11:08:51,631 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 5.701065647692667 ENA/USDT at market price
+2025-03-26 11:08:51,852 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914650549769477120
+2025-03-26 11:08:51,852 - __main__.TradingBot - INFO - Order placed: {'info': {'orderId': '1914650549769477120', 'orderLinkId': '1914650549769477121'}, 'id': '1914650549769477120', 'clientOrderId': '1914650549769477121', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ENA/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 11:08:51,854 - __main__.TradingBot - INFO - Order placed successfully: 1914650549769477120
+2025-03-26 11:08:52,099 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for BLAST/USDT: Buy Short(10)=0.00, Buy Long(30)=0.00, Sell Short(50)=0.00, Sell Long(200)=0.00, Price=0.00
+2025-03-26 11:08:52,319 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for EIGEN/USDT: Buy Short(10)=1.20, Buy Long(30)=1.20, Sell Short(50)=1.21, Sell Long(200)=1.21, Price=1.20
+2025-03-26 11:09:50,802 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ETH/USDT: Buy Short(10)=2063.32, Buy Long(30)=2064.54, Sell Short(50)=2066.01, Sell Long(200)=2065.35, Price=2062.96
+2025-03-26 11:09:51,027 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ENA/USDT: Buy Short(10)=0.43, Buy Long(30)=0.43, Sell Short(50)=0.43, Sell Long(200)=0.43, Price=0.43
+2025-03-26 11:09:51,253 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for BLAST/USDT: Buy Short(10)=0.00, Buy Long(30)=0.00, Sell Short(50)=0.00, Sell Long(200)=0.00, Price=0.00
+2025-03-26 11:09:51,470 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for EIGEN/USDT: Buy Short(10)=1.20, Buy Long(30)=1.20, Sell Short(50)=1.21, Sell Long(200)=1.21, Price=1.20
+2025-03-26 11:10:51,312 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ETH/USDT: Buy Short(10)=2063.29, Buy Long(30)=2064.37, Sell Short(50)=2066.00, Sell Long(200)=2065.36, Price=2064.83
+2025-03-26 11:10:51,533 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ENA/USDT: Buy Short(10)=0.43, Buy Long(30)=0.43, Sell Short(50)=0.43, Sell Long(200)=0.43, Price=0.43
+2025-03-26 11:10:51,754 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for BLAST/USDT: Buy Short(10)=0.00, Buy Long(30)=0.00, Sell Short(50)=0.00, Sell Long(200)=0.00, Price=0.00
+2025-03-26 11:10:51,966 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for EIGEN/USDT: Buy Short(10)=1.20, Buy Long(30)=1.20, Sell Short(50)=1.21, Sell Long(200)=1.21, Price=1.20
+2025-03-26 11:11:50,792 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ETH/USDT: Buy Short(10)=2063.39, Buy Long(30)=2064.19, Sell Short(50)=2066.01, Sell Long(200)=2065.38, Price=2065.20
+2025-03-26 11:11:51,011 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for ENA/USDT: Buy Short(10)=0.43, Buy Long(30)=0.43, Sell Short(50)=0.43, Sell Long(200)=0.43, Price=0.43
+2025-03-26 11:11:51,229 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for BLAST/USDT: Buy Short(10)=0.00, Buy Long(30)=0.00, Sell Short(50)=0.00, Sell Long(200)=0.00, Price=0.00
+2025-03-26 11:11:51,446 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Current MAs for EIGEN/USDT: Buy Short(10)=1.20, Buy Long(30)=1.20, Sell Short(50)=1.21, Sell Long(200)=1.21, Price=1.20
