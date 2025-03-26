@@ -1,9 +1,13 @@
 # trading_bot/models/data_models.py
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 from typing import Dict, List, Any, Optional
 from datetime import datetime, timedelta
 import pandas as pd
 from trading_bot.utils.symbol_utils import normalize_symbol, get_base_currency, get_quote_currency
+import json
+import os
+import logging
+from pathlib import Path
 
 @dataclass
 class Candle:
@@ -80,6 +84,26 @@ class Position:
             self.min_price = self.current_price
         if self.entry_time is None:
             self.entry_time = datetime.now()
+    
+    def to_dict(self) -> Dict[str, Any]:
+        """Convert Position to a dictionary for serialization"""
+        data = asdict(self)
+        # Convert datetime to string for JSON serialization
+        if data['entry_time']:
+            data['entry_time'] = data['entry_time'].isoformat()
+        return data
+    
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> 'Position':
+        """Create a Position instance from a dictionary"""
+        # Convert string back to datetime
+        if 'entry_time' in data and isinstance(data['entry_time'], str):
+            try:
+                data['entry_time'] = datetime.fromisoformat(data['entry_time'])
+            except ValueError:
+                data['entry_time'] = datetime.now()
+        
+        return cls(**data)
     
     def update_price(self, price: float) -> None:
         """
@@ -205,6 +229,69 @@ class PositionTracker:
         self.exchange = exchange
         self._positions: Dict[str, Position] = {}  # Symbol -> Position
         self._closed_positions: List[Position] = []  # History of closed positions
+        
+        # Set default data directory
+        self.data_dir = Path("logs")
+        self.data_dir.mkdir(exist_ok=True)
+        self.position_file = self.data_dir / "positions.json"
+        
+        # Load persisted positions on startup
+        self._load_positions()
+    
+    def _load_positions(self) -> None:
+        """Load position data from disk"""
+        if not self.position_file.exists():
+            logging.getLogger(__name__).info("No saved position data found")
+            return
+            
+        try:
+            with open(self.position_file, 'r') as f:
+                data = json.load(f)
+                
+            # Load open positions
+            if 'positions' in data:
+                for pos_data in data['positions']:
+                    try:
+                        position = Position.from_dict(pos_data)
+                        self._positions[position.symbol] = position
+                        logging.getLogger(__name__).info(
+                            f"Loaded position: {position.symbol}, entry_price: {position.entry_price}, "
+                            f"max_price: {position.max_price}, min_price: {position.min_price}"
+                        )
+                    except Exception as e:
+                        logging.getLogger(__name__).error(f"Error loading position: {e}")
+            
+            # Load closed positions history (limited to last 100)
+            if 'closed_positions' in data:
+                for pos_data in data['closed_positions'][-100:]:
+                    try:
+                        position = Position.from_dict(pos_data)
+                        self._closed_positions.append(position)
+                    except Exception as e:
+                        logging.getLogger(__name__).error(f"Error loading closed position: {e}")
+                        
+            logging.getLogger(__name__).info(
+                f"Loaded {len(self._positions)} positions and {len(self._closed_positions)} closed positions"
+            )
+                
+        except Exception as e:
+            logging.getLogger(__name__).error(f"Error loading positions from file: {e}")
+    
+    def _save_positions(self) -> None:
+        """Save position data to disk"""
+        try:
+            data = {
+                'positions': [p.to_dict() for p in self._positions.values()],
+                'closed_positions': [p.to_dict() for p in self._closed_positions[-100:]]  # Save last 100 only
+            }
+            
+            with open(self.position_file, 'w') as f:
+                json.dump(data, f, indent=2)
+                
+            logging.getLogger(__name__).debug("Saved positions to disk")
+                
+        except Exception as e:
+            logging.getLogger(__name__).error(f"Error saving positions to file: {e}")
     
     def _get_entry_price_from_trades(self, symbol: str, amount: float) -> float:
         """
@@ -264,6 +351,12 @@ class PositionTracker:
         This should be called regularly to keep position data current
         """
         try:
+            # Store existing position data to preserve tracking info
+            existing_positions = {symbol: pos for symbol, pos in self._positions.items()}
+            
+            # Clear current positions but keep closed positions history
+            self._positions = {}
+            
             # Get exchange positions (for futures)
             exchange_positions = []
             if hasattr(self.exchange, 'fetch_positions'):
@@ -296,8 +389,13 @@ class PositionTracker:
                                 
                                 # Update existing position or create new one
                                 normalized_symbol = normalize_symbol(symbol)
-                                if normalized_symbol in self._positions:
-                                    self._positions[normalized_symbol].update_price(mark_price)
+                                if normalized_symbol in existing_positions:
+                                    # Update existing position with new price but keep tracking info
+                                    position = existing_positions[normalized_symbol]
+                                    position.update_price(mark_price)
+                                    position.amount = contracts  # Update amount in case it changed
+                                    position.unrealized_pnl = unrealized_pnl
+                                    self._positions[normalized_symbol] = position
                                 else:
                                     # Create new position
                                     self._positions[normalized_symbol] = Position(
@@ -347,7 +445,7 @@ class PositionTracker:
                 # Only process if balance > 0
                 if free_amount > 0:
                     # Try to get current price for this asset
-                    symbol = normalize_symbol(f"{currency}/USDT")  # Standardized format
+                    symbol = f"{currency}/USDT"  # Standardized format
                     try:
                         # Use the original format for fetching price from exchange
                         ticker = self.exchange.fetch_ticker(symbol)
@@ -365,8 +463,12 @@ class PositionTracker:
                         if current_price > 0:
                             # Update existing position or create new one
                             normalized_symbol = normalize_symbol(symbol)
-                            if normalized_symbol in self._positions:
-                                self._positions[normalized_symbol].update_price(current_price)
+                            if normalized_symbol in existing_positions:
+                                # Update existing position with new price but keep tracking info
+                                position = existing_positions[normalized_symbol]
+                                position.update_price(current_price)
+                                position.amount = free_amount  # Update amount in case it changed
+                                self._positions[normalized_symbol] = position
                             else:
                                 # Try to get a better entry price from trade history
                                 entry_price = self._get_entry_price_from_trades(symbol, free_amount)
@@ -389,53 +491,16 @@ class PositionTracker:
                         logging.getLogger(__name__).debug(f"Error getting price for {symbol}: {e}")
                         # Skip if we can't get price info
                         pass
-                        
-            # Remove closed positions
-            symbols_to_remove = []
-            for symbol, position in self._positions.items():
-                try:
-                    # For spot, check if the balance is now zero
-                    # Better detection of spot vs futures markets - don't rely on symbol format
-                    is_futures = False
-                    
-                    # Check if this symbol exists in the exchange positions list
-                    for p in exchange_positions:
-                        if isinstance(p, dict) and p.get('symbol') == symbol:
-                            is_futures = True
-                            break
-                    
-                    if not is_futures:  # Spot market
-                        base_currency = symbol.split('/')[0]
-                        if base_currency not in balance:
-                            symbols_to_remove.append(symbol)
-                        elif isinstance(balance[base_currency], dict):
-                            free_value = balance[base_currency].get('free', 0)
-                            free_amount = float(free_value) if free_value is not None else 0
-                            if free_amount <= 0:
-                                symbols_to_remove.append(symbol)
-                                # Add to closed positions history
-                                self._closed_positions.append(position)
-                    
-                    # For futures, check if not in exchange positions
-                    else:
-                        exchange_symbols = []
-                        for p in exchange_positions:
-                            if isinstance(p, dict):
-                                sym = p.get('symbol', '')
-                                if sym:
-                                    exchange_symbols.append(sym)
-                                    
-                        if symbol not in exchange_symbols:
-                            symbols_to_remove.append(symbol)
-                            # Add to closed positions history
-                            self._closed_positions.append(position)
-                except Exception as e:
-                    import logging
-                    logging.getLogger(__name__).debug(f"Error checking if position is closed for {symbol}: {e}")
             
-            # Remove the closed positions
-            for symbol in symbols_to_remove:
-                del self._positions[symbol]
+            # Check for positions that no longer exist on the exchange
+            for symbol, position in list(existing_positions.items()):
+                if symbol not in self._positions:
+                    # Position no longer exists - add to closed positions
+                    self._closed_positions.append(position)
+                    logging.getLogger(__name__).info(f"Position {symbol} closed (no longer on exchange)")
+                
+            # Save updated positions to disk
+            self._save_positions()
                 
         except Exception as e:
             import logging
@@ -495,6 +560,9 @@ class PositionTracker:
             current_price=current_price,
             entry_time=datetime.now()
         )
+        
+        # Save after recording a new position
+        self._save_positions()
     
     def close_position(self, symbol: str) -> None:
         """
@@ -510,3 +578,6 @@ class PositionTracker:
             self._closed_positions.append(self._positions[normalized_symbol])
             # Remove from active positions
             del self._positions[normalized_symbol]
+            
+            # Save after closing a position
+            self._save_positions()
