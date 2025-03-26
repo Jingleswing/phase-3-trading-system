@@ -4,7 +4,7 @@ import argparse
 import os
 import signal
 import sys
-from typing import Dict, Any
+from typing import Dict, Any, List
 
 from trading_bot.utils.config import Config
 from trading_bot.utils.logging import setup_logging, LoggerMixin
@@ -52,6 +52,9 @@ class TradingBot(LoggerMixin):
         # Register signal handlers for graceful shutdown
         signal.signal(signal.SIGINT, self._handle_shutdown)
         signal.signal(signal.SIGTERM, self._handle_shutdown)
+        
+        # Track drawdown positions that failed to close
+        self._drawdown_close_retries = {}
         
         self.logger.info("Trading bot initialized")
     
@@ -138,12 +141,15 @@ class TradingBot(LoggerMixin):
             if position is None or position.amount == 0:
                 self.logger.warning(f"Received close signal for {signal.symbol} but no position exists")
                 return
+            
+            # Determine the proper side for closing the position
+            close_side = 'sell' if position.side.lower() == 'long' else 'buy'
                 
             # Create an order to close the position
             order = Order(
                 symbol=signal.symbol,
                 order_type='market',
-                side='sell',  # Use 'sell' for the actual order execution to close the position
+                side=close_side,  # Determine close side based on position side
                 amount=position.amount
             )
             
@@ -257,6 +263,10 @@ class TradingBot(LoggerMixin):
         drawdown_check_interval = self.config.get('risk.drawdown_check_interval', 300)  # Default 5 minutes
         last_drawdown_check = 0
         
+        # Retry interval for failed drawdown closes (in seconds)
+        retry_interval = 60  # Try every minute
+        last_retry_check = 0
+        
         try:
             while self.running:
                 # Process each trading symbol
@@ -313,11 +323,14 @@ class TradingBot(LoggerMixin):
                         position = self.risk_manager.get_position(symbol)
                         if position and position.amount > 0:
                             try:
+                                # Determine the proper side for closing the position based on position side
+                                close_side = 'sell' if position.side.lower() == 'long' else 'buy'
+                                
                                 # Create an order to close the position
                                 order = Order(
                                     symbol=symbol,
                                     order_type='market',
-                                    side='sell',  # Use 'sell' for spot positions
+                                    side=close_side,  # Use appropriate side based on position type
                                     amount=position.amount
                                 )
                                 
@@ -334,11 +347,70 @@ class TradingBot(LoggerMixin):
                                         'reason': 'max_drawdown'
                                     }
                                 ))
+                                
+                                # Remove from retry list if it was there
+                                if symbol in self._drawdown_close_retries:
+                                    del self._drawdown_close_retries[symbol]
+                                    
                             except Exception as e:
                                 self.logger.error(f"Error closing position due to max drawdown: {e}")
+                                
+                                # Add to retry list with timestamp
+                                self._drawdown_close_retries[symbol] = current_time
                     
                     # Update last check time
                     last_drawdown_check = current_time
+                
+                # Check if we need to retry any failed drawdown close orders
+                if self._drawdown_close_retries and current_time - last_retry_check > retry_interval:
+                    self.logger.debug(f"Retrying {len(self._drawdown_close_retries)} failed drawdown close orders")
+                    
+                    # Create a copy of keys to allow modification during iteration
+                    symbols_to_retry = list(self._drawdown_close_retries.keys())
+                    
+                    for symbol in symbols_to_retry:
+                        # Get position details 
+                        position = self.risk_manager.get_position(symbol)
+                        if position and position.amount > 0:
+                            try:
+                                # Determine the proper side for closing
+                                close_side = 'sell' if position.side.lower() == 'long' else 'buy'
+                                
+                                # Create an order to close the position
+                                order = Order(
+                                    symbol=symbol,
+                                    order_type='market',
+                                    side=close_side,
+                                    amount=position.amount
+                                )
+                                
+                                # Execute order
+                                order_result = self.executor.place_order(order)
+                                self.logger.info(f"Position closed on retry (drawdown limit): {order_result}")
+                                
+                                # Publish order placed event
+                                self.event_bus.publish(Event(
+                                    EventType.ORDER_PLACED,
+                                    {
+                                        'signal': None,
+                                        'order': order_result,
+                                        'reason': 'max_drawdown_retry'
+                                    }
+                                ))
+                                
+                                # Remove from retry list
+                                del self._drawdown_close_retries[symbol]
+                                
+                            except Exception as e:
+                                self.logger.error(f"Retry failed for drawdown close of {symbol}: {e}")
+                                # Keep in retry list for next attempt
+                        else:
+                            # Position no longer exists or is empty, remove from retry list
+                            self.logger.info(f"Position {symbol} no longer exists, removing from retry list")
+                            del self._drawdown_close_retries[symbol]
+                    
+                    # Update last retry check time
+                    last_retry_check = current_time
                 
                 # Throttle the loop to avoid excessive CPU usage
                 time.sleep(1)

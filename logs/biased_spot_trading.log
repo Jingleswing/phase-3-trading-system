@@ -598,3 +598,28 @@
 2025-03-26 13:44:25,495 - __main__.TradingBot - INFO - Risk manager configured with max drawdown: 10.0%
 2025-03-26 13:44:25,495 - __main__.TradingBot - INFO - Trading bot initialized
 2025-03-26 13:44:25,495 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-26 14:00:31,886 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-26 14:00:31,886 - __main__.TradingBot - INFO - Stopping trading bot...
+2025-03-26 14:00:32,150 - __main__.TradingBot - INFO - Trading bot stopped
+2025-03-26 14:01:15,874 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-26 14:01:15,875 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/biased_spot_trading.log
+2025-03-26 14:01:15,880 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-26 14:01:20,125 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-26 14:01:20,126 - __main__.TradingBot - INFO - Total trading pairs: 4
+2025-03-26 14:01:20,126 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 14:01:20,127 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 14:01:20,127 - __main__.TradingBot - INFO - Created spot strategy for ETH/USDT
+2025-03-26 14:01:20,128 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 14:01:20,128 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 14:01:20,128 - __main__.TradingBot - INFO - Created spot strategy for ENA/USDT
+2025-03-26 14:01:20,129 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 14:01:20,129 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 14:01:20,129 - __main__.TradingBot - INFO - Created spot strategy for BLAST/USDT
+2025-03-26 14:01:20,130 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 14:01:20,130 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 14:01:20,131 - __main__.TradingBot - INFO - Created spot strategy for EIGEN/USDT
+2025-03-26 14:01:20,131 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-26 14:01:20,131 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager with max_open_trades=4, max_drawdown=10.0%
+2025-03-26 14:01:20,131 - __main__.TradingBot - INFO - Risk manager configured with max drawdown: 10.0%
+2025-03-26 14:01:20,132 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-26 14:01:20,132 - __main__.TradingBot - INFO - Starting trading bot...

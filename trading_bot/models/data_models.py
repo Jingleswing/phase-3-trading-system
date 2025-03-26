@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from typing import Dict, List, Any, Optional
 from datetime import datetime, timedelta
 import pandas as pd
+from trading_bot.utils.symbol_utils import normalize_symbol, get_base_currency, get_quote_currency
 
 @dataclass
 class Candle:
@@ -205,6 +206,57 @@ class PositionTracker:
         self._positions: Dict[str, Position] = {}  # Symbol -> Position
         self._closed_positions: List[Position] = []  # History of closed positions
     
+    def _get_entry_price_from_trades(self, symbol: str, amount: float) -> float:
+        """
+        Attempt to calculate average entry price from recent trades
+        
+        Args:
+            symbol: Trading pair symbol
+            amount: Current position amount
+            
+        Returns:
+            Average entry price or 0 if trades can't be retrieved
+        """
+        try:
+            # Try to fetch recent trades for this symbol
+            trades = self.exchange.fetch_my_trades(symbol, limit=20)
+            
+            if not trades:
+                return 0
+            
+            # Sort by timestamp (oldest first)
+            trades.sort(key=lambda x: x['timestamp'])
+            
+            # Calculate weighted average entry price
+            total_cost = 0
+            total_amount = 0
+            
+            # Process trades until we reach approximately current position size
+            for trade in reversed(trades):  # Start with most recent trades
+                if trade['side'].lower() != 'buy':
+                    continue
+                    
+                trade_amount = float(trade['amount'])
+                trade_price = float(trade['price'])
+                
+                total_cost += trade_amount * trade_price
+                total_amount += trade_amount
+                
+                # Break if we've accumulated enough to explain current position
+                if total_amount >= amount * 0.9:  # Allow for small differences
+                    break
+            
+            # Calculate average entry price if we found relevant trades
+            if total_amount > 0:
+                return total_cost / total_amount
+                
+            return 0
+            
+        except Exception as e:
+            import logging
+            logging.getLogger(__name__).debug(f"Error getting trade history for {symbol}: {e}")
+            return 0
+    
     def update_positions(self) -> None:
         """
         Update position information from the exchange
@@ -222,7 +274,8 @@ class PositionTracker:
                         if not isinstance(pos_data, dict):
                             continue
                             
-                        symbol = pos_data.get('symbol', '')
+                        # Normalize the symbol format
+                        symbol = normalize_symbol(pos_data.get('symbol', ''))
                         
                         # Safely convert contracts to float or use 0 if not present or not convertible
                         contracts = 0
@@ -242,12 +295,13 @@ class PositionTracker:
                                 unrealized_pnl = float(pos_data.get('unrealizedPnl', 0) or 0)
                                 
                                 # Update existing position or create new one
-                                if symbol in self._positions:
-                                    self._positions[symbol].update_price(mark_price)
+                                normalized_symbol = normalize_symbol(symbol)
+                                if normalized_symbol in self._positions:
+                                    self._positions[normalized_symbol].update_price(mark_price)
                                 else:
                                     # Create new position
-                                    self._positions[symbol] = Position(
-                                        symbol=symbol,
+                                    self._positions[normalized_symbol] = Position(
+                                        symbol=normalized_symbol,
                                         side=side,
                                         amount=contracts,
                                         entry_price=entry_price,
@@ -293,8 +347,9 @@ class PositionTracker:
                 # Only process if balance > 0
                 if free_amount > 0:
                     # Try to get current price for this asset
-                    symbol = f"{currency}/USDT"  # Simplification for USDT pairs
+                    symbol = normalize_symbol(f"{currency}/USDT")  # Standardized format
                     try:
+                        # Use the original format for fetching price from exchange
                         ticker = self.exchange.fetch_ticker(symbol)
                         if not isinstance(ticker, dict):
                             continue
@@ -309,17 +364,23 @@ class PositionTracker:
                         # Only process if we can get a price
                         if current_price > 0:
                             # Update existing position or create new one
-                            if symbol in self._positions:
-                                self._positions[symbol].update_price(current_price)
+                            normalized_symbol = normalize_symbol(symbol)
+                            if normalized_symbol in self._positions:
+                                self._positions[normalized_symbol].update_price(current_price)
                             else:
-                                # For spot positions, we don't know the entry price
-                                # It would require tracking trades history
-                                # As an approximation, use current price
-                                self._positions[symbol] = Position(
-                                    symbol=symbol,
+                                # Try to get a better entry price from trade history
+                                entry_price = self._get_entry_price_from_trades(symbol, free_amount)
+                                
+                                # Fall back to current price if we couldn't get entry price from trades
+                                if entry_price <= 0:
+                                    entry_price = current_price
+                                
+                                # Create new position with the best entry price we could find
+                                self._positions[normalized_symbol] = Position(
+                                    symbol=normalized_symbol,
                                     side='long',  # Spot positions are always long
                                     amount=free_amount,
-                                    entry_price=current_price,  # Approximation
+                                    entry_price=entry_price,
                                     current_price=current_price,
                                     entry_time=datetime.now()
                                 )
@@ -334,12 +395,21 @@ class PositionTracker:
             for symbol, position in self._positions.items():
                 try:
                     # For spot, check if the balance is now zero
-                    if ':USDT' not in symbol:  # Spot market
-                        currency = symbol.split('/')[0]
-                        if currency not in balance:
+                    # Better detection of spot vs futures markets - don't rely on symbol format
+                    is_futures = False
+                    
+                    # Check if this symbol exists in the exchange positions list
+                    for p in exchange_positions:
+                        if isinstance(p, dict) and p.get('symbol') == symbol:
+                            is_futures = True
+                            break
+                    
+                    if not is_futures:  # Spot market
+                        base_currency = symbol.split('/')[0]
+                        if base_currency not in balance:
                             symbols_to_remove.append(symbol)
-                        elif isinstance(balance[currency], dict):
-                            free_value = balance[currency].get('free', 0)
+                        elif isinstance(balance[base_currency], dict):
+                            free_value = balance[base_currency].get('free', 0)
                             free_amount = float(free_value) if free_value is not None else 0
                             if free_amount <= 0:
                                 symbols_to_remove.append(symbol)
@@ -381,7 +451,9 @@ class PositionTracker:
         Returns:
             Position object or None if no position exists
         """
-        return self._positions.get(symbol)
+        # Normalize the input symbol before lookup
+        normalized_symbol = normalize_symbol(symbol)
+        return self._positions.get(normalized_symbol)
     
     def get_all_positions(self) -> List[Position]:
         """
@@ -413,8 +485,10 @@ class PositionTracker:
             entry_price: Entry price
             current_price: Current price
         """
-        self._positions[symbol] = Position(
-            symbol=symbol,
+        # Normalize the symbol before storing
+        normalized_symbol = normalize_symbol(symbol)
+        self._positions[normalized_symbol] = Position(
+            symbol=normalized_symbol,
             side=side,
             amount=amount,
             entry_price=entry_price,
@@ -429,8 +503,10 @@ class PositionTracker:
         Args:
             symbol: Trading pair symbol
         """
-        if symbol in self._positions:
+        # Normalize the symbol before lookup
+        normalized_symbol = normalize_symbol(symbol)
+        if normalized_symbol in self._positions:
             # Add to closed positions history
-            self._closed_positions.append(self._positions[symbol])
+            self._closed_positions.append(self._positions[normalized_symbol])
             # Remove from active positions
-            del self._positions[symbol]
+            del self._positions[normalized_symbol]

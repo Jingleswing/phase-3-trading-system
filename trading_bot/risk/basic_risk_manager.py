@@ -3,6 +3,7 @@ from typing import Dict, Tuple, Any, Optional, List
 from trading_bot.interfaces.risk_manager import RiskManager
 from trading_bot.models.data_models import Signal, Order, Position, PositionTracker
 from trading_bot.utils.logging import LoggerMixin
+from trading_bot.utils.symbol_utils import normalize_symbol, get_base_currency, get_quote_currency
 
 class BasicRiskManager(RiskManager, LoggerMixin):
     """
@@ -42,6 +43,9 @@ class BasicRiskManager(RiskManager, LoggerMixin):
         Returns:
             (valid, reason) tuple where valid is a boolean and reason is a string
         """
+        # Normalize the symbol in the signal for consistent validation
+        signal.symbol = normalize_symbol(signal.symbol)
+        
         # For close signals, always validate them
         if signal.signal_type == 'close':
             return True, "Close signals are always valid"
@@ -85,14 +89,17 @@ class BasicRiskManager(RiskManager, LoggerMixin):
             Position size in base currency
         """
         try:
+            # Normalize the symbol in the signal
+            signal.symbol = normalize_symbol(signal.symbol)
+            
             # Update our position tracker to get latest data
             self.position_tracker.update_positions()
             
             # Get account balance
             balance = self.exchange.fetch_balance()
             
-            # For simplicity, assuming we're trading against USDT
-            quote_currency = signal.symbol.split('/')[1]  # e.g., 'USDT' from 'ETH/USDT'
+            # Get quote currency from the normalized symbol
+            quote_currency = get_quote_currency(signal.symbol)
             available_balance = balance.get(quote_currency, {}).get('free', 0)
             
             if available_balance <= 0:
@@ -122,7 +129,7 @@ class BasicRiskManager(RiskManager, LoggerMixin):
                 position_size = position_size * leverage
                 self.logger.info(f"Applied {leverage}x leverage to position size")
             
-            self.logger.info(f"Calculated position size: {position_size} {signal.symbol.split('/')[0]}")
+            self.logger.info(f"Calculated position size: {position_size} {get_base_currency(signal.symbol)}")
             
             return position_size
             
@@ -175,6 +182,9 @@ class BasicRiskManager(RiskManager, LoggerMixin):
         Returns:
             Position object or None if no position exists
         """
+        # Normalize the symbol before querying position
+        normalized_symbol = normalize_symbol(symbol)
+        
         # Update positions before returning
         self.position_tracker.update_positions()
-        return self.position_tracker.get_position(symbol)
+        return self.position_tracker.get_position(normalized_symbol)
