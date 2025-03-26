@@ -100,8 +100,8 @@ class BasicRiskManager(RiskManager, LoggerMixin):
     
     def calculate_position_size(self, signal: Signal) -> float:
         """
-        Calculate position size using equal division of available balance
-        based on total number of trading pairs.
+        Calculate position size using available USDT balance divided by
+        remaining positions (max_open_trades - current positions).
         
         Args:
             signal: Trading signal
@@ -121,9 +121,75 @@ class BasicRiskManager(RiskManager, LoggerMixin):
                 self.logger.warning(f"No available balance in {quote_currency}")
                 return 0
             
-            # Calculate amount to use based on equal division
-            amount_to_use = available_balance / self.max_open_trades
-            self.logger.info(f"Using equal division position sizing: {amount_to_use} {quote_currency} (1/{self.max_open_trades} of {available_balance})")
+            # Count active positions to determine how many positions we already have
+            active_positions = 0
+            try:
+                # Get positions for non-USDT coins (active spot positions)
+                for currency, data in balance.items():
+                    # Skip USDT and other quote currencies
+                    if currency != quote_currency and isinstance(data, dict) and data.get('free', 0) > 0:
+                        try:
+                            # Check if this position is worth more than $1 (ignore dust)
+                            currency_amount = float(data.get('free', 0))
+                            # Try to get the USD value if possible
+                            usd_value = 0
+                            
+                            # For simplicity, we'll try to get the symbol for this currency/USDT
+                            symbol = f"{currency}/{quote_currency}"
+                            try:
+                                # Try to get the current market price
+                                ticker = self.exchange.fetch_ticker(symbol)
+                                last_price = float(ticker['last']) if 'last' in ticker and ticker['last'] else 0
+                                usd_value = currency_amount * last_price
+                            except Exception:
+                                # If we can't get the price, estimate based on BTC or another method
+                                # This is a fallback and may not be accurate for all coins
+                                self.logger.debug(f"Couldn't get direct USD value for {currency}, using fallback")
+                                usd_value = currency_amount  # Assume minimum 1:1 as fallback
+                            
+                            # Only count if worth more than $1
+                            if usd_value > 1.0:
+                                active_positions += 1
+                                self.logger.debug(f"Counting {currency} position worth ${usd_value:.2f}")
+                            else:
+                                self.logger.debug(f"Ignoring dust {currency} position worth ${usd_value:.2f}")
+                        except Exception as e:
+                            self.logger.debug(f"Error calculating USD value for {currency}: {e}")
+                            # If we can't determine value, assume it's a valid position
+                            active_positions += 1
+                
+                # If the exchange supports fetch_positions, also count any futures positions
+                if hasattr(self.exchange, 'fetch_positions'):
+                    futures_positions = self.exchange.fetch_positions()
+                    for position in futures_positions:
+                        # Check if position has non-zero contracts and value > $1
+                        contracts = float(position.get('contracts', 0))
+                        notional = float(position.get('notional', 0))
+                        
+                        # If notional not available, try to calculate it
+                        if notional == 0 and contracts > 0:
+                            if 'markPrice' in position:
+                                mark_price = float(position.get('markPrice', 0))
+                                notional = contracts * mark_price
+                                
+                        # Only count significant positions (> $1)
+                        if contracts > 0 and notional > 1.0:
+                            active_positions += 1
+                            self.logger.debug(f"Counting futures position worth ${notional:.2f}")
+            except Exception as e:
+                self.logger.error(f"Error counting active positions: {e}")
+                # Use a fallback if we can't count positions
+                active_positions = 0
+            
+            # Calculate remaining available positions
+            remaining_positions = max(1, self.max_open_trades - active_positions)
+            
+            # Calculate amount to use based on remaining positions
+            amount_to_use = available_balance / remaining_positions
+            self.logger.info(
+                f"Position sizing based on remaining positions: {amount_to_use} {quote_currency} "
+                f"(1/{remaining_positions} of {available_balance}, with {active_positions} active positions)"
+            )
             
             # Calculate position size based on price
             position_size = amount_to_use / signal.price
