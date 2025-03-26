@@ -64,7 +64,7 @@ class BasicRiskManager(RiskManager, LoggerMixin):
         
         return True, "Signal validated"
     
-    def get_position(self, symbol: str):
+    def get_position(self, symbol: str) -> Optional[Position]:
         """
         Get current position for a symbol
         
@@ -75,18 +75,30 @@ class BasicRiskManager(RiskManager, LoggerMixin):
             Position object or None if no position exists
         """
         try:
-            positions = self.exchange.fetch_positions([symbol])
-            if positions and len(positions) > 0:
-                position_data = positions[0]
-                # Create Position object from exchange data
-                return Position(
-                    symbol=symbol,
-                    side='long' if position_data['side'] == 'long' else 'short',
-                    amount=float(position_data['contracts']),
-                    entry_price=float(position_data['entryPrice']),
-                    current_price=float(position_data['markPrice']),
-                    unrealized_pnl=float(position_data['unrealizedPnl'])
-                )
+            # For spot markets, check balance
+            if ':USDT' not in symbol:  # Spot market
+                base_currency = symbol.split('/')[0]
+                balance = self.exchange.fetch_balance()
+                if base_currency in balance and balance[base_currency]['free'] > 0:
+                    return Position(
+                        symbol=symbol,
+                        side='long',  # Spot positions are always long
+                        amount=float(balance[base_currency]['free']),
+                        entry_price=0,  # We don't track entry price for spot
+                        current_price=0  # We don't track current price for spot
+                    )
+            else:  # Futures market
+                positions = self.exchange.fetch_positions([symbol])
+                if positions and len(positions) > 0:
+                    position_data = positions[0]
+                    return Position(
+                        symbol=symbol,
+                        side='long' if position_data['side'] == 'long' else 'short',
+                        amount=float(position_data['contracts']),
+                        entry_price=float(position_data['entryPrice']),
+                        current_price=float(position_data['markPrice']),
+                        unrealized_pnl=float(position_data['unrealizedPnl'])
+                    )
             return None
         except Exception as e:
             self.logger.error(f"Error fetching position for {symbol}: {e}")

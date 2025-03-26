@@ -42,3 +42,177 @@
 2025-03-25 10:09:56,316 - __main__.TradingBot - INFO - Trading bot initialized
 2025-03-25 10:09:56,317 - __main__.TradingBot - INFO - Starting trading bot...
 2025-03-25 10:09:56,317 - __main__.TradingBot - INFO - Trading ['ETH/USDT', 'BTC/USDT'] on 1m timeframe
+2025-03-25 11:09:33,938 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated CLOSE signal for ETH/USDT at 2057.29 in spot market
+2025-03-25 11:09:33,939 - __main__.TradingBot - INFO - Received signal: close ETH/USDT at 2057.29
+2025-03-25 11:09:34,167 - trading_bot.risk.basic_risk_manager.BasicRiskManager - ERROR - Error fetching position for ETH/USDT: bybit {"retCode":181001,"retMsg":"category only support linear or option","result":{},"retExtInfo":{},"time":1742893774128}
+2025-03-25 11:09:34,168 - __main__.TradingBot - WARNING - Received close signal for ETH/USDT but no position exists
+2025-03-25 11:28:44,367 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated BUY signal for ETH/USDT at 2065.01 in spot market
+2025-03-25 11:28:44,367 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT at 2065.01
+2025-03-25 11:28:45,313 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 0.0024179045307286644 ETH (risking 4.992997035 USDT, 50.0% of 9.98599407)
+2025-03-25 11:28:45,313 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 0.0024179045307286644 ETH/USDT at market price
+2025-03-25 11:28:45,579 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1913935787217656832
+2025-03-25 11:28:45,580 - __main__.TradingBot - INFO - Order placed: {'info': {'orderId': '1913935787217656832', 'orderLinkId': '1913935787217656833'}, 'id': '1913935787217656832', 'clientOrderId': '1913935787217656833', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ETH/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-25 11:28:45,580 - __main__.TradingBot - INFO - Order placed successfully: 1913935787217656832
+2025-03-25 12:16:11,213 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated CLOSE signal for ETH/USDT at 2066.79 in spot market
+2025-03-25 12:16:11,213 - __main__.TradingBot - INFO - Received signal: close ETH/USDT at 2066.79
+2025-03-25 12:16:11,437 - trading_bot.risk.basic_risk_manager.BasicRiskManager - ERROR - Error fetching position for ETH/USDT: bybit {"retCode":181001,"retMsg":"category only support linear or option","result":{},"retExtInfo":{},"time":1742897771336}
+2025-03-25 12:16:11,438 - __main__.TradingBot - WARNING - Received close signal for ETH/USDT but no position exists
+2025-03-25 12:18:12,901 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated CLOSE signal for BTC/USDT at 87042.4 in spot market
+2025-03-25 12:18:12,902 - __main__.TradingBot - INFO - Received signal: close BTC/USDT at 87042.4
+2025-03-25 12:18:13,116 - trading_bot.risk.basic_risk_manager.BasicRiskManager - ERROR - Error fetching position for BTC/USDT: bybit {"retCode":181001,"retMsg":"category only support linear or option","result":{},"retExtInfo":{},"time":1742897893020}
+2025-03-25 12:18:13,117 - __main__.TradingBot - WARNING - Received close signal for BTC/USDT but no position exists
+2025-03-25 12:41:24,800 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated BUY signal for ETH/USDT at 2072.18 in spot market
+2025-03-25 12:41:24,801 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT at 2072.18
+2025-03-25 12:41:25,241 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 0.001208696100242257 ETH (risking 2.504635885 USDT, 50.0% of 5.00927177)
+2025-03-25 12:41:25,241 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 0.001208696100242257 ETH/USDT at market price
+2025-03-25 12:41:25,465 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1913972360936168448
+2025-03-25 12:41:25,466 - __main__.TradingBot - INFO - Order placed: {'info': {'orderId': '1913972360936168448', 'orderLinkId': '1913972360936168449'}, 'id': '1913972360936168448', 'clientOrderId': '1913972360936168449', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ETH/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-25 12:41:25,466 - __main__.TradingBot - INFO - Order placed successfully: 1913972360936168448
+2025-03-25 12:45:27,422 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated BUY signal for BTC/USDT at 87175.5 in spot market
+2025-03-25 12:45:27,422 - __main__.TradingBot - INFO - Received signal: buy BTC/USDT at 87175.5
+2025-03-25 12:45:27,861 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.4467458001388004e-05 BTC (risking 1.261207885 USDT, 50.0% of 2.52241577)
+2025-03-25 12:45:27,861 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.4467458001388004e-05 BTC/USDT at market price
+2025-03-25 12:45:28,090 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1913974396222184448
+2025-03-25 12:45:28,091 - __main__.TradingBot - INFO - Order placed: {'info': {'orderId': '1913974396222184448', 'orderLinkId': '1913974396222184449'}, 'id': '1913974396222184448', 'clientOrderId': '1913974396222184449', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'BTC/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-25 12:45:28,091 - __main__.TradingBot - INFO - Order placed successfully: 1913974396222184448
+2025-03-25 13:11:43,283 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated CLOSE signal for ETH/USDT at 2067.31 in spot market
+2025-03-25 13:11:43,284 - __main__.TradingBot - INFO - Received signal: close ETH/USDT at 2067.31
+2025-03-25 13:11:43,493 - trading_bot.risk.basic_risk_manager.BasicRiskManager - ERROR - Error fetching position for ETH/USDT: bybit {"retCode":181001,"retMsg":"category only support linear or option","result":{},"retExtInfo":{},"time":1742901103408}
+2025-03-25 13:11:43,494 - __main__.TradingBot - WARNING - Received close signal for ETH/USDT but no position exists
+2025-03-25 13:34:02,143 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated BUY signal for ETH/USDT at 2072.63 in spot market
+2025-03-25 13:34:02,143 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT at 2072.63
+2025-03-25 13:34:02,928 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 0.0003140837414299706 ETH (risking 0.650979385 USDT, 50.0% of 1.30195877)
+2025-03-25 13:34:02,929 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 0.0003140837414299706 ETH/USDT at market price
+2025-03-25 13:34:03,157 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170140,"retMsg":"Order value exceeded lower limit.","result":{},"retExtInfo":{},"time":1742902443077}
+2025-03-25 13:34:03,158 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170140,"retMsg":"Order value exceeded lower limit.","result":{},"retExtInfo":{},"time":1742902443077}
+2025-03-25 13:34:03,159 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170140,"retMsg":"Order value exceeded lower limit.","result":{},"retExtInfo":{},"time":1742902443077}
+2025-03-25 13:45:41,000 - trading_bot.data.providers.ccxt_provider.CCXTProvider - ERROR - Error retrieving historical data for ETH/USDT: bybit GET https://api.bybit.com/v5/market/kline?symbol=ETHUSDT&limit=100&interval=1&category=spot
+2025-03-25 13:45:41,098 - __main__.TradingBot - ERROR - Error processing ETH/USDT: bybit GET https://api.bybit.com/v5/market/kline?symbol=ETHUSDT&limit=100&interval=1&category=spot
+2025-03-25 13:45:41,124 - __main__.TradingBot - ERROR - Error in data_processing: bybit GET https://api.bybit.com/v5/market/kline?symbol=ETHUSDT&limit=100&interval=1&category=spot
+2025-03-25 13:45:41,189 - trading_bot.data.providers.ccxt_provider.CCXTProvider - ERROR - Error retrieving historical data for BTC/USDT: bybit GET https://api.bybit.com/v5/market/kline?symbol=BTCUSDT&limit=100&interval=1&category=spot
+2025-03-25 13:45:41,230 - __main__.TradingBot - ERROR - Error processing BTC/USDT: bybit GET https://api.bybit.com/v5/market/kline?symbol=BTCUSDT&limit=100&interval=1&category=spot
+2025-03-25 13:45:41,280 - __main__.TradingBot - ERROR - Error in data_processing: bybit GET https://api.bybit.com/v5/market/kline?symbol=BTCUSDT&limit=100&interval=1&category=spot
+2025-03-25 20:38:50,387 - trading_bot.data.providers.ccxt_provider.CCXTProvider - ERROR - Error retrieving historical data for ETH/USDT: bybit GET https://api.bybit.com/v5/market/kline?symbol=ETHUSDT&limit=100&interval=1&category=spot
+2025-03-25 20:38:50,391 - __main__.TradingBot - ERROR - Error processing ETH/USDT: bybit GET https://api.bybit.com/v5/market/kline?symbol=ETHUSDT&limit=100&interval=1&category=spot
+2025-03-25 20:38:50,391 - __main__.TradingBot - ERROR - Error in data_processing: bybit GET https://api.bybit.com/v5/market/kline?symbol=ETHUSDT&limit=100&interval=1&category=spot
+2025-03-25 20:38:50,456 - trading_bot.data.providers.ccxt_provider.CCXTProvider - ERROR - Error retrieving historical data for BTC/USDT: bybit GET https://api.bybit.com/v5/market/kline?symbol=BTCUSDT&limit=100&interval=1&category=spot
+2025-03-25 20:38:50,457 - __main__.TradingBot - ERROR - Error processing BTC/USDT: bybit GET https://api.bybit.com/v5/market/kline?symbol=BTCUSDT&limit=100&interval=1&category=spot
+2025-03-25 20:38:50,457 - __main__.TradingBot - ERROR - Error in data_processing: bybit GET https://api.bybit.com/v5/market/kline?symbol=BTCUSDT&limit=100&interval=1&category=spot
+2025-03-25 21:00:03,767 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-25 21:00:03,769 - __main__.TradingBot - INFO - Stopping trading bot...
+2025-03-26 07:31:47,636 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-26 07:31:47,636 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/spot_trading.log
+2025-03-26 07:31:47,642 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-26 07:31:54,495 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-26 07:31:54,496 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-26 07:31:54,496 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-26 07:31:54,497 - __main__.TradingBot - INFO - Created spot strategy for ETH/USDT
+2025-03-26 07:31:54,497 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-26 07:31:54,498 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-26 07:31:54,498 - __main__.TradingBot - INFO - Created spot strategy for BTC/USDT
+2025-03-26 07:31:54,498 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-26 07:31:54,499 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-26 07:31:54,499 - __main__.TradingBot - INFO - Created spot strategy for SOL/USDT
+2025-03-26 07:31:54,500 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-26 07:31:54,500 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-26 07:31:54,501 - __main__.TradingBot - INFO - Created spot strategy for BLAST/USDT
+2025-03-26 07:31:54,501 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-26 07:31:54,501 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-26 07:31:54,501 - __main__.TradingBot - INFO - Created spot strategy for COOK/USDT
+2025-03-26 07:31:54,501 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-26 07:31:54,501 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-26 07:31:54,502 - __main__.TradingBot - INFO - Created spot strategy for FARTCOIN/USDT
+2025-03-26 07:31:54,502 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-26 07:31:54,502 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager (risk_per_trade=0.5, max_open_trades=1)
+2025-03-26 07:31:54,502 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-26 07:31:54,502 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-26 07:31:54,502 - __main__.TradingBot - INFO - Trading ['ETH/USDT', 'BTC/USDT', 'SOL/USDT', 'BLAST/USDT', 'COOK/USDT', 'FARTCOIN/USDT'] on 1m timeframe
+2025-03-26 07:31:55,923 - trading_bot.data.providers.ccxt_provider.CCXTProvider - ERROR - Error retrieving historical data for FARTCOIN/USDT: bybit does not have market symbol FARTCOIN/USDT
+2025-03-26 07:31:55,924 - __main__.TradingBot - ERROR - Error processing FARTCOIN/USDT: bybit does not have market symbol FARTCOIN/USDT
+2025-03-26 07:31:55,924 - __main__.TradingBot - ERROR - Error in data_processing: bybit does not have market symbol FARTCOIN/USDT
+2025-03-26 07:32:57,695 - trading_bot.data.providers.ccxt_provider.CCXTProvider - ERROR - Error retrieving historical data for FARTCOIN/USDT: bybit does not have market symbol FARTCOIN/USDT
+2025-03-26 07:32:57,696 - __main__.TradingBot - ERROR - Error processing FARTCOIN/USDT: bybit does not have market symbol FARTCOIN/USDT
+2025-03-26 07:32:57,696 - __main__.TradingBot - ERROR - Error in data_processing: bybit does not have market symbol FARTCOIN/USDT
+2025-03-26 07:33:57,922 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated BUY signal for ETH/USDT at 2057.54 in spot market
+2025-03-26 07:33:57,922 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT at 2057.54
+2025-03-26 07:33:59,853 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 0.0023971329427374434 ETH (risking 4.932196915 USDT, 50.0% of 9.86439383)
+2025-03-26 07:33:59,853 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 0.0023971329427374434 ETH/USDT at market price
+2025-03-26 07:34:00,082 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914542405680634880
+2025-03-26 07:34:00,082 - __main__.TradingBot - INFO - Order placed: {'info': {'orderId': '1914542405680634880', 'orderLinkId': '1914542405680634881'}, 'id': '1914542405680634880', 'clientOrderId': '1914542405680634881', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ETH/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 07:34:00,083 - __main__.TradingBot - INFO - Order placed successfully: 1914542405680634880
+2025-03-26 07:34:01,298 - trading_bot.data.providers.ccxt_provider.CCXTProvider - ERROR - Error retrieving historical data for FARTCOIN/USDT: bybit does not have market symbol FARTCOIN/USDT
+2025-03-26 07:34:01,299 - __main__.TradingBot - ERROR - Error processing FARTCOIN/USDT: bybit does not have market symbol FARTCOIN/USDT
+2025-03-26 07:34:01,299 - __main__.TradingBot - ERROR - Error in data_processing: bybit does not have market symbol FARTCOIN/USDT
+2025-03-26 07:35:02,082 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated BUY signal for BTC/USDT at 87392.3 in spot market
+2025-03-26 07:35:02,083 - __main__.TradingBot - INFO - Received signal: buy BTC/USDT at 87392.3
+2025-03-26 07:35:02,529 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 2.8303640766978326e-05 BTC (risking 2.473520265 USDT, 50.0% of 4.94704053)
+2025-03-26 07:35:02,529 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 2.8303640766978326e-05 BTC/USDT at market price
+2025-03-26 07:35:02,753 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914542931394698240
+2025-03-26 07:35:02,753 - __main__.TradingBot - INFO - Order placed: {'info': {'orderId': '1914542931394698240', 'orderLinkId': '1914542931394698241'}, 'id': '1914542931394698240', 'clientOrderId': '1914542931394698241', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'BTC/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 07:35:02,755 - __main__.TradingBot - INFO - Order placed successfully: 1914542931394698240
+2025-03-26 07:35:03,757 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated CLOSE signal for COOK/USDT at 0.010424 in spot market
+2025-03-26 07:35:03,757 - __main__.TradingBot - INFO - Received signal: close COOK/USDT at 0.010424
+2025-03-26 07:35:03,977 - __main__.TradingBot - WARNING - Received close signal for COOK/USDT but no position exists
+2025-03-26 07:35:03,977 - trading_bot.data.providers.ccxt_provider.CCXTProvider - ERROR - Error retrieving historical data for FARTCOIN/USDT: bybit does not have market symbol FARTCOIN/USDT
+2025-03-26 07:35:03,977 - __main__.TradingBot - ERROR - Error processing FARTCOIN/USDT: bybit does not have market symbol FARTCOIN/USDT
+2025-03-26 07:35:03,978 - __main__.TradingBot - ERROR - Error in data_processing: bybit does not have market symbol FARTCOIN/USDT
+2025-03-26 07:35:12,567 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-26 07:35:12,568 - __main__.TradingBot - INFO - Stopping trading bot...
+2025-03-26 07:40:51,213 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-26 07:40:51,213 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/spot_trading.log
+2025-03-26 07:40:51,218 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-26 07:40:57,165 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-26 07:40:57,165 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-26 07:40:57,165 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-26 07:40:57,166 - __main__.TradingBot - INFO - Created spot strategy for ETH/USDT
+2025-03-26 07:40:57,166 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-26 07:40:57,167 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-26 07:40:57,167 - __main__.TradingBot - INFO - Created spot strategy for BTC/USDT
+2025-03-26 07:40:57,168 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-26 07:40:57,168 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-26 07:40:57,168 - __main__.TradingBot - INFO - Created spot strategy for SOL/USDT
+2025-03-26 07:40:57,168 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-26 07:40:57,168 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-26 07:40:57,169 - __main__.TradingBot - INFO - Created spot strategy for BLAST/USDT
+2025-03-26 07:40:57,169 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-26 07:40:57,169 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-26 07:40:57,169 - __main__.TradingBot - INFO - Created spot strategy for COOK/USDT
+2025-03-26 07:40:57,169 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-26 07:40:57,169 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager (risk_per_trade=0.5, max_open_trades=1)
+2025-03-26 07:40:57,169 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-26 07:40:57,169 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-26 07:40:57,169 - __main__.TradingBot - INFO - Trading ['ETH/USDT', 'BTC/USDT', 'SOL/USDT', 'BLAST/USDT', 'COOK/USDT'] on 1m timeframe
+2025-03-26 07:40:58,687 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated BUY signal for SOL/USDT at 142.69 in spot market
+2025-03-26 07:40:58,687 - __main__.TradingBot - INFO - Received signal: buy SOL/USDT at 142.69
+2025-03-26 07:41:00,099 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 0.008760416742588829 SOL (risking 1.250023865 USDT, 50.0% of 2.50004773)
+2025-03-26 07:41:00,099 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 0.008760416742588829 SOL/USDT at market price
+2025-03-26 07:41:00,661 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914545933769776129
+2025-03-26 07:41:00,662 - __main__.TradingBot - INFO - Order placed: {'info': {'orderId': '1914545933769776129', 'orderLinkId': '1914545933769776130'}, 'id': '1914545933769776129', 'clientOrderId': '1914545933769776130', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'SOL/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 07:41:00,662 - __main__.TradingBot - INFO - Order placed successfully: 1914545933769776129
+2025-03-26 07:47:08,454 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated BUY signal for BLAST/USDT at 0.003726 in spot market
+2025-03-26 07:47:08,455 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003726
+2025-03-26 07:47:08,917 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 182.29303945249598 BLAST (risking 0.679223865 USDT, 50.0% of 1.35844773)
+2025-03-26 07:47:08,917 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 182.29303945249598 BLAST/USDT at market price
+2025-03-26 07:47:09,139 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742968029054}
+2025-03-26 07:47:09,139 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742968029054}
+2025-03-26 07:47:09,140 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742968029054}
+2025-03-26 08:06:33,722 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated CLOSE signal for BLAST/USDT at 0.003695 in spot market
+2025-03-26 08:06:33,723 - __main__.TradingBot - INFO - Received signal: close BLAST/USDT at 0.003695
+2025-03-26 08:06:34,291 - __main__.TradingBot - WARNING - Received close signal for BLAST/USDT but no position exists
+2025-03-26 08:30:03,930 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated CLOSE signal for COOK/USDT at 0.010479 in spot market
+2025-03-26 08:30:03,930 - __main__.TradingBot - INFO - Received signal: close COOK/USDT at 0.010479
+2025-03-26 08:30:04,145 - __main__.TradingBot - WARNING - Received close signal for COOK/USDT but no position exists
+2025-03-26 08:34:08,538 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated BUY signal for COOK/USDT at 0.010564 in spot market
+2025-03-26 08:34:08,539 - __main__.TradingBot - INFO - Received signal: buy COOK/USDT at 0.010564
+2025-03-26 08:34:08,975 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 64.29608718288527 COOK (risking 0.679223865 USDT, 50.0% of 1.35844773)
+2025-03-26 08:34:08,975 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 64.29608718288527 COOK/USDT at market price
+2025-03-26 08:34:09,535 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742970849469}
+2025-03-26 08:34:09,535 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742970849469}
+2025-03-26 08:34:09,536 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742970849469}
+2025-03-26 08:59:43,844 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated BUY signal for BLAST/USDT at 0.003681 in spot market
+2025-03-26 08:59:43,845 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003681
+2025-03-26 08:59:44,284 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 184.52156071719642 BLAST (risking 0.679223865 USDT, 50.0% of 1.35844773)
+2025-03-26 08:59:44,285 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 184.52156071719642 BLAST/USDT at market price
+2025-03-26 08:59:44,527 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742972384446}
+2025-03-26 08:59:44,527 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742972384446}
+2025-03-26 08:59:44,528 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742972384446}

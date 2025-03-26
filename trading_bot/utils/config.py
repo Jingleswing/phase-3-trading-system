@@ -9,70 +9,40 @@ logger = logging.getLogger(__name__)
 class Config:
     """
     Configuration manager that loads settings from YAML files with support
-    for default values, nested access, and environment variable overrides.
+    for nested access, and environment variable overrides.
     """
     
-    def __init__(self, config_path: Optional[str] = None, default_config_path: Optional[str] = None):
+    def __init__(self, config_path: str):
         """
         Initialize configuration manager
         
         Args:
-            config_path: Path to main configuration file (optional)
-            default_config_path: Path to default configuration file (optional)
+            config_path: Path to main configuration file
         """
         self.config: Dict[str, Any] = {}
         
-        # Load default configuration if provided
-        if default_config_path and os.path.exists(default_config_path):
-            self._load_config(default_config_path)
-            logger.info(f"Loaded default configuration from {default_config_path}")
-        
-        # Load main configuration if provided (overrides defaults)
-        if config_path and os.path.exists(config_path):
-            self._load_config(config_path, override=True)
-            logger.info(f"Loaded configuration from {config_path}")
+        # Load main configuration
+        if not os.path.exists(config_path):
+            raise ValueError(f"Configuration file does not exist: {config_path}")
+            
+        self._load_config(config_path)
+        logger.info(f"Loaded configuration from {config_path}")
     
-    def _load_config(self, config_path: str, override: bool = False) -> None:
+    def _load_config(self, config_path: str) -> None:
         """
         Load configuration from a YAML file
         
         Args:
             config_path: Path to configuration file
-            override: Whether to override existing values
         """
         try:
             with open(config_path, 'r') as f:
                 loaded_config = yaml.safe_load(f)
-                
-                if override:
-                    # Update existing config with new values
-                    self._update_dict(self.config, loaded_config)
-                else:
-                    # Set config if empty, otherwise update
-                    if not self.config:
-                        self.config = loaded_config
-                    else:
-                        self._update_dict(self.config, loaded_config)
+                self.config = loaded_config
                         
         except Exception as e:
             logger.error(f"Error loading configuration from {config_path}: {e}")
             raise
-    
-    def _update_dict(self, target: Dict, source: Dict) -> None:
-        """
-        Recursively update a dictionary with values from another dictionary
-        
-        Args:
-            target: Dictionary to update
-            source: Dictionary with new values
-        """
-        for key, value in source.items():
-            if isinstance(value, dict) and key in target and isinstance(target[key], dict):
-                # Recursively update nested dictionaries
-                self._update_dict(target[key], value)
-            else:
-                # Update or add value
-                target[key] = value
     
     def get(self, key_path: str, default: Any = None) -> Any:
         """

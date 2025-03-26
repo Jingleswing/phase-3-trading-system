@@ -17,6 +17,12 @@ trading:
       market_type: spot
     - symbol: BTC/USDT
       market_type: spot
+    - symbol: SOL/USDT
+      market_type: spot
+    - symbol: BLAST/USDT
+      market_type: spot
+    - symbol: COOK/USDT
+      market_type: spot 
   timeframe: 1m
   
 # Strategy configuration (fallback if symbol-specific strategy not defined)

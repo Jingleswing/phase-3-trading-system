@@ -22,3 +22,181 @@
 2025-03-25 09:20:40,995 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/trading_bot.log
 2025-03-25 09:20:41,000 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
 2025-03-25 09:20:46,669 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-25 21:21:08,409 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-25 21:21:08,411 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/trading_bot.log
+2025-03-25 21:21:08,417 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-25 21:21:12,022 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-25 21:21:12,022 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-25 21:21:12,022 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-25 21:21:12,024 - __main__.TradingBot - INFO - Created spot strategy for ETH/USDT
+2025-03-25 21:21:12,024 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Initialized MA_Crossover_Futures_20_50 strategy for futures market with leverage=5x
+2025-03-25 21:21:12,024 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_futures strategy with short_period=20, long_period=50, leverage=5
+2025-03-25 21:21:12,024 - __main__.TradingBot - INFO - Created futures strategy for ETH/USDT:USDT
+2025-03-25 21:21:12,024 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-25 21:21:12,024 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-25 21:21:12,024 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-25 21:21:12,024 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager (risk_per_trade=0.5, max_open_trades=1)
+2025-03-25 21:21:12,024 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-25 21:21:12,024 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-25 21:21:12,024 - __main__.TradingBot - INFO - Trading ['ETH/USDT', 'ETH/USDT:USDT'] on 1m timeframe
+2025-03-25 21:21:12,529 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2065.06, Long(50)=2062.82, Price=2065.15, Diff=2.24 (0.11%)
+2025-03-25 21:22:13,019 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2064.86, Long(50)=2062.78, Price=2063.22, Diff=2.08 (0.10%)
+2025-03-25 21:23:13,501 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2064.90, Long(50)=2062.75, Price=2064.09, Diff=2.14 (0.10%)
+2025-03-25 21:24:14,004 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2064.95, Long(50)=2062.74, Price=2064.44, Diff=2.21 (0.11%)
+2025-03-25 21:25:14,511 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2065.42, Long(50)=2062.94, Price=2068.79, Diff=2.48 (0.12%)
+2025-03-25 21:26:15,007 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2065.55, Long(50)=2062.99, Price=2068.81, Diff=2.56 (0.12%)
+2025-03-25 21:27:15,503 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2065.83, Long(50)=2063.13, Price=2070.29, Diff=2.70 (0.13%)
+2025-03-25 21:28:16,023 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2066.11, Long(50)=2063.30, Price=2071.00, Diff=2.81 (0.14%)
+2025-03-25 21:29:16,517 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2066.03, Long(50)=2063.40, Price=2067.89, Diff=2.64 (0.13%)
+2025-03-25 21:30:17,035 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2066.04, Long(50)=2063.49, Price=2067.49, Diff=2.55 (0.12%)
+2025-03-25 21:31:17,522 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2066.22, Long(50)=2063.65, Price=2067.89, Diff=2.56 (0.12%)
+2025-03-25 21:32:18,003 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2066.48, Long(50)=2063.86, Price=2069.01, Diff=2.62 (0.13%)
+2025-03-25 21:33:18,491 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2066.74, Long(50)=2064.07, Price=2069.76, Diff=2.66 (0.13%)
+2025-03-25 21:34:19,309 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2066.95, Long(50)=2064.33, Price=2069.78, Diff=2.62 (0.13%)
+2025-03-25 21:35:19,793 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2067.28, Long(50)=2064.61, Price=2070.75, Diff=2.67 (0.13%)
+2025-03-25 21:46:01,720 - trading_bot.data.providers.ccxt_provider.CCXTProvider - ERROR - Error retrieving historical data for ETH/USDT: bybit GET https://api.bybit.com/v5/market/kline?symbol=ETHUSDT&limit=100&interval=1&category=spot
+2025-03-25 21:46:01,720 - __main__.TradingBot - ERROR - Error processing ETH/USDT: bybit GET https://api.bybit.com/v5/market/kline?symbol=ETHUSDT&limit=100&interval=1&category=spot
+2025-03-25 21:46:01,722 - __main__.TradingBot - ERROR - Error in data_processing: bybit GET https://api.bybit.com/v5/market/kline?symbol=ETHUSDT&limit=100&interval=1&category=spot
+2025-03-25 21:46:01,818 - trading_bot.data.providers.ccxt_provider.CCXTProvider - ERROR - Error retrieving historical data for ETH/USDT:USDT: bybit GET https://api.bybit.com/v5/market/kline?symbol=ETHUSDT&limit=100&interval=1&category=linear
+2025-03-25 21:46:01,820 - __main__.TradingBot - ERROR - Error processing ETH/USDT:USDT: bybit GET https://api.bybit.com/v5/market/kline?symbol=ETHUSDT&limit=100&interval=1&category=linear
+2025-03-25 21:46:01,820 - __main__.TradingBot - ERROR - Error in data_processing: bybit GET https://api.bybit.com/v5/market/kline?symbol=ETHUSDT&limit=100&interval=1&category=linear
+2025-03-26 05:17:18,306 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2049.90, Long(50)=2053.37, Price=2049.88, Diff=-3.47 (-0.17%)
+2025-03-26 05:18:18,733 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.34, Long(50)=2053.27, Price=2053.39, Diff=-2.94 (-0.14%)
+2025-03-26 05:19:19,823 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.72, Long(50)=2053.17, Price=2054.20, Diff=-2.45 (-0.12%)
+2025-03-26 05:20:20,249 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.88, Long(50)=2052.99, Price=2052.79, Diff=-2.11 (-0.10%)
+2025-03-26 05:21:20,681 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.08, Long(50)=2052.83, Price=2053.06, Diff=-1.75 (-0.09%)
+2025-03-26 05:22:21,108 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.31, Long(50)=2052.73, Price=2053.51, Diff=-1.42 (-0.07%)
+2025-03-26 05:23:21,886 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.57, Long(50)=2052.63, Price=2053.42, Diff=-1.06 (-0.05%)
+2025-03-26 05:24:22,319 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.76, Long(50)=2052.50, Price=2052.77, Diff=-0.74 (-0.04%)
+2025-03-26 05:25:22,759 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.87, Long(50)=2052.40, Price=2052.70, Diff=-0.53 (-0.03%)
+2025-03-26 05:26:23,203 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.04, Long(50)=2052.35, Price=2053.84, Diff=-0.31 (-0.01%)
+2025-03-26 05:27:23,638 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.07, Long(50)=2052.24, Price=2052.40, Diff=-0.17 (-0.01%)
+2025-03-26 05:28:23,853 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated BUY signal for ETH/USDT at 2054.71 in spot market
+2025-03-26 05:28:23,853 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT at 2054.71
+2025-03-26 05:28:24,740 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 0.0024065471331720777 ETH (risking 4.94475646 USDT, 50.0% of 9.88951292)
+2025-03-26 05:28:24,740 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 0.0024065471331720777 ETH/USDT at market price
+2025-03-26 05:28:25,312 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914479199331294208
+2025-03-26 05:28:25,312 - __main__.TradingBot - INFO - Order placed: {'info': {'orderId': '1914479199331294208', 'orderLinkId': '1914479199331294209'}, 'id': '1914479199331294208', 'clientOrderId': '1914479199331294209', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ETH/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 05:28:25,313 - __main__.TradingBot - INFO - Order placed successfully: 1914479199331294208
+2025-03-26 05:28:25,527 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.22, Long(50)=2052.15, Price=2053.33, Diff=0.07 (0.00%)
+2025-03-26 05:28:25,527 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Generated BUY signal for ETH/USDT:USDT at 2053.33 in futures market (leverage: 5x)
+2025-03-26 05:28:25,527 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT:USDT at 2053.33
+2025-03-26 05:28:26,481 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - No available balance in USDT:USDT
+2025-03-26 05:28:26,481 - __main__.TradingBot - WARNING - Position size is zero or negative, skipping order
+2025-03-26 05:29:26,912 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.32, Long(50)=2052.05, Price=2053.49, Diff=0.28 (0.01%)
+2025-03-26 05:30:28,038 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.53, Long(50)=2051.95, Price=2053.28, Diff=0.58 (0.03%)
+2025-03-26 05:31:28,487 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.54, Long(50)=2051.83, Price=2051.08, Diff=0.71 (0.03%)
+2025-03-26 05:32:28,921 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.34, Long(50)=2051.66, Price=2049.52, Diff=0.68 (0.03%)
+2025-03-26 05:33:29,711 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.22, Long(50)=2051.57, Price=2049.84, Diff=0.65 (0.03%)
+2025-03-26 05:34:30,152 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.26, Long(50)=2051.48, Price=2050.80, Diff=0.78 (0.04%)
+2025-03-26 05:35:30,940 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.20, Long(50)=2051.39, Price=2049.92, Diff=0.81 (0.04%)
+2025-03-26 05:36:31,382 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.08, Long(50)=2051.21, Price=2047.31, Diff=0.86 (0.04%)
+2025-03-26 05:37:32,170 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.69, Long(50)=2051.02, Price=2046.18, Diff=0.68 (0.03%)
+2025-03-26 05:38:32,605 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.35, Long(50)=2050.87, Price=2046.78, Diff=0.48 (0.02%)
+2025-03-26 05:39:33,034 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.96, Long(50)=2050.71, Price=2045.59, Diff=0.25 (0.01%)
+2025-03-26 05:40:33,827 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.64, Long(50)=2050.60, Price=2046.08, Diff=0.04 (0.00%)
+2025-03-26 05:41:34,389 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated CLOSE signal for ETH/USDT at 2046.27 in spot market
+2025-03-26 05:41:34,390 - __main__.TradingBot - INFO - Received signal: close ETH/USDT at 2046.27
+2025-03-26 05:41:34,601 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.0024004 ETH/USDT at market price
+2025-03-26 05:41:34,835 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914485822347025409
+2025-03-26 05:41:34,836 - __main__.TradingBot - INFO - Position closed: {'info': {'orderId': '1914485822347025409', 'orderLinkId': '1914485822347025410'}, 'id': '1914485822347025409', 'clientOrderId': '1914485822347025410', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ETH/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 05:41:34,836 - __main__.TradingBot - INFO - Order placed successfully: 1914485822347025409
+2025-03-26 05:41:35,048 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.19, Long(50)=2050.46, Price=2045.06, Diff=-0.27 (-0.01%)
+2025-03-26 05:41:35,049 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Generated SELL signal for ETH/USDT:USDT at 2045.06 in futures market (leverage: 5x)
+2025-03-26 05:41:35,049 - __main__.TradingBot - INFO - Received signal: sell ETH/USDT:USDT at 2045.06
+2025-03-26 05:41:35,820 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - No available balance in USDT:USDT
+2025-03-26 05:41:35,821 - __main__.TradingBot - WARNING - Position size is zero or negative, skipping order
+2025-03-26 05:42:36,252 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2049.83, Long(50)=2050.32, Price=2045.69, Diff=-0.49 (-0.02%)
+2025-03-26 05:43:36,693 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2049.40, Long(50)=2050.18, Price=2043.88, Diff=-0.79 (-0.04%)
+2025-03-26 05:44:37,135 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2048.94, Long(50)=2050.04, Price=2043.89, Diff=-1.10 (-0.05%)
+2025-03-26 05:45:37,919 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2048.48, Long(50)=2049.91, Price=2044.30, Diff=-1.43 (-0.07%)
+2025-03-26 05:46:17,314 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-26 05:46:17,314 - __main__.TradingBot - INFO - Stopping trading bot...
+2025-03-26 06:16:49,615 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-26 06:16:49,616 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/trading_bot.log
+2025-03-26 06:16:49,621 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-26 06:16:56,570 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-26 06:16:56,570 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-26 06:16:56,571 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-26 06:16:56,571 - __main__.TradingBot - INFO - Created spot strategy for ETH/USDT
+2025-03-26 06:16:56,571 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Initialized MA_Crossover_Futures_20_50 strategy for futures market with leverage=5x
+2025-03-26 06:16:56,571 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_futures strategy with short_period=20, long_period=50, leverage=5
+2025-03-26 06:16:56,571 - __main__.TradingBot - INFO - Created futures strategy for ETH/USDT:USDT
+2025-03-26 06:16:56,571 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Initialized MA_Crossover_Spot_20_50 strategy for spot market
+2025-03-26 06:16:56,573 - trading_bot.strategies.factory.StrategyFactory - INFO - Created moving_average_crossover_spot strategy with short_period=20, long_period=50
+2025-03-26 06:16:56,573 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-26 06:16:56,573 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager (risk_per_trade=0.5, max_open_trades=1)
+2025-03-26 06:16:56,573 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-26 06:16:56,574 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-26 06:16:56,574 - __main__.TradingBot - INFO - Trading ['ETH/USDT', 'ETH/USDT:USDT'] on 1m timeframe
+2025-03-26 06:16:57,000 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.27, Long(50)=2048.35, Price=2050.16, Diff=1.91 (0.09%)
+2025-03-26 06:17:57,776 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.36, Long(50)=2048.28, Price=2049.82, Diff=2.08 (0.10%)
+2025-03-26 06:18:58,901 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.40, Long(50)=2048.19, Price=2049.07, Diff=2.21 (0.11%)
+2025-03-26 06:19:59,671 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.42, Long(50)=2048.09, Price=2048.50, Diff=2.33 (0.11%)
+2025-03-26 06:21:00,463 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.44, Long(50)=2048.00, Price=2047.86, Diff=2.43 (0.12%)
+2025-03-26 06:22:00,905 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.40, Long(50)=2047.94, Price=2047.89, Diff=2.46 (0.12%)
+2025-03-26 06:23:02,034 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.36, Long(50)=2047.91, Price=2048.30, Diff=2.45 (0.12%)
+2025-03-26 06:24:02,814 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.37, Long(50)=2047.89, Price=2049.26, Diff=2.47 (0.12%)
+2025-03-26 06:25:03,941 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.42, Long(50)=2047.92, Price=2050.07, Diff=2.50 (0.12%)
+2025-03-26 06:26:04,734 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.44, Long(50)=2048.02, Price=2050.51, Diff=2.41 (0.12%)
+2025-03-26 06:27:05,172 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.43, Long(50)=2048.12, Price=2050.77, Diff=2.31 (0.11%)
+2025-03-26 06:28:05,958 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.51, Long(50)=2048.25, Price=2051.99, Diff=2.26 (0.11%)
+2025-03-26 06:29:06,745 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.50, Long(50)=2048.37, Price=2051.91, Diff=2.13 (0.10%)
+2025-03-26 06:30:07,535 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.44, Long(50)=2048.47, Price=2051.51, Diff=1.97 (0.10%)
+2025-03-26 06:31:08,657 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.48, Long(50)=2048.62, Price=2052.33, Diff=1.87 (0.09%)
+2025-03-26 06:32:09,097 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.50, Long(50)=2048.76, Price=2052.57, Diff=1.74 (0.08%)
+2025-03-26 06:33:09,524 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.56, Long(50)=2048.97, Price=2053.55, Diff=1.60 (0.08%)
+2025-03-26 06:34:10,657 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.71, Long(50)=2049.18, Price=2053.48, Diff=1.53 (0.07%)
+2025-03-26 06:35:11,437 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.91, Long(50)=2049.42, Price=2053.63, Diff=1.49 (0.07%)
+2025-03-26 06:36:12,212 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.02, Long(50)=2049.60, Price=2052.88, Diff=1.42 (0.07%)
+2025-03-26 06:37:13,338 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.23, Long(50)=2049.80, Price=2053.71, Diff=1.43 (0.07%)
+2025-03-26 06:38:14,471 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.43, Long(50)=2049.96, Price=2053.31, Diff=1.48 (0.07%)
+2025-03-26 06:39:15,348 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.78, Long(50)=2050.16, Price=2054.57, Diff=1.63 (0.08%)
+2025-03-26 06:40:16,474 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.18, Long(50)=2050.37, Price=2055.09, Diff=1.80 (0.09%)
+2025-03-26 06:41:17,593 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.47, Long(50)=2050.57, Price=2054.11, Diff=1.90 (0.09%)
+2025-03-26 06:42:18,026 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.91, Long(50)=2050.82, Price=2056.01, Diff=2.09 (0.10%)
+2025-03-26 06:43:18,802 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2053.09, Long(50)=2050.96, Price=2054.31, Diff=2.13 (0.10%)
+2025-03-26 06:44:19,583 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2053.30, Long(50)=2051.12, Price=2054.34, Diff=2.18 (0.11%)
+2025-03-26 06:45:20,714 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2053.47, Long(50)=2051.30, Price=2054.00, Diff=2.17 (0.11%)
+2025-03-26 06:46:21,824 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2053.54, Long(50)=2051.37, Price=2053.11, Diff=2.17 (0.11%)
+2025-03-26 06:47:22,256 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2053.51, Long(50)=2051.44, Price=2052.42, Diff=2.07 (0.10%)
+2025-03-26 06:48:23,033 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2053.46, Long(50)=2051.49, Price=2051.78, Diff=1.97 (0.10%)
+2025-03-26 06:49:23,822 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2053.36, Long(50)=2051.52, Price=2050.60, Diff=1.84 (0.09%)
+2025-03-26 06:50:24,937 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2053.25, Long(50)=2051.57, Price=2050.20, Diff=1.68 (0.08%)
+2025-03-26 06:51:25,718 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2053.16, Long(50)=2051.63, Price=2051.08, Diff=1.53 (0.07%)
+2025-03-26 06:52:26,496 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2053.07, Long(50)=2051.69, Price=2050.94, Diff=1.37 (0.07%)
+2025-03-26 06:53:26,937 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.93, Long(50)=2051.73, Price=2051.12, Diff=1.20 (0.06%)
+2025-03-26 06:54:27,363 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.86, Long(50)=2051.78, Price=2051.91, Diff=1.07 (0.05%)
+2025-03-26 06:55:28,145 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.82, Long(50)=2051.83, Price=2052.01, Diff=0.99 (0.05%)
+2025-03-26 06:56:28,938 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.79, Long(50)=2051.87, Price=2052.43, Diff=0.92 (0.04%)
+2025-03-26 06:57:30,068 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.68, Long(50)=2051.87, Price=2051.62, Diff=0.81 (0.04%)
+2025-03-26 06:58:31,198 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.56, Long(50)=2051.87, Price=2052.18, Diff=0.69 (0.03%)
+2025-03-26 06:59:31,990 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.38, Long(50)=2051.86, Price=2052.01, Diff=0.52 (0.03%)
+2025-03-26 07:00:33,123 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2052.15, Long(50)=2051.82, Price=2050.58, Diff=0.33 (0.02%)
+2025-03-26 07:01:34,238 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.87, Long(50)=2051.76, Price=2049.61, Diff=0.10 (0.01%)
+2025-03-26 07:02:34,467 - trading_bot.strategies.moving_average_crossover_spot.MovingAverageCrossoverSpot - INFO - Generated CLOSE signal for ETH/USDT at 2050.7 in spot market
+2025-03-26 07:02:34,467 - __main__.TradingBot - INFO - Received signal: close ETH/USDT at 2050.7
+2025-03-26 07:02:35,834 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 4e-07 ETH/USDT at market price
+2025-03-26 07:02:35,835 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ETH/USDT must be greater than minimum amount precision of 0.00001
+2025-03-26 07:02:35,836 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ETH/USDT must be greater than minimum amount precision of 0.00001
+2025-03-26 07:02:35,836 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ETH/USDT must be greater than minimum amount precision of 0.00001
+2025-03-26 07:02:36,400 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.63, Long(50)=2051.70, Price=2049.52, Diff=-0.07 (-0.00%)
+2025-03-26 07:02:36,400 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Generated SELL signal for ETH/USDT:USDT at 2049.52 in futures market (leverage: 5x)
+2025-03-26 07:02:36,400 - __main__.TradingBot - INFO - Received signal: sell ETH/USDT:USDT at 2049.52
+2025-03-26 07:02:37,174 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - No available balance in USDT:USDT
+2025-03-26 07:02:37,174 - __main__.TradingBot - WARNING - Position size is zero or negative, skipping order
+2025-03-26 07:03:37,952 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.42, Long(50)=2051.64, Price=2049.71, Diff=-0.22 (-0.01%)
+2025-03-26 07:04:39,092 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2051.17, Long(50)=2051.61, Price=2049.31, Diff=-0.44 (-0.02%)
+2025-03-26 07:05:40,216 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.99, Long(50)=2051.60, Price=2049.68, Diff=-0.61 (-0.03%)
+2025-03-26 07:06:40,669 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.85, Long(50)=2051.58, Price=2049.41, Diff=-0.73 (-0.04%)
+2025-03-26 07:07:41,100 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.75, Long(50)=2051.58, Price=2049.68, Diff=-0.83 (-0.04%)
+2025-03-26 07:08:41,540 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.75, Long(50)=2051.61, Price=2050.58, Diff=-0.86 (-0.04%)
+2025-03-26 07:09:42,672 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.75, Long(50)=2051.65, Price=2050.51, Diff=-0.90 (-0.04%)
+2025-03-26 07:10:43,797 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.80, Long(50)=2051.72, Price=2051.22, Diff=-0.92 (-0.04%)
+2025-03-26 07:11:44,936 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.82, Long(50)=2051.80, Price=2051.79, Diff=-0.98 (-0.05%)
+2025-03-26 07:12:45,719 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.84, Long(50)=2051.87, Price=2051.81, Diff=-1.02 (-0.05%)
+2025-03-26 07:13:46,508 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.83, Long(50)=2051.91, Price=2051.37, Diff=-1.09 (-0.05%)
+2025-03-26 07:14:47,277 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.78, Long(50)=2051.94, Price=2051.21, Diff=-1.15 (-0.06%)
+2025-03-26 07:15:48,055 - trading_bot.strategies.moving_average_crossover_futures.MovingAverageCrossoverFutures - INFO - Current SMAs for ETH/USDT:USDT: Short(20)=2050.70, Long(50)=2051.94, Price=2050.70, Diff=-1.24 (-0.06%)
+2025-03-26 07:15:49,455 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-26 07:15:49,456 - __main__.TradingBot - INFO - Stopping trading bot...

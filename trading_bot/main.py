@@ -29,8 +29,10 @@ class TradingBot(LoggerMixin):
             config_path: Path to configuration file
         """
         # Load configuration
-        default_config_path = os.path.join(os.path.dirname(__file__), 'config', 'default_config.yaml')
-        self.config = Config(config_path, default_config_path)
+        if not config_path or not os.path.exists(config_path):
+            raise ValueError(f"Config file is required and must exist: {config_path}")
+            
+        self.config = Config(config_path)
         
         # Set up logging with config
         setup_logging(config=self.config.config)
@@ -111,9 +113,9 @@ class TradingBot(LoggerMixin):
                 })
                 self.logger.info(f"Created spot strategy for {symbol_config}")
         
-        # Fallback to default strategy config if needed
-        strategy_config = self.config.get('strategy', {})
-        self.default_strategy = StrategyFactory.create_strategy(strategy_config)
+        # Check if any valid strategies were created
+        if not self.strategies:
+            self.logger.warning("No valid trading strategies configured")
         
         # Set up order executor
         trading_enabled = self.config.get('trading.enabled', False)
@@ -266,7 +268,11 @@ class TradingBot(LoggerMixin):
         ))
         
         # Get trading parameters
-        symbols = [s.get('symbol') if isinstance(s, dict) else s for s in self.config.get('trading.symbols', ['ETH/USDT'])]
+        symbols = [s.get('symbol') if isinstance(s, dict) else s for s in self.config.get('trading.symbols', [])]
+        if not symbols:
+            self.logger.warning("No trading symbols configured, bot will not perform any trades")
+            return
+            
         timeframe = self.config.get('trading.timeframe', '1m')
         loop_interval = self.config.get('system.loop_interval', 60)
         
@@ -276,6 +282,11 @@ class TradingBot(LoggerMixin):
             while self.running:
                 for symbol in symbols:
                     try:
+                        # Skip symbols without configured strategies
+                        if symbol not in self.strategies:
+                            self.logger.warning(f"No strategy configured for {symbol}, skipping")
+                            continue
+                            
                         # Fetch latest data
                         data = self.data_provider.get_historical_data(
                             symbol=symbol,
@@ -288,7 +299,7 @@ class TradingBot(LoggerMixin):
                             continue
                         
                         # Use the appropriate strategy for this symbol
-                        strategy = self.strategies.get(symbol, self.default_strategy)
+                        strategy = self.strategies[symbol]
                         
                         # Generate signals
                         signals = strategy.generate_signals(data)
@@ -340,7 +351,7 @@ class TradingBot(LoggerMixin):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Trading Bot')
-    parser.add_argument('--config', type=str, default=None, help='Path to configuration file')
+    parser.add_argument('--config', type=str, required=True, help='Path to configuration file')
     args = parser.parse_args()
     
     bot = TradingBot(config_path=args.config)
