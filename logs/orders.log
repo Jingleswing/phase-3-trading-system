@@ -1,0 +1,577 @@
+2025-03-27 06:15:47,948 - orders - ERROR - Order execution error:
+  Error: 'Order' object has no attribute 'id'
+  Error type: AttributeError
+  Symbol: MNT/USDT
+  Side: sell
+  Amount: 0.3202064
+  Order type: market
+  Exchange: bybit
+2025-03-27 06:15:57,041 - orders - ERROR - Order execution error:
+  Error: 'Order' object has no attribute 'id'
+  Error type: AttributeError
+  Symbol: MNT/USDT
+  Side: sell
+  Amount: 0.3202064
+  Order type: market
+  Exchange: bybit
+2025-03-27 06:16:06,023 - orders - ERROR - Order execution error:
+  Error: 'Order' object has no attribute 'id'
+  Error type: AttributeError
+  Symbol: MNT/USDT
+  Side: sell
+  Amount: 0.3202064
+  Order type: market
+  Exchange: bybit
+2025-03-27 06:16:16,641 - orders - ERROR - Order execution error:
+  Error: 'Order' object has no attribute 'id'
+  Error type: AttributeError
+  Symbol: MNT/USDT
+  Side: sell
+  Amount: 0.3202064
+  Order type: market
+  Exchange: bybit
+2025-03-27 06:16:25,303 - orders - ERROR - Order execution error:
+  Error: 'Order' object has no attribute 'id'
+  Error type: AttributeError
+  Symbol: MNT/USDT
+  Side: sell
+  Amount: 0.3202064
+  Order type: market
+  Exchange: bybit
+2025-03-27 07:17:52,542 - orders - DEBUG - Order details:
+  Symbol: ENA/USDT
+  Order Type: market
+  Side: buy
+  Amount: 23.04295477
+  Price: Market
+2025-03-27 07:17:52,542 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 07:17:52,542 - orders - DEBUG -   Signal Price: 0.4295
+2025-03-27 07:17:52,542 - orders - DEBUG - Market info for ENA/USDT:
+  Limits - Amount: {'min': 2.4, 'max': 1288659.793814}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 07:17:52,771 - orders - DEBUG - Order response: {'info': {'orderId': '1915259066951932928', 'orderLinkId': '1915259066951932929'}, 'id': '1915259066951932928', 'clientOrderId': '1915259066951932929', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ENA/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 07:18:59,763 - orders - DEBUG - Order details:
+  Symbol: ENA/USDT
+  Order Type: market
+  Side: sell
+  Amount: 23.01696000
+  Price: Market
+2025-03-27 07:18:59,763 - orders - DEBUG - Market info for ENA/USDT:
+  Limits - Amount: {'min': 2.4, 'max': 1288659.793814}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 07:18:59,986 - orders - DEBUG - Order response: {'info': {'orderId': '1915259630800608256', 'orderLinkId': '1915259630800608257'}, 'id': '1915259630800608256', 'clientOrderId': '1915259630800608257', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ENA/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 07:20:03,951 - orders - DEBUG - Order details:
+  Symbol: ENA/USDT
+  Order Type: market
+  Side: sell
+  Amount: 0.00696000
+  Price: Market
+2025-03-27 07:20:03,951 - orders - DEBUG - Market info for ENA/USDT:
+  Limits - Amount: {'min': 2.4, 'max': 1288659.793814}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 07:20:03,951 - orders - ERROR - Order validation failed: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+2025-03-27 07:20:03,951 - orders - ERROR - Order execution error:
+  Error: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+  Error type: ValueError
+  Symbol: ENA/USDT
+  Side: sell
+  Amount: 0.00696
+  Order type: market
+  Exchange: bybit
+2025-03-27 07:21:10,431 - orders - DEBUG - Order details:
+  Symbol: ENA/USDT
+  Order Type: market
+  Side: sell
+  Amount: 0.00696000
+  Price: Market
+2025-03-27 07:21:10,431 - orders - DEBUG - Market info for ENA/USDT:
+  Limits - Amount: {'min': 2.4, 'max': 1288659.793814}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 07:21:10,431 - orders - ERROR - Order validation failed: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+2025-03-27 07:21:10,432 - orders - ERROR - Order execution error:
+  Error: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+  Error type: ValueError
+  Symbol: ENA/USDT
+  Side: sell
+  Amount: 0.00696
+  Order type: market
+  Exchange: bybit
+2025-03-27 07:22:16,498 - orders - DEBUG - Order details:
+  Symbol: ENA/USDT
+  Order Type: market
+  Side: sell
+  Amount: 0.00696000
+  Price: Market
+2025-03-27 07:22:16,498 - orders - DEBUG - Market info for ENA/USDT:
+  Limits - Amount: {'min': 2.4, 'max': 1288659.793814}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 07:22:16,499 - orders - ERROR - Order validation failed: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+2025-03-27 07:22:16,499 - orders - ERROR - Order execution error:
+  Error: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+  Error type: ValueError
+  Symbol: ENA/USDT
+  Side: sell
+  Amount: 0.00696
+  Order type: market
+  Exchange: bybit
+2025-03-27 07:23:22,075 - orders - DEBUG - Order details:
+  Symbol: ENA/USDT
+  Order Type: market
+  Side: sell
+  Amount: 0.00696000
+  Price: Market
+2025-03-27 07:23:22,075 - orders - DEBUG - Market info for ENA/USDT:
+  Limits - Amount: {'min': 2.4, 'max': 1288659.793814}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 07:23:22,077 - orders - ERROR - Order validation failed: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+2025-03-27 07:23:22,077 - orders - ERROR - Order execution error:
+  Error: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+  Error type: ValueError
+  Symbol: ENA/USDT
+  Side: sell
+  Amount: 0.00696
+  Order type: market
+  Exchange: bybit
+2025-03-27 07:24:27,770 - orders - DEBUG - Order details:
+  Symbol: ENA/USDT
+  Order Type: market
+  Side: sell
+  Amount: 0.00696000
+  Price: Market
+2025-03-27 07:24:27,770 - orders - DEBUG - Market info for ENA/USDT:
+  Limits - Amount: {'min': 2.4, 'max': 1288659.793814}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 07:24:27,771 - orders - ERROR - Order validation failed: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+2025-03-27 07:24:27,771 - orders - ERROR - Order execution error:
+  Error: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+  Error type: ValueError
+  Symbol: ENA/USDT
+  Side: sell
+  Amount: 0.00696
+  Order type: market
+  Exchange: bybit
+2025-03-27 07:24:30,382 - orders - DEBUG - Order details:
+  Symbol: BLAST/USDT
+  Order Type: market
+  Side: buy
+  Amount: 3241.52902989
+  Price: Market
+2025-03-27 07:24:30,382 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 07:24:30,382 - orders - DEBUG -   Signal Price: 0.003814
+2025-03-27 07:24:30,382 - orders - DEBUG - Market info for BLAST/USDT:
+  Limits - Amount: {'min': 332.0, 'max': 60042029.42059442}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 200000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 1e-06
+2025-03-27 07:24:30,617 - orders - DEBUG - Order response: {'info': {'orderId': '1915262404317682688', 'orderLinkId': '1915262404317682689'}, 'id': '1915262404317682688', 'clientOrderId': '1915262404317682689', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'BLAST/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 07:25:33,732 - orders - DEBUG - Order details:
+  Symbol: ENA/USDT
+  Order Type: market
+  Side: sell
+  Amount: 0.00696000
+  Price: Market
+2025-03-27 07:25:33,732 - orders - DEBUG - Market info for ENA/USDT:
+  Limits - Amount: {'min': 2.4, 'max': 1288659.793814}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 07:25:33,732 - orders - ERROR - Order validation failed: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+2025-03-27 07:25:33,733 - orders - ERROR - Order execution error:
+  Error: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+  Error type: ValueError
+  Symbol: ENA/USDT
+  Side: sell
+  Amount: 0.00696
+  Order type: market
+  Exchange: bybit
+2025-03-27 07:26:40,327 - orders - DEBUG - Order details:
+  Symbol: ENA/USDT
+  Order Type: market
+  Side: sell
+  Amount: 0.00696000
+  Price: Market
+2025-03-27 07:26:40,327 - orders - DEBUG - Market info for ENA/USDT:
+  Limits - Amount: {'min': 2.4, 'max': 1288659.793814}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 07:26:40,328 - orders - ERROR - Order validation failed: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+2025-03-27 07:26:40,328 - orders - ERROR - Order execution error:
+  Error: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+  Error type: ValueError
+  Symbol: ENA/USDT
+  Side: sell
+  Amount: 0.00696
+  Order type: market
+  Exchange: bybit
+2025-03-27 07:27:44,913 - orders - DEBUG - Order details:
+  Symbol: ENA/USDT
+  Order Type: market
+  Side: sell
+  Amount: 0.00696000
+  Price: Market
+2025-03-27 07:27:44,913 - orders - DEBUG - Market info for ENA/USDT:
+  Limits - Amount: {'min': 2.4, 'max': 1288659.793814}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 07:27:44,914 - orders - ERROR - Order validation failed: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+2025-03-27 07:27:44,914 - orders - ERROR - Order execution error:
+  Error: bybit amount of ENA/USDT must be greater than minimum amount precision of 2.4
+  Error type: ValueError
+  Symbol: ENA/USDT
+  Side: sell
+  Amount: 0.00696
+  Order type: market
+  Exchange: bybit
+2025-03-27 09:08:36,611 - orders - DEBUG - Order details:
+  Symbol: BLAST/USDT
+  Order Type: market
+  Side: buy
+  Amount: 2421.62507182
+  Price: Market
+2025-03-27 09:08:36,611 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 09:08:36,611 - orders - DEBUG -   Signal Price: 0.003829
+2025-03-27 09:08:36,612 - orders - DEBUG - Market info for BLAST/USDT:
+  Limits - Amount: {'min': 332.0, 'max': 60042029.42059442}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 200000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 1e-06
+2025-03-27 09:08:36,835 - orders - DEBUG - Order response: {'info': {'orderId': '1915314801601682432', 'orderLinkId': '1915314801601682433'}, 'id': '1915314801601682432', 'clientOrderId': '1915314801601682433', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'BLAST/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 09:09:40,187 - orders - DEBUG - Order details:
+  Symbol: ENA/USDT
+  Order Type: market
+  Side: buy
+  Amount: 16.00899322
+  Price: Market
+2025-03-27 09:09:40,187 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 09:09:40,187 - orders - DEBUG -   Signal Price: 0.4344
+2025-03-27 09:09:40,187 - orders - DEBUG - Market info for ENA/USDT:
+  Limits - Amount: {'min': 2.4, 'max': 1288659.793814}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 09:09:40,415 - orders - DEBUG - Order response: {'info': {'orderId': '1915315334957767680', 'orderLinkId': '1915315334957767681'}, 'id': '1915315334957767680', 'clientOrderId': '1915315334957767681', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ENA/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 09:11:51,020 - orders - DEBUG - Order details:
+  Symbol: ETH/USDT
+  Order Type: market
+  Side: buy
+  Amount: 0.00342939
+  Price: Market
+2025-03-27 09:11:51,021 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 09:11:51,021 - orders - DEBUG -   Signal Price: 2027.77
+2025-03-27 09:11:51,021 - orders - DEBUG - Market info for ETH/USDT:
+  Limits - Amount: {'min': 0.00029, 'max': 3070.458244}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 7000000.0}
+  Precision - Amount: 1e-05
+  Precision - Price: 0.01
+2025-03-27 09:11:51,576 - orders - DEBUG - Order response: {'info': {'orderId': '1915316435241147392', 'orderLinkId': '1915316435241147393'}, 'id': '1915316435241147392', 'clientOrderId': '1915316435241147393', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ETH/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 09:12:59,529 - orders - DEBUG - Order details:
+  Symbol: BLAST/USDT
+  Order Type: market
+  Side: buy
+  Amount: 1816.25182838
+  Price: Market
+2025-03-27 09:12:59,530 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 09:12:59,530 - orders - DEBUG -   Signal Price: 0.003834
+2025-03-27 09:12:59,530 - orders - DEBUG - Market info for BLAST/USDT:
+  Limits - Amount: {'min': 332.0, 'max': 60042029.42059442}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 200000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 1e-06
+2025-03-27 09:12:59,756 - orders - DEBUG - Order response: {'info': {'orderId': '1915317007176440832', 'orderLinkId': '1915317007176440833'}, 'id': '1915317007176440832', 'clientOrderId': '1915317007176440833', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'BLAST/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 09:15:13,477 - orders - DEBUG - Order details:
+  Symbol: EIGEN/USDT
+  Order Type: market
+  Side: buy
+  Amount: 2.92567812
+  Price: Market
+2025-03-27 09:15:13,479 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 09:15:13,479 - orders - DEBUG -   Signal Price: 1.191
+2025-03-27 09:15:13,479 - orders - DEBUG - Market info for EIGEN/USDT:
+  Limits - Amount: {'min': 0.9, 'max': 172711.57168}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 200000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.001
+2025-03-27 09:15:13,702 - orders - DEBUG - Order response: {'info': {'orderId': '1915318130738207744', 'orderLinkId': '1915318130738207745'}, 'id': '1915318130738207744', 'clientOrderId': '1915318130738207745', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'EIGEN/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 09:27:10,925 - orders - DEBUG - Order details:
+  Symbol: BLAST/USDT
+  Order Type: market
+  Side: sell
+  Amount: 7471.91061000
+  Price: Market
+2025-03-27 09:27:10,925 - orders - DEBUG - Market info for BLAST/USDT:
+  Limits - Amount: {'min': 332.0, 'max': 60042029.42059442}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 200000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 1e-06
+2025-03-27 09:27:11,153 - orders - DEBUG - Order response: {'info': {'orderId': '1915324148935302144', 'orderLinkId': '1915324148935302145'}, 'id': '1915324148935302144', 'clientOrderId': '1915324148935302145', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'BLAST/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 09:35:53,321 - orders - DEBUG - Order details:
+  Symbol: ETH/USDT
+  Order Type: market
+  Side: buy
+  Amount: 0.00780436
+  Price: Market
+2025-03-27 09:35:53,321 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 09:35:53,321 - orders - DEBUG -   Signal Price: 2028.11
+2025-03-27 09:35:53,321 - orders - DEBUG - Market info for ETH/USDT:
+  Limits - Amount: {'min': 0.00029, 'max': 3070.458244}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 7000000.0}
+  Precision - Amount: 1e-05
+  Precision - Price: 0.01
+2025-03-27 09:35:53,539 - orders - DEBUG - Order response: {'info': {'orderId': '1915328531068623872', 'orderLinkId': '1915328531068623873'}, 'id': '1915328531068623872', 'clientOrderId': '1915328531068623873', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ETH/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 09:50:04,774 - orders - DEBUG - Order details:
+  Symbol: ETH/USDT
+  Order Type: market
+  Side: buy
+  Amount: 0.00390910
+  Price: Market
+2025-03-27 09:50:04,774 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 09:50:04,774 - orders - DEBUG -   Signal Price: 2025.82
+2025-03-27 09:50:04,774 - orders - DEBUG - Market info for ETH/USDT:
+  Limits - Amount: {'min': 0.00029, 'max': 3070.458244}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 7000000.0}
+  Precision - Amount: 1e-05
+  Precision - Price: 0.01
+2025-03-27 09:50:05,003 - orders - DEBUG - Order response: {'info': {'orderId': '1915335673649568768', 'orderLinkId': '1915335673649568769'}, 'id': '1915335673649568768', 'clientOrderId': '1915335673649568769', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ETH/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 09:56:41,728 - orders - DEBUG - Order details:
+  Symbol: EIGEN/USDT
+  Order Type: market
+  Side: buy
+  Amount: 3.34034832
+  Price: Market
+2025-03-27 09:56:41,728 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 09:56:41,728 - orders - DEBUG -   Signal Price: 1.188
+2025-03-27 09:56:41,744 - orders - DEBUG - Market info for EIGEN/USDT:
+  Limits - Amount: {'min': 0.9, 'max': 172711.57168}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 200000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.001
+2025-03-27 09:56:41,969 - orders - DEBUG - Order response: {'info': {'orderId': '1915339003650120704', 'orderLinkId': '1915339003650120705'}, 'id': '1915339003650120704', 'clientOrderId': '1915339003650120705', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'EIGEN/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 10:02:08,742 - orders - DEBUG - Order details:
+  Symbol: BLAST/USDT
+  Order Type: market
+  Side: buy
+  Amount: 525.91612997
+  Price: Market
+2025-03-27 10:02:08,742 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 10:02:08,742 - orders - DEBUG -   Signal Price: 0.00377
+2025-03-27 10:02:08,742 - orders - DEBUG - Market info for BLAST/USDT:
+  Limits - Amount: {'min': 332.0, 'max': 60042029.42059442}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 200000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 1e-06
+2025-03-27 10:02:08,963 - orders - DEBUG - Order response: {'info': {'orderId': '1915341746615884800', 'orderLinkId': '1915341746615884801'}, 'id': '1915341746615884800', 'clientOrderId': '1915341746615884801', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'BLAST/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 10:02:16,126 - orders - DEBUG - Order details:
+  Symbol: MNT/USDT
+  Order Type: market
+  Side: buy
+  Amount: 2.33722557
+  Price: Market
+2025-03-27 10:02:16,126 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 10:02:16,126 - orders - DEBUG -   Signal Price: 0.8481
+2025-03-27 10:02:16,126 - orders - DEBUG - Market info for MNT/USDT:
+  Limits - Amount: {'min': 0.81, 'max': 1539408.866995}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 10:02:16,347 - orders - ERROR - Order execution error:
+  Error: bybit {"retCode":170131,"retMsg":"Insufficient balance.","result":{},"retExtInfo":{},"time":1743062536249}
+  Error type: InsufficientFunds
+  Symbol: MNT/USDT
+  Side: buy
+  Amount: 2.337225574814291
+  Order type: market
+  Exchange: bybit
+2025-03-27 10:16:15,602 - orders - DEBUG - Order details:
+  Symbol: ENA/USDT
+  Order Type: market
+  Side: sell
+  Amount: 15.99096000
+  Price: Market
+2025-03-27 10:16:15,602 - orders - DEBUG - Market info for ENA/USDT:
+  Limits - Amount: {'min': 2.4, 'max': 1288659.793814}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 10:16:15,809 - orders - DEBUG - Order response: {'info': {'orderId': '1915348850609232896', 'orderLinkId': '1915348850609232897'}, 'id': '1915348850609232896', 'clientOrderId': '1915348850609232897', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ENA/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 10:17:29,492 - orders - DEBUG - Order details:
+  Symbol: MNT/USDT
+  Order Type: market
+  Side: buy
+  Amount: 5.20402328
+  Price: Market
+2025-03-27 10:17:29,492 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 10:17:29,492 - orders - DEBUG -   Signal Price: 0.8481
+2025-03-27 10:17:29,492 - orders - DEBUG - Market info for MNT/USDT:
+  Limits - Amount: {'min': 0.81, 'max': 1539408.866995}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 10:17:29,711 - orders - DEBUG - Order response: {'info': {'orderId': '1915349470485421056', 'orderLinkId': '1915349470485421057'}, 'id': '1915349470485421056', 'clientOrderId': '1915349470485421057', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'MNT/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 10:18:39,415 - orders - DEBUG - Order details:
+  Symbol: MNT/USDT
+  Order Type: market
+  Side: buy
+  Amount: 5.20804656
+  Price: Market
+2025-03-27 10:18:39,415 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 10:18:39,416 - orders - DEBUG -   Signal Price: 0.8481
+2025-03-27 10:18:39,416 - orders - DEBUG - Market info for MNT/USDT:
+  Limits - Amount: {'min': 0.81, 'max': 1539408.866995}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 10:18:39,624 - orders - ERROR - Order execution error:
+  Error: bybit {"retCode":170131,"retMsg":"Insufficient balance.","result":{},"retExtInfo":{},"time":1743063519534}
+  Error type: InsufficientFunds
+  Symbol: MNT/USDT
+  Side: buy
+  Amount: 5.208046562905318
+  Order type: market
+  Exchange: bybit
+2025-03-27 10:32:42,835 - orders - DEBUG - Order details:
+  Symbol: BLAST/USDT
+  Order Type: market
+  Side: sell
+  Amount: 525.38470000
+  Price: Market
+2025-03-27 10:32:42,835 - orders - DEBUG - Market info for BLAST/USDT:
+  Limits - Amount: {'min': 332.0, 'max': 60042029.42059442}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 200000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 1e-06
+2025-03-27 10:32:43,060 - orders - DEBUG - Order response: {'info': {'orderId': '1915357132195372032', 'orderLinkId': '1915357132195372033'}, 'id': '1915357132195372032', 'clientOrderId': '1915357132195372033', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'BLAST/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 11:12:57,031 - orders - DEBUG - Order details:
+  Symbol: ETH/USDT
+  Order Type: market
+  Side: sell
+  Amount: 0.01510488
+  Price: Market
+2025-03-27 11:12:57,031 - orders - DEBUG - Market info for ETH/USDT:
+  Limits - Amount: {'min': 0.00029, 'max': 3070.458244}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 7000000.0}
+  Precision - Amount: 1e-05
+  Precision - Price: 0.01
+2025-03-27 11:12:57,249 - orders - DEBUG - Order response: {'info': {'orderId': '1915377383813422080', 'orderLinkId': '1915377383813422081'}, 'id': '1915377383813422080', 'clientOrderId': '1915377383813422081', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ETH/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 11:22:48,302 - orders - DEBUG - Order details:
+  Symbol: ETH/USDT
+  Order Type: market
+  Side: buy
+  Amount: 0.00607340
+  Price: Market
+2025-03-27 11:22:48,302 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 11:22:48,302 - orders - DEBUG -   Signal Price: 2024.17
+2025-03-27 11:22:48,302 - orders - DEBUG - Market info for ETH/USDT:
+  Limits - Amount: {'min': 0.00029, 'max': 3070.458244}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 7000000.0}
+  Precision - Amount: 1e-05
+  Precision - Price: 0.01
+2025-03-27 11:22:48,520 - orders - DEBUG - Order response: {'info': {'orderId': '1915382343779228673', 'orderLinkId': '1915382343779228674'}, 'id': '1915382343779228673', 'clientOrderId': '1915382343779228674', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ETH/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 11:26:08,574 - orders - DEBUG - Order details:
+  Symbol: BLAST/USDT
+  Order Type: market
+  Side: buy
+  Amount: 3230.85144509
+  Price: Market
+2025-03-27 11:26:08,574 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 11:26:08,574 - orders - DEBUG -   Signal Price: 0.003806
+2025-03-27 11:26:08,574 - orders - DEBUG - Market info for BLAST/USDT:
+  Limits - Amount: {'min': 332.0, 'max': 60042029.42059442}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 200000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 1e-06
+2025-03-27 11:26:08,781 - orders - DEBUG - Order response: {'info': {'orderId': '1915384023740587008', 'orderLinkId': '1915384023740587009'}, 'id': '1915384023740587008', 'clientOrderId': '1915384023740587009', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'BLAST/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 11:32:40,406 - orders - DEBUG - Order details:
+  Symbol: ENA/USDT
+  Order Type: market
+  Side: buy
+  Amount: 28.43270264
+  Price: Market
+2025-03-27 11:32:40,406 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 11:32:40,406 - orders - DEBUG -   Signal Price: 0.4318
+2025-03-27 11:32:40,406 - orders - DEBUG - Market info for ENA/USDT:
+  Limits - Amount: {'min': 2.4, 'max': 1288659.793814}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 11:32:40,628 - orders - ERROR - Order execution error:
+  Error: bybit {"retCode":170131,"retMsg":"Insufficient balance.","result":{},"retExtInfo":{},"time":1743067960535}
+  Error type: InsufficientFunds
+  Symbol: ENA/USDT
+  Side: buy
+  Amount: 28.432702640111163
+  Order type: market
+  Exchange: bybit
+2025-03-27 11:34:53,140 - orders - DEBUG - Order details:
+  Symbol: MNT/USDT
+  Order Type: market
+  Side: sell
+  Amount: 5.51500640
+  Price: Market
+2025-03-27 11:34:53,140 - orders - DEBUG - Market info for MNT/USDT:
+  Limits - Amount: {'min': 0.81, 'max': 1539408.866995}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 11:34:53,363 - orders - DEBUG - Order response: {'info': {'orderId': '1915388424278514688', 'orderLinkId': '1915388424278514689'}, 'id': '1915388424278514688', 'clientOrderId': '1915388424278514689', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'MNT/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-27 11:37:08,318 - orders - DEBUG - Order details:
+  Symbol: MNT/USDT
+  Order Type: market
+  Side: buy
+  Amount: 10.00315511
+  Price: Market
+2025-03-27 11:37:08,318 - orders - DEBUG -   Strategy: Biased_MA_Spot_10_30_50_200
+2025-03-27 11:37:08,318 - orders - DEBUG -   Signal Price: 0.8466
+2025-03-27 11:37:08,318 - orders - DEBUG - Market info for MNT/USDT:
+  Limits - Amount: {'min': 0.81, 'max': 1539408.866995}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-27 11:37:08,539 - orders - DEBUG - Order response: {'info': {'orderId': '1915389558175046656', 'orderLinkId': '1915389558175046657'}, 'id': '1915389558175046656', 'clientOrderId': '1915389558175046657', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'MNT/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}

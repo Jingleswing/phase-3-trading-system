@@ -1,0 +1,28 @@
+2025-03-27 06:06:19,092 - root - ERROR - Config file not found: phase-3-system/trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 06:07:00,355 - root - INFO - Starting trading bot with config: trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 06:07:00,371 - root - INFO - Will run for 600 seconds before generating reports
+2025-03-27 06:07:00,371 - trading_bot.utils.config - INFO - Loaded configuration from trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 06:08:32,999 - root - INFO - Starting trading bot with config: trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 06:08:32,999 - root - INFO - Will run for 600 seconds before generating reports
+2025-03-27 06:08:33,019 - trading_bot.utils.config - INFO - Loaded configuration from trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 06:10:45,046 - root - INFO - Starting trading bot with config: trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 06:10:45,046 - root - INFO - Will run for 600 seconds before generating reports
+2025-03-27 06:10:45,063 - trading_bot.utils.config - INFO - Loaded configuration from trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 06:15:30,604 - root - INFO - Starting trading bot with config: trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 06:15:30,604 - root - INFO - Will run for 60 seconds before generating reports
+2025-03-27 06:15:30,613 - trading_bot.utils.config - INFO - Loaded configuration from trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 06:17:09,702 - root - INFO - Starting trading bot with config: trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 06:17:09,702 - root - INFO - Will run for 60 seconds before generating reports
+2025-03-27 06:17:09,710 - trading_bot.utils.config - INFO - Loaded configuration from trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 06:35:00,082 - root - INFO - Starting trading bot with config: trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 06:35:00,083 - root - INFO - Will run for 60 seconds before generating reports
+2025-03-27 06:35:00,085 - trading_bot.utils.config - INFO - Loaded configuration from trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 06:57:22,046 - root - INFO - Starting trading bot with config: trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 06:57:22,047 - root - INFO - Will run for 600 seconds before generating reports
+2025-03-27 06:57:22,049 - trading_bot.utils.config - INFO - Loaded configuration from trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 07:17:40,670 - root - INFO - Starting trading bot with config: trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 07:17:40,671 - root - INFO - Will run for 600 seconds before generating reports
+2025-03-27 07:17:40,675 - trading_bot.utils.config - INFO - Loaded configuration from trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 08:31:35,350 - root - INFO - Starting trading bot with config: trading_bot/config/biased_MA_cross_config.yaml
+2025-03-27 08:31:35,350 - root - INFO - Will run for 600 seconds before stopping
+2025-03-27 08:31:35,353 - trading_bot.utils.config - INFO - Loaded configuration from trading_bot/config/biased_MA_cross_config.yaml

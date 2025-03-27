@@ -4,19 +4,20 @@ from typing import Dict, List, Any, Optional
 from trading_bot.interfaces.order_executor import OrderExecutor
 from trading_bot.models.data_models import Order, Trade, Position
 from trading_bot.utils.logging import LoggerMixin
+import logging
 
 class CCXTExecutor(OrderExecutor, LoggerMixin):
     """
     Order executor using CCXT to place orders on exchanges
     """
     
-    def __init__(self, exchange, dry_run: bool = True):
+    def __init__(self, exchange, dry_run: bool = False):
         """
-        Initialize the order executor
+        Initialize the CCXT executor
         
         Args:
             exchange: CCXT exchange instance
-            dry_run: If True, don't actually place orders
+            dry_run: Whether to run in dry run mode
         """
         self.exchange = exchange
         self.dry_run = dry_run
@@ -32,64 +33,139 @@ class CCXTExecutor(OrderExecutor, LoggerMixin):
         Returns:
             Order response from the exchange
         """
-        # Log the order
-        self.logger.info(f"Order: {order.side} {order.amount} {order.symbol} at {order.price or 'market price'}")
+        return self.execute_order(order)
+    
+    def execute_order(self, order: Order) -> Dict:
+        """
+        Execute an order on the exchange
         
-        # In dry run mode, just return a simulated response
-        if self.dry_run:
-            self.logger.info(f"DRY RUN: Order not actually placed")
+        Args:
+            order: Order object with details
             
-            # Return a simulated order response
-            from datetime import datetime
-            import time
-            import uuid
-            
-            timestamp = int(time.time() * 1000)
-            order_id = str(uuid.uuid4())
-            
-            return {
-                'id': order_id,
-                'timestamp': timestamp,
-                'datetime': datetime.fromtimestamp(timestamp / 1000).isoformat(),
-                'symbol': order.symbol,
-                'type': order.order_type,
-                'side': order.side,
-                'price': order.price,
-                'amount': order.amount,
-                'cost': order.price * order.amount if order.price else None,
-                'status': 'open',
-                'info': {'dry_run': True}
-            }
+        Returns:
+            Dictionary with order information
+        """
+        order_logger = logging.getLogger("orders")
         
-        # Actually place the order
         try:
-            # Prepare order parameters
-            params = order.params or {}
+            # Get trading pair
+            symbol = order.symbol
             
-            # Place the order based on order type
-            if order.order_type == 'market':
-                response = self.exchange.create_market_order(
-                    symbol=order.symbol,
-                    side=order.side,
-                    amount=order.amount,
-                    params=params
+            # Get order details
+            order_type = order.order_type
+            side = order.side
+            amount = order.amount
+            price = order.price
+            
+            # Log detailed order information
+            self.logger.info(f"Order: {side} {amount} {symbol} at {order_type} price")
+            order_logger.debug(
+                f"Order details:\n"
+                f"  Symbol: {symbol}\n"
+                f"  Order Type: {order_type}\n"
+                f"  Side: {side}\n"
+                f"  Amount: {amount:.8f}\n"
+                f"  Price: {price if price else 'Market'}"
+            )
+            
+            # Conditionally log optional attributes if they exist
+            order_id = getattr(order, 'id', None)
+            if order_id is not None:
+                order_logger.debug(f"  Order ID: {order_id}")
+                
+            strategy = getattr(order, 'strategy', None)
+            if strategy is not None:
+                order_logger.debug(f"  Strategy: {strategy}")
+                
+            signal_price = getattr(order, 'signal_price', None)
+            if signal_price is not None:
+                order_logger.debug(f"  Signal Price: {signal_price}")
+            
+            # Get market info to check limits
+            markets = self.exchange.load_markets()
+            if symbol in markets:
+                market_info = markets[symbol]
+                
+                # Log market limits for debugging
+                order_logger.debug(
+                    f"Market info for {symbol}:\n"
+                    f"  Limits - Amount: {market_info.get('limits', {}).get('amount', {})}\n"
+                    f"  Limits - Price: {market_info.get('limits', {}).get('price', {})}\n"
+                    f"  Limits - Cost: {market_info.get('limits', {}).get('cost', {})}\n"
+                    f"  Precision - Amount: {market_info.get('precision', {}).get('amount')}\n"
+                    f"  Precision - Price: {market_info.get('precision', {}).get('price')}"
                 )
-            elif order.order_type == 'limit':
-                response = self.exchange.create_limit_order(
-                    symbol=order.symbol,
-                    side=order.side,
-                    amount=order.amount,
-                    price=order.price,
+                
+                # Check for minimum amount
+                min_amount = market_info.get('limits', {}).get('amount', {}).get('min')
+                if min_amount and amount < min_amount:
+                    error_msg = f"{self.exchange.id} amount of {symbol} must be greater than minimum amount precision of {min_amount}"
+                    self.logger.error(f"Error placing order: {error_msg}")
+                    order_logger.error(f"Order validation failed: {error_msg}")
+                    raise ValueError(error_msg)
+                
+                # Round amount to exchange precision if needed
+                precision = market_info.get('precision', {}).get('amount')
+                if precision is not None and isinstance(precision, int):
+                    rounded_amount = round(amount, precision)
+                    if rounded_amount != amount:
+                        order_logger.debug(f"Amount adjusted for precision: {amount:.8f} -> {rounded_amount:.8f}")
+                        amount = rounded_amount
+            else:
+                order_logger.warning(f"Could not find market info for {symbol}")
+            
+            # Set up parameters for the order
+            params = {}
+            
+            # Need special handling for order types in some exchanges
+            if order_type == 'market':
+                # For market orders, don't include price
+                order_result = self.exchange.create_order(
+                    symbol=symbol,
+                    type=order_type,
+                    side=side,
+                    amount=amount,
                     params=params
                 )
             else:
-                raise ValueError(f"Unsupported order type: {order.order_type}")
+                # For limit orders, include price
+                if price is None:
+                    error_msg = f"Price is required for limit orders"
+                    self.logger.error(error_msg)
+                    order_logger.error(error_msg)
+                    raise ValueError(error_msg)
+                
+                order_result = self.exchange.create_order(
+                    symbol=symbol,
+                    type=order_type,
+                    side=side,
+                    amount=amount,
+                    price=price,
+                    params=params
+                )
+                
+            # Log successful order
+            self.logger.info(f"Order placed successfully: {order_result.get('id')}")
+            order_logger.debug(f"Order response: {order_result}")
             
-            self.logger.info(f"Order placed successfully: {response['id']}")
-            return response
+            return order_result
             
         except Exception as e:
-            self.logger.error(f"Error placing order: {e}")
+            error_message = f"Error placing order: {str(e)}"
+            self.logger.error(error_message)
+            
+            # Log detailed error information
+            order_logger.error(
+                f"Order execution error:\n"
+                f"  Error: {str(e)}\n"
+                f"  Error type: {type(e).__name__}\n"
+                f"  Symbol: {order.symbol}\n"
+                f"  Side: {order.side}\n"
+                f"  Amount: {order.amount}\n"
+                f"  Order type: {order.order_type}\n"
+                f"  Exchange: {self.exchange.id}"
+            )
+            
             raise
     
     def cancel_order(self, order_id: str, symbol: str) -> bool:

@@ -626,3 +626,699 @@
 2025-03-26 14:38:32,337 - __main__.TradingBot - INFO - Received signal 2, shutting down...
 2025-03-26 14:38:32,338 - __main__.TradingBot - INFO - Stopping trading bot...
 2025-03-26 14:38:34,434 - __main__.TradingBot - INFO - Trading bot stopped
+2025-03-26 15:09:01,075 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-26 15:09:01,075 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/biased_spot_trading.log
+2025-03-26 15:09:01,080 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-26 15:09:07,229 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-26 15:09:07,229 - __main__.TradingBot - INFO - Total trading pairs: 4
+2025-03-26 15:09:07,230 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 15:09:07,230 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-26 15:09:07,230 - __main__.TradingBot - INFO - Created spot strategy for ETH/USDT
+2025-03-26 15:09:07,230 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 15:09:07,230 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-26 15:09:07,231 - __main__.TradingBot - INFO - Created spot strategy for ENA/USDT
+2025-03-26 15:09:07,231 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 15:09:07,231 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-26 15:09:07,231 - __main__.TradingBot - INFO - Created spot strategy for BLAST/USDT
+2025-03-26 15:09:07,231 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 15:09:07,231 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-26 15:09:07,231 - __main__.TradingBot - INFO - Created spot strategy for EIGEN/USDT
+2025-03-26 15:09:07,231 - __main__.TradingBot - INFO - Trading ['ETH/USDT', 'ENA/USDT', 'BLAST/USDT', 'EIGEN/USDT'] on 1m timeframe
+2025-03-26 15:09:07,232 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-26 15:09:07,232 - trading_bot.models.data_models - INFO - No saved position data found
+2025-03-26 15:09:07,232 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager with max_open_trades=4, max_drawdown=10.0%
+2025-03-26 15:09:07,232 - __main__.TradingBot - INFO - Risk manager configured with max drawdown: 10.0%
+2025-03-26 15:09:07,232 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-26 15:09:07,233 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-26 15:43:03,759 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.206 in spot market
+2025-03-26 15:43:03,759 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.206
+2025-03-26 15:43:05,515 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:05,516 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:07,852 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.206 in spot market
+2025-03-26 15:43:07,852 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.206
+2025-03-26 15:43:08,858 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:08,858 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:11,583 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.205 in spot market
+2025-03-26 15:43:11,584 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.205
+2025-03-26 15:43:12,581 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:12,581 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:15,009 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.204 in spot market
+2025-03-26 15:43:15,009 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.204
+2025-03-26 15:43:15,662 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:15,663 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:18,235 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.204 in spot market
+2025-03-26 15:43:18,235 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.204
+2025-03-26 15:43:19,238 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:19,238 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:22,766 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.203 in spot market
+2025-03-26 15:43:22,766 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.203
+2025-03-26 15:43:23,772 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:23,772 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:25,891 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.203 in spot market
+2025-03-26 15:43:25,892 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.203
+2025-03-26 15:43:26,572 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:26,573 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:29,709 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.203 in spot market
+2025-03-26 15:43:29,709 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.203
+2025-03-26 15:43:30,749 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:30,749 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:33,410 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.203 in spot market
+2025-03-26 15:43:33,411 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.203
+2025-03-26 15:43:34,448 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:34,449 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:37,129 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.203 in spot market
+2025-03-26 15:43:37,129 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.203
+2025-03-26 15:43:37,784 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:37,785 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:40,732 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.202 in spot market
+2025-03-26 15:43:40,733 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.202
+2025-03-26 15:43:41,740 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:41,741 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:45,230 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.202 in spot market
+2025-03-26 15:43:45,231 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.202
+2025-03-26 15:43:45,887 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:45,888 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:48,362 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.202 in spot market
+2025-03-26 15:43:48,362 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.202
+2025-03-26 15:43:49,049 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:49,051 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:52,659 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.202 in spot market
+2025-03-26 15:43:52,660 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.202
+2025-03-26 15:43:53,999 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:53,999 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:56,306 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.202 in spot market
+2025-03-26 15:43:56,307 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.202
+2025-03-26 15:43:57,648 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:43:57,648 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:44:00,464 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for EIGEN/USDT at 1.202 in spot market
+2025-03-26 15:44:00,465 - __main__.TradingBot - INFO - Received signal: buy EIGEN/USDT at 1.202
+2025-03-26 15:44:01,474 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:44:01,474 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:03,439 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ETH/USDT at 2054.82 in spot market
+2025-03-26 15:45:03,440 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT at 2054.82
+2025-03-26 15:45:04,422 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:04,422 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:04,692 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4343 in spot market
+2025-03-26 15:45:04,692 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4343
+2025-03-26 15:45:06,561 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 3.227140873333333 USDT (1/3 of 9.68142262, with 1 active positions)
+2025-03-26 15:45:06,562 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 7.430672054647324 ENA
+2025-03-26 15:45:06,562 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 7.430672054647324 ENA/USDT at market price
+2025-03-26 15:45:06,775 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914789590225656832
+2025-03-26 15:45:06,776 - __main__.TradingBot - INFO - Order placed: {'info': {'orderId': '1914789590225656832', 'orderLinkId': '1914789590225656833'}, 'id': '1914789590225656832', 'clientOrderId': '1914789590225656833', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ENA/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 15:45:06,776 - __main__.TradingBot - INFO - Order placed successfully: 1914789590225656832
+2025-03-26 15:45:09,646 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ETH/USDT at 2056.11 in spot market
+2025-03-26 15:45:09,646 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT at 2056.11
+2025-03-26 15:45:10,749 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:10,749 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:11,616 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4348 in spot market
+2025-03-26 15:45:11,617 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4348
+2025-03-26 15:45:14,613 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 3.22691531 USDT (1/2 of 6.45383062, with 2 active positions)
+2025-03-26 15:45:14,614 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 7.4216083486660525 ENA
+2025-03-26 15:45:14,614 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 7.4216083486660525 ENA/USDT at market price
+2025-03-26 15:45:14,823 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914789657745562624
+2025-03-26 15:45:14,824 - __main__.TradingBot - INFO - Order placed: {'info': {'orderId': '1914789657745562624', 'orderLinkId': '1914789657745562625'}, 'id': '1914789657745562624', 'clientOrderId': '1914789657745562625', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ENA/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 15:45:14,825 - __main__.TradingBot - INFO - Order placed successfully: 1914789657745562624
+2025-03-26 15:45:17,146 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ETH/USDT at 2056.41 in spot market
+2025-03-26 15:45:17,147 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT at 2056.41
+2025-03-26 15:45:18,004 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:18,004 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:18,370 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.435 in spot market
+2025-03-26 15:45:18,370 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.435
+2025-03-26 15:45:21,032 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 1.61306531 USDT (1/2 of 3.22613062, with 2 active positions)
+2025-03-26 15:45:21,032 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 3.708196114942529 ENA
+2025-03-26 15:45:21,033 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 3.708196114942529 ENA/USDT at market price
+2025-03-26 15:45:21,252 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914789711659146240
+2025-03-26 15:45:21,252 - __main__.TradingBot - INFO - Order placed: {'info': {'orderId': '1914789711659146240', 'orderLinkId': '1914789711659146241'}, 'id': '1914789711659146240', 'clientOrderId': '1914789711659146241', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ENA/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 15:45:21,252 - __main__.TradingBot - INFO - Order placed successfully: 1914789711659146240
+2025-03-26 15:45:23,222 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ETH/USDT at 2056.27 in spot market
+2025-03-26 15:45:23,223 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT at 2056.27
+2025-03-26 15:45:24,068 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:24,068 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:24,361 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4348 in spot market
+2025-03-26 15:45:24,362 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4348
+2025-03-26 15:45:26,991 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 0.80868531 USDT (1/2 of 1.61737062, with 2 active positions)
+2025-03-26 15:45:26,991 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.8599018169273227 ENA
+2025-03-26 15:45:26,992 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.8599018169273227 ENA/USDT at market price
+2025-03-26 15:45:27,212 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996727128}
+2025-03-26 15:45:27,212 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996727128}
+2025-03-26 15:45:27,212 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996727128}
+2025-03-26 15:45:29,283 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ETH/USDT at 2055.01 in spot market
+2025-03-26 15:45:29,284 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT at 2055.01
+2025-03-26 15:45:30,137 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:30,137 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:30,901 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4348 in spot market
+2025-03-26 15:45:30,902 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4348
+2025-03-26 15:45:33,509 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 0.80868531 USDT (1/2 of 1.61737062, with 2 active positions)
+2025-03-26 15:45:33,510 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.8599018169273227 ENA
+2025-03-26 15:45:33,510 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.8599018169273227 ENA/USDT at market price
+2025-03-26 15:45:33,728 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996733641}
+2025-03-26 15:45:33,730 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996733641}
+2025-03-26 15:45:33,730 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996733641}
+2025-03-26 15:45:35,983 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ETH/USDT at 2055.34 in spot market
+2025-03-26 15:45:35,984 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT at 2055.34
+2025-03-26 15:45:37,179 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:37,180 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:37,655 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4346 in spot market
+2025-03-26 15:45:37,656 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4346
+2025-03-26 15:45:39,943 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 0.80868531 USDT (1/2 of 1.61737062, with 2 active positions)
+2025-03-26 15:45:39,943 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.8607577312471237 ENA
+2025-03-26 15:45:39,944 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.8607577312471237 ENA/USDT at market price
+2025-03-26 15:45:40,173 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996740080}
+2025-03-26 15:45:40,174 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996740080}
+2025-03-26 15:45:40,174 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996740080}
+2025-03-26 15:45:42,096 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ETH/USDT at 2055.34 in spot market
+2025-03-26 15:45:42,096 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT at 2055.34
+2025-03-26 15:45:43,302 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:43,303 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:44,063 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.435 in spot market
+2025-03-26 15:45:44,063 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.435
+2025-03-26 15:45:47,397 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 0.80868531 USDT (1/2 of 1.61737062, with 2 active positions)
+2025-03-26 15:45:47,398 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.8590466896551725 ENA
+2025-03-26 15:45:47,398 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.8590466896551725 ENA/USDT at market price
+2025-03-26 15:45:47,610 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996747527}
+2025-03-26 15:45:47,610 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996747527}
+2025-03-26 15:45:47,611 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996747527}
+2025-03-26 15:45:50,162 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ETH/USDT at 2055.88 in spot market
+2025-03-26 15:45:50,162 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT at 2055.88
+2025-03-26 15:45:51,013 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:51,014 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:51,307 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.435 in spot market
+2025-03-26 15:45:51,307 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.435
+2025-03-26 15:45:54,277 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 0.80868531 USDT (1/2 of 1.61737062, with 2 active positions)
+2025-03-26 15:45:54,277 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.8590466896551725 ENA
+2025-03-26 15:45:54,277 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.8590466896551725 ENA/USDT at market price
+2025-03-26 15:45:54,494 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996754409}
+2025-03-26 15:45:54,495 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996754409}
+2025-03-26 15:45:54,495 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996754409}
+2025-03-26 15:45:57,100 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ETH/USDT at 2055.62 in spot market
+2025-03-26 15:45:57,100 - __main__.TradingBot - INFO - Received signal: buy ETH/USDT at 2055.62
+2025-03-26 15:45:57,955 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:57,955 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 15:45:58,258 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4345 in spot market
+2025-03-26 15:45:58,260 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4345
+2025-03-26 15:46:00,527 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 0.80868531 USDT (1/2 of 1.61737062, with 2 active positions)
+2025-03-26 15:46:00,527 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.8611859838895282 ENA
+2025-03-26 15:46:00,528 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.8611859838895282 ENA/USDT at market price
+2025-03-26 15:46:00,741 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996760657}
+2025-03-26 15:46:00,741 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996760657}
+2025-03-26 15:46:00,741 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742996760657}
+2025-03-26 16:05:01,127 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for BLAST/USDT at 0.003741 in spot market
+2025-03-26 16:05:01,127 - __main__.TradingBot - INFO - Received signal: close BLAST/USDT at 0.003741
+2025-03-26 16:05:03,108 - __main__.TradingBot - WARNING - Received close signal for BLAST/USDT but no position exists
+2025-03-26 16:05:06,938 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for BLAST/USDT at 0.003741 in spot market
+2025-03-26 16:05:06,939 - __main__.TradingBot - INFO - Received signal: close BLAST/USDT at 0.003741
+2025-03-26 16:05:08,910 - __main__.TradingBot - WARNING - Received close signal for BLAST/USDT but no position exists
+2025-03-26 16:05:11,903 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for BLAST/USDT at 0.003739 in spot market
+2025-03-26 16:05:11,903 - __main__.TradingBot - INFO - Received signal: close BLAST/USDT at 0.003739
+2025-03-26 16:05:13,904 - __main__.TradingBot - WARNING - Received close signal for BLAST/USDT but no position exists
+2025-03-26 16:05:16,003 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for BLAST/USDT at 0.003739 in spot market
+2025-03-26 16:05:16,004 - __main__.TradingBot - INFO - Received signal: close BLAST/USDT at 0.003739
+2025-03-26 16:05:17,294 - __main__.TradingBot - WARNING - Received close signal for BLAST/USDT but no position exists
+2025-03-26 16:05:20,165 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for BLAST/USDT at 0.003739 in spot market
+2025-03-26 16:05:20,166 - __main__.TradingBot - INFO - Received signal: close BLAST/USDT at 0.003739
+2025-03-26 16:05:21,808 - __main__.TradingBot - WARNING - Received close signal for BLAST/USDT but no position exists
+2025-03-26 16:05:25,153 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for BLAST/USDT at 0.003739 in spot market
+2025-03-26 16:05:25,154 - __main__.TradingBot - INFO - Received signal: close BLAST/USDT at 0.003739
+2025-03-26 16:05:27,168 - __main__.TradingBot - WARNING - Received close signal for BLAST/USDT but no position exists
+2025-03-26 16:05:29,653 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for BLAST/USDT at 0.003741 in spot market
+2025-03-26 16:05:29,653 - __main__.TradingBot - INFO - Received signal: close BLAST/USDT at 0.003741
+2025-03-26 16:05:31,987 - __main__.TradingBot - WARNING - Received close signal for BLAST/USDT but no position exists
+2025-03-26 16:05:35,237 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for BLAST/USDT at 0.003741 in spot market
+2025-03-26 16:05:35,238 - __main__.TradingBot - INFO - Received signal: close BLAST/USDT at 0.003741
+2025-03-26 16:05:36,863 - __main__.TradingBot - WARNING - Received close signal for BLAST/USDT but no position exists
+2025-03-26 16:05:39,522 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for BLAST/USDT at 0.003747 in spot market
+2025-03-26 16:05:39,523 - __main__.TradingBot - INFO - Received signal: close BLAST/USDT at 0.003747
+2025-03-26 16:05:41,497 - __main__.TradingBot - WARNING - Received close signal for BLAST/USDT but no position exists
+2025-03-26 16:05:44,172 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for BLAST/USDT at 0.003747 in spot market
+2025-03-26 16:05:44,173 - __main__.TradingBot - INFO - Received signal: close BLAST/USDT at 0.003747
+2025-03-26 16:05:45,454 - __main__.TradingBot - WARNING - Received close signal for BLAST/USDT but no position exists
+2025-03-26 16:05:47,764 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for BLAST/USDT at 0.003747 in spot market
+2025-03-26 16:05:47,764 - __main__.TradingBot - INFO - Received signal: close BLAST/USDT at 0.003747
+2025-03-26 16:05:50,105 - __main__.TradingBot - WARNING - Received close signal for BLAST/USDT but no position exists
+2025-03-26 16:05:52,969 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for BLAST/USDT at 0.003748 in spot market
+2025-03-26 16:05:52,969 - __main__.TradingBot - INFO - Received signal: close BLAST/USDT at 0.003748
+2025-03-26 16:05:54,607 - __main__.TradingBot - WARNING - Received close signal for BLAST/USDT but no position exists
+2025-03-26 16:05:57,549 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for BLAST/USDT at 0.003748 in spot market
+2025-03-26 16:05:57,549 - __main__.TradingBot - INFO - Received signal: close BLAST/USDT at 0.003748
+2025-03-26 16:05:59,196 - __main__.TradingBot - WARNING - Received close signal for BLAST/USDT but no position exists
+2025-03-26 16:16:02,036 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4285 in spot market
+2025-03-26 16:16:02,037 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4285
+2025-03-26 16:16:05,392 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 0.80868531 USDT (1/2 of 1.61737062, with 2 active positions)
+2025-03-26 16:16:05,392 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.8872469311551925 ENA
+2025-03-26 16:16:05,393 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.8872469311551925 ENA/USDT at market price
+2025-03-26 16:16:05,956 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998565881}
+2025-03-26 16:16:05,956 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998565881}
+2025-03-26 16:16:05,956 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998565881}
+2025-03-26 16:16:08,603 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4288 in spot market
+2025-03-26 16:16:08,604 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4288
+2025-03-26 16:16:11,600 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 0.80868531 USDT (1/2 of 1.61737062, with 2 active positions)
+2025-03-26 16:16:11,600 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.8859265625 ENA
+2025-03-26 16:16:11,601 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.8859265625 ENA/USDT at market price
+2025-03-26 16:16:12,165 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998572088}
+2025-03-26 16:16:12,166 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998572088}
+2025-03-26 16:16:12,166 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998572088}
+2025-03-26 16:16:14,567 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4286 in spot market
+2025-03-26 16:16:14,567 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4286
+2025-03-26 16:16:16,544 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 0.80868531 USDT (1/2 of 1.61737062, with 2 active positions)
+2025-03-26 16:16:16,544 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.8868066028931405 ENA
+2025-03-26 16:16:16,545 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.8868066028931405 ENA/USDT at market price
+2025-03-26 16:16:16,761 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998576690}
+2025-03-26 16:16:16,762 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998576690}
+2025-03-26 16:16:16,762 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998576690}
+2025-03-26 16:16:19,310 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4286 in spot market
+2025-03-26 16:16:19,311 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4286
+2025-03-26 16:16:22,301 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 0.80868531 USDT (1/2 of 1.61737062, with 2 active positions)
+2025-03-26 16:16:22,301 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.8868066028931405 ENA
+2025-03-26 16:16:22,301 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.8868066028931405 ENA/USDT at market price
+2025-03-26 16:16:22,511 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998582441}
+2025-03-26 16:16:22,511 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998582441}
+2025-03-26 16:16:22,512 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998582441}
+2025-03-26 16:16:24,879 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4293 in spot market
+2025-03-26 16:16:24,879 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4293
+2025-03-26 16:16:27,521 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 0.80868531 USDT (1/2 of 1.61737062, with 2 active positions)
+2025-03-26 16:16:27,521 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.8837300489168414 ENA
+2025-03-26 16:16:27,521 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.8837300489168414 ENA/USDT at market price
+2025-03-26 16:16:28,086 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998588012}
+2025-03-26 16:16:28,087 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998588012}
+2025-03-26 16:16:28,087 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998588012}
+2025-03-26 16:16:31,091 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4294 in spot market
+2025-03-26 16:16:31,092 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4294
+2025-03-26 16:16:34,401 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 0.80868531 USDT (1/2 of 1.61737062, with 2 active positions)
+2025-03-26 16:16:34,402 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.8832913600372612 ENA
+2025-03-26 16:16:34,402 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.8832913600372612 ENA/USDT at market price
+2025-03-26 16:16:34,641 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998594552}
+2025-03-26 16:16:34,641 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998594552}
+2025-03-26 16:16:34,641 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998594552}
+2025-03-26 16:16:37,814 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4289 in spot market
+2025-03-26 16:16:37,815 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4289
+2025-03-26 16:16:40,430 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 0.80868531 USDT (1/2 of 1.61737062, with 2 active positions)
+2025-03-26 16:16:40,430 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.885486850081604 ENA
+2025-03-26 16:16:40,430 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.885486850081604 ENA/USDT at market price
+2025-03-26 16:16:40,655 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998600584}
+2025-03-26 16:16:40,655 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998600584}
+2025-03-26 16:16:40,655 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998600584}
+2025-03-26 16:16:43,565 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4293 in spot market
+2025-03-26 16:16:43,565 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4293
+2025-03-26 16:16:46,188 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Position sizing based on remaining positions: 0.80868531 USDT (1/2 of 1.61737062, with 2 active positions)
+2025-03-26 16:16:46,188 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Calculated position size: 1.8837300489168414 ENA
+2025-03-26 16:16:46,188 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: buy 1.8837300489168414 ENA/USDT at market price
+2025-03-26 16:16:46,409 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998606333}
+2025-03-26 16:16:46,409 - __main__.TradingBot - ERROR - Error executing order: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998606333}
+2025-03-26 16:16:46,410 - __main__.TradingBot - ERROR - Error in order_execution: bybit {"retCode":170136,"retMsg":"Order quantity exceeded lower limit.","result":{},"retExtInfo":{},"time":1742998606333}
+2025-03-26 16:16:54,492 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4251 in spot market
+2025-03-26 16:16:54,492 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4251
+2025-03-26 16:16:55,712 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 18.53145 ENA/USDT at market price
+2025-03-26 16:16:55,927 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order placed successfully: 1914805605395340288
+2025-03-26 16:16:55,928 - __main__.TradingBot - INFO - Position closed: {'info': {'orderId': '1914805605395340288', 'orderLinkId': '1914805605395340289'}, 'id': '1914805605395340288', 'clientOrderId': '1914805605395340289', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ENA/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-26 16:16:55,928 - __main__.TradingBot - INFO - Order placed successfully: 1914805605395340288
+2025-03-26 16:18:06,445 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4256 in spot market
+2025-03-26 16:18:06,446 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4256
+2025-03-26 16:18:07,299 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:07,300 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:09,971 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4255 in spot market
+2025-03-26 16:18:09,972 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4255
+2025-03-26 16:18:10,823 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:10,823 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:12,966 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4258 in spot market
+2025-03-26 16:18:12,966 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4258
+2025-03-26 16:18:14,872 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:14,873 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:17,804 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4262 in spot market
+2025-03-26 16:18:17,804 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4262
+2025-03-26 16:18:18,667 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:18,667 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:21,008 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4261 in spot market
+2025-03-26 16:18:21,008 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4261
+2025-03-26 16:18:22,225 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:22,225 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:25,487 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4258 in spot market
+2025-03-26 16:18:25,488 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4258
+2025-03-26 16:18:26,689 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:26,690 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:30,110 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4261 in spot market
+2025-03-26 16:18:30,111 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4261
+2025-03-26 16:18:31,323 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:31,323 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:34,569 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4262 in spot market
+2025-03-26 16:18:34,569 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4262
+2025-03-26 16:18:35,776 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:35,777 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:38,311 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4261 in spot market
+2025-03-26 16:18:38,311 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4261
+2025-03-26 16:18:39,851 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:39,851 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:43,060 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4261 in spot market
+2025-03-26 16:18:43,061 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4261
+2025-03-26 16:18:45,299 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:45,299 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:48,752 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4256 in spot market
+2025-03-26 16:18:48,752 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4256
+2025-03-26 16:18:49,634 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:49,635 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:51,819 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4257 in spot market
+2025-03-26 16:18:51,819 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4257
+2025-03-26 16:18:53,376 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:53,377 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:55,878 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4257 in spot market
+2025-03-26 16:18:55,878 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4257
+2025-03-26 16:18:56,734 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:56,735 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:18:59,370 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4257 in spot market
+2025-03-26 16:18:59,371 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4257
+2025-03-26 16:19:00,231 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:19:00,231 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:37:54,438 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-26 16:37:54,439 - __main__.TradingBot - INFO - Stopping trading bot...
+2025-03-26 16:37:56,361 - __main__.TradingBot - INFO - Trading bot stopped
+2025-03-26 16:38:30,621 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-26 16:38:30,621 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/biased_spot_trading.log
+2025-03-26 16:38:30,627 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-26 16:38:35,579 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-26 16:38:35,580 - __main__.TradingBot - INFO - Total trading pairs: 4
+2025-03-26 16:38:35,580 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 16:38:35,580 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-26 16:38:35,580 - __main__.TradingBot - INFO - Created spot strategy for ETH/USDT
+2025-03-26 16:38:35,581 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 16:38:35,581 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-26 16:38:35,581 - __main__.TradingBot - INFO - Created spot strategy for ENA/USDT
+2025-03-26 16:38:35,581 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 16:38:35,582 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-26 16:38:35,582 - __main__.TradingBot - INFO - Created spot strategy for BLAST/USDT
+2025-03-26 16:38:35,582 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 16:38:35,582 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-26 16:38:35,582 - __main__.TradingBot - INFO - Created spot strategy for EIGEN/USDT
+2025-03-26 16:38:35,582 - __main__.TradingBot - INFO - Trading ['ETH/USDT', 'ENA/USDT', 'BLAST/USDT', 'EIGEN/USDT'] on 1m timeframe
+2025-03-26 16:38:35,582 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-26 16:38:35,583 - trading_bot.models.data_models - INFO - Loaded position: ENA/USDT, entry_price: 0.4344, max_price: 0.4351, min_price: 0.4211
+2025-03-26 16:38:35,583 - trading_bot.models.data_models - INFO - Loaded position: MNT/USDT, entry_price: 0.8479, max_price: 0.8479, min_price: 0.8382
+2025-03-26 16:38:35,584 - trading_bot.models.data_models - INFO - Loaded 2 positions and 0 closed positions
+2025-03-26 16:38:35,584 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager with max_open_trades=4, max_drawdown=10.0%
+2025-03-26 16:38:35,584 - __main__.TradingBot - INFO - Risk manager configured with max drawdown: 10.0%
+2025-03-26 16:38:35,584 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-26 16:38:35,584 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-26 16:39:01,840 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003752 in spot market
+2025-03-26 16:39:01,840 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003752
+2025-03-26 16:39:03,386 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:39:03,387 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:01,942 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003743 in spot market
+2025-03-26 16:40:01,942 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003743
+2025-03-26 16:40:03,138 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:03,138 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:05,546 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003743 in spot market
+2025-03-26 16:40:05,546 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003743
+2025-03-26 16:40:06,742 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:06,742 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:09,480 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003743 in spot market
+2025-03-26 16:40:09,480 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003743
+2025-03-26 16:40:10,342 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:10,342 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:12,744 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003742 in spot market
+2025-03-26 16:40:12,744 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003742
+2025-03-26 16:40:14,290 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:14,290 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:17,035 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003742 in spot market
+2025-03-26 16:40:17,035 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003742
+2025-03-26 16:40:18,231 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:18,232 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:20,795 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003742 in spot market
+2025-03-26 16:40:20,795 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003742
+2025-03-26 16:40:22,009 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:22,009 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:24,061 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003742 in spot market
+2025-03-26 16:40:24,062 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003742
+2025-03-26 16:40:25,959 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:25,960 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:28,716 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003742 in spot market
+2025-03-26 16:40:28,717 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003742
+2025-03-26 16:40:29,929 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:29,929 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:33,533 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003742 in spot market
+2025-03-26 16:40:33,534 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003742
+2025-03-26 16:40:35,264 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:35,265 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:38,342 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003742 in spot market
+2025-03-26 16:40:38,343 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003742
+2025-03-26 16:40:39,540 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:39,540 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:41,932 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003742 in spot market
+2025-03-26 16:40:41,933 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003742
+2025-03-26 16:40:43,135 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:43,135 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:46,231 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003742 in spot market
+2025-03-26 16:40:46,232 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003742
+2025-03-26 16:40:48,130 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:48,130 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:50,698 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003742 in spot market
+2025-03-26 16:40:50,698 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003742
+2025-03-26 16:40:52,243 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:52,244 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:54,315 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003748 in spot market
+2025-03-26 16:40:54,316 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003748
+2025-03-26 16:40:55,517 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:55,517 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:58,106 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for BLAST/USDT at 0.003748 in spot market
+2025-03-26 16:40:58,107 - __main__.TradingBot - INFO - Received signal: buy BLAST/USDT at 0.003748
+2025-03-26 16:40:59,345 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:40:59,345 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:00,479 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4232 in spot market
+2025-03-26 16:42:00,480 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4232
+2025-03-26 16:42:01,679 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:01,680 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:04,081 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4232 in spot market
+2025-03-26 16:42:04,081 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4232
+2025-03-26 16:42:04,937 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:04,938 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:07,346 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4224 in spot market
+2025-03-26 16:42:07,347 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4224
+2025-03-26 16:42:08,209 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:08,209 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:10,101 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4224 in spot market
+2025-03-26 16:42:10,101 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4224
+2025-03-26 16:42:11,307 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:11,307 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:13,193 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4224 in spot market
+2025-03-26 16:42:13,193 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4224
+2025-03-26 16:42:14,729 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:14,729 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:21,108 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4224 in spot market
+2025-03-26 16:42:21,109 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4224
+2025-03-26 16:42:21,976 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:21,977 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:25,413 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4224 in spot market
+2025-03-26 16:42:25,414 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4224
+2025-03-26 16:42:26,978 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:26,978 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:29,208 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4224 in spot market
+2025-03-26 16:42:29,208 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4224
+2025-03-26 16:42:30,405 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:30,406 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:32,462 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated BUY signal for ENA/USDT at 0.4224 in spot market
+2025-03-26 16:42:32,462 - __main__.TradingBot - INFO - Received signal: buy ENA/USDT at 0.4224
+2025-03-26 16:42:33,679 - trading_bot.risk.basic_risk_manager.BasicRiskManager - WARNING - Signal rejected: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:33,679 - __main__.TradingBot - WARNING - Signal rejected by risk manager: Sell MAs already in sell configuration, skip this buy
+2025-03-26 16:42:39,028 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-26 16:42:39,028 - __main__.TradingBot - INFO - Stopping trading bot...
+2025-03-26 16:42:41,507 - __main__.TradingBot - INFO - Trading bot stopped
+2025-03-26 16:48:21,100 - trading_bot.utils.logging - INFO - Logging initialized at level INFO
+2025-03-26 16:48:21,100 - trading_bot.utils.logging - INFO - Logging to file: C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs/biased_spot_trading.log
+2025-03-26 16:48:21,106 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Initialized connection to bybit
+2025-03-26 16:48:28,370 - trading_bot.data.providers.ccxt_provider.CCXTProvider - INFO - Loaded markets for bybit
+2025-03-26 16:48:28,371 - __main__.TradingBot - INFO - Total trading pairs: 4
+2025-03-26 16:48:28,371 - trading_bot.models.data_models - INFO - Loaded position: ENA/USDT, entry_price: 0.4344, max_price: 0.4351, min_price: 0.4211
+2025-03-26 16:48:28,372 - trading_bot.models.data_models - INFO - Loaded position: MNT/USDT, entry_price: 0.8479, max_price: 0.8479, min_price: 0.8382
+2025-03-26 16:48:28,373 - trading_bot.models.data_models - INFO - Loaded 2 positions and 0 closed positions
+2025-03-26 16:48:28,373 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 16:48:28,373 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-26 16:48:28,374 - __main__.TradingBot - INFO - Created spot strategy for ETH/USDT
+2025-03-26 16:48:28,375 - trading_bot.models.data_models - INFO - Loaded position: ENA/USDT, entry_price: 0.4344, max_price: 0.4351, min_price: 0.4211
+2025-03-26 16:48:28,375 - trading_bot.models.data_models - INFO - Loaded position: MNT/USDT, entry_price: 0.8479, max_price: 0.8479, min_price: 0.8382
+2025-03-26 16:48:28,375 - trading_bot.models.data_models - INFO - Loaded 2 positions and 0 closed positions
+2025-03-26 16:48:28,375 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 16:48:28,375 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-26 16:48:28,375 - __main__.TradingBot - INFO - Created spot strategy for ENA/USDT
+2025-03-26 16:48:28,376 - trading_bot.models.data_models - INFO - Loaded position: ENA/USDT, entry_price: 0.4344, max_price: 0.4351, min_price: 0.4211
+2025-03-26 16:48:28,376 - trading_bot.models.data_models - INFO - Loaded position: MNT/USDT, entry_price: 0.8479, max_price: 0.8479, min_price: 0.8382
+2025-03-26 16:48:28,376 - trading_bot.models.data_models - INFO - Loaded 2 positions and 0 closed positions
+2025-03-26 16:48:28,377 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 16:48:28,377 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-26 16:48:28,377 - __main__.TradingBot - INFO - Created spot strategy for BLAST/USDT
+2025-03-26 16:48:28,378 - trading_bot.models.data_models - INFO - Loaded position: ENA/USDT, entry_price: 0.4344, max_price: 0.4351, min_price: 0.4211
+2025-03-26 16:48:28,378 - trading_bot.models.data_models - INFO - Loaded position: MNT/USDT, entry_price: 0.8479, max_price: 0.8479, min_price: 0.8382
+2025-03-26 16:48:28,378 - trading_bot.models.data_models - INFO - Loaded 2 positions and 0 closed positions
+2025-03-26 16:48:28,378 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-26 16:48:28,379 - trading_bot.utils.logging.LoggerMixin - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-26 16:48:28,379 - __main__.TradingBot - INFO - Created spot strategy for EIGEN/USDT
+2025-03-26 16:48:28,379 - __main__.TradingBot - INFO - Trading ['ETH/USDT', 'ENA/USDT', 'BLAST/USDT', 'EIGEN/USDT'] on 1m timeframe
+2025-03-26 16:48:28,379 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-26 16:48:28,379 - trading_bot.models.data_models - INFO - Loaded position: ENA/USDT, entry_price: 0.4344, max_price: 0.4351, min_price: 0.4211
+2025-03-26 16:48:28,380 - trading_bot.models.data_models - INFO - Loaded position: MNT/USDT, entry_price: 0.8479, max_price: 0.8479, min_price: 0.8382
+2025-03-26 16:48:28,380 - trading_bot.models.data_models - INFO - Loaded 2 positions and 0 closed positions
+2025-03-26 16:48:28,380 - trading_bot.risk.basic_risk_manager.BasicRiskManager - INFO - Initialized BasicRiskManager with max_open_trades=4, max_drawdown=10.0%
+2025-03-26 16:48:28,380 - __main__.TradingBot - INFO - Risk manager configured with max drawdown: 10.0%
+2025-03-26 16:48:28,380 - __main__.TradingBot - INFO - Trading bot initialized
+2025-03-26 16:48:28,380 - __main__.TradingBot - INFO - Starting trading bot...
+2025-03-26 16:48:32,489 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4223 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:48:32,490 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4223
+2025-03-26 16:48:33,373 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:48:33,373 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:48:33,374 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:48:33,374 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:48:41,632 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.422 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:48:41,632 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.422
+2025-03-26 16:48:42,537 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:48:42,537 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:48:42,538 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:48:42,538 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:48:50,487 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4218 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:48:50,487 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4218
+2025-03-26 16:48:51,683 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:48:51,683 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:48:51,683 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:48:51,685 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:48:58,579 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4219 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:48:58,580 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4219
+2025-03-26 16:48:59,464 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:48:59,465 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:48:59,465 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:48:59,465 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:05,857 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4219 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:49:05,857 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4219
+2025-03-26 16:49:06,706 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:49:06,707 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:06,707 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:06,708 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:12,679 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4219 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:49:12,679 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4219
+2025-03-26 16:49:13,897 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:49:13,898 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:13,898 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:13,898 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:20,648 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4219 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:49:20,648 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4219
+2025-03-26 16:49:21,549 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:49:21,550 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:21,550 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:21,551 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:29,016 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4215 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:49:29,017 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4215
+2025-03-26 16:49:29,900 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:49:29,901 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:29,901 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:29,901 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:37,142 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4214 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:49:37,143 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4214
+2025-03-26 16:49:38,024 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:49:38,025 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:38,025 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:38,025 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:46,370 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4211 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:49:46,370 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4211
+2025-03-26 16:49:47,237 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:49:47,237 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:47,238 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:47,238 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:54,378 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.421 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:49:54,379 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.421
+2025-03-26 16:49:55,621 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:49:55,622 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:55,622 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:49:55,622 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:02,709 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4207 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:50:02,709 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4207
+2025-03-26 16:50:03,906 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:50:03,907 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:03,907 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:03,907 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:11,260 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4207 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:50:11,260 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4207
+2025-03-26 16:50:12,847 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:50:12,847 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:12,848 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:12,848 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:20,089 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4213 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:50:20,090 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4213
+2025-03-26 16:50:20,997 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:50:20,998 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:20,998 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:20,999 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:28,237 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4215 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:50:28,238 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4215
+2025-03-26 16:50:29,112 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:50:29,113 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:29,114 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:29,114 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:35,809 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4215 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:50:35,810 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4215
+2025-03-26 16:50:37,396 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:50:37,396 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:37,397 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:37,397 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:46,080 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4218 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:50:46,080 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4218
+2025-03-26 16:50:46,945 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:50:46,946 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:46,946 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:46,946 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:53,685 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4221 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:50:53,686 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4221
+2025-03-26 16:50:54,547 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:50:54,548 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:54,548 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:50:54,548 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:02,064 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4221 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:51:02,065 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4221
+2025-03-26 16:51:02,913 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:51:02,913 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:02,914 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:02,914 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:10,567 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4225 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:51:10,568 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4225
+2025-03-26 16:51:11,426 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:51:11,426 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:11,427 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:11,427 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:18,597 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4222 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:51:18,597 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4222
+2025-03-26 16:51:19,473 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:51:19,473 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:19,474 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:19,474 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:26,472 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4225 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:51:26,473 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4225
+2025-03-26 16:51:27,320 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:51:27,320 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:27,321 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:27,321 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:34,633 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4228 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:51:34,633 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4228
+2025-03-26 16:51:36,534 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:51:36,535 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:36,535 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:36,536 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:43,455 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4228 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:51:43,455 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4228
+2025-03-26 16:51:44,320 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:51:44,320 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:44,321 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:44,321 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:51,874 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4226 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:51:51,875 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4226
+2025-03-26 16:51:52,801 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:51:52,802 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:52,802 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:51:52,803 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:52:00,296 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4229 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:52:00,296 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4229
+2025-03-26 16:52:01,166 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:52:01,166 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:52:01,167 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:52:01,167 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:52:08,967 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Generated CLOSE signal for ENA/USDT at 0.4224 in spot market (reason: BEARISH CONFIGURATION)
+2025-03-26 16:52:08,968 - __main__.TradingBot - INFO - Received signal: close ENA/USDT at 0.4224
+2025-03-26 16:52:09,836 - trading_bot.execution.ccxt_executor.CCXTExecutor - INFO - Order: sell 0.00145 ENA/USDT at market price
+2025-03-26 16:52:09,837 - trading_bot.execution.ccxt_executor.CCXTExecutor - ERROR - Error placing order: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:52:09,837 - __main__.TradingBot - ERROR - Error closing position: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:52:09,837 - __main__.TradingBot - ERROR - Error in order_execution: bybit amount of ENA/USDT must be greater than minimum amount precision of 0.01
+2025-03-26 16:52:13,915 - __main__.TradingBot - INFO - Received signal 2, shutting down...
+2025-03-26 16:52:13,915 - __main__.TradingBot - INFO - Stopping trading bot...
+2025-03-26 16:52:14,178 - __main__.TradingBot - INFO - Trading bot stopped

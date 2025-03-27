@@ -52,7 +52,21 @@ class BasicRiskManager(RiskManager, LoggerMixin):
 
         # Update our position tracker to get latest data
         self.position_tracker.update_positions()
+        
+        # If this is a buy signal, check if we already have a position for this symbol
+        if signal.signal_type == 'buy':
+            position = self.get_position(signal.symbol)
+            if position and position.amount > 0:
+                # Calculate position value
+                position_value = position.amount * position.current_price
+                if position_value > 1.0:  # Only consider positions worth more than $1
+                    reason = f"Position already exists for {signal.symbol} (value: ${position_value:.2f})"
+                    self.logger.warning(f"Signal rejected: {reason}")
+                    return False, reason
+        
+        # Only count positions with value > $1 (PositionTracker.get_all_positions() now filters dust positions)
         current_positions = self.position_tracker.get_all_positions()
+        self.logger.info(f"Current valid positions: {len(current_positions)}, max allowed: {self.max_open_trades}")
 
         # Check if we already have too many open trades
         if len(current_positions) >= self.max_open_trades:
@@ -60,20 +74,9 @@ class BasicRiskManager(RiskManager, LoggerMixin):
             self.logger.warning(f"Signal rejected: {reason}")
             return False, reason
             
-        # For buy signals, check if the sell MA configuration would already trigger a close
-        # This prevents opening positions that are already in a sell configuration
-        if signal.signal_type == 'buy' and signal.params is not None:
-            if 'sell_short_period' in signal.params and 'sell_long_period' in signal.params:
-                # Try to get sell MA information from signal params if available
-                sell_short_value = signal.params.get('sell_short_ma_value')
-                sell_long_value = signal.params.get('sell_long_ma_value')
-                
-                # If sell MA values are available, check if they're in a sell configuration
-                if sell_short_value is not None and sell_long_value is not None:
-                    if sell_short_value < sell_long_value:
-                        reason = "Sell MAs already in sell configuration, skip this buy"
-                        self.logger.warning(f"Signal rejected: {reason}")
-                        return False, reason
+        # Note: We're no longer rejecting buy signals when the sell MAs are in a sell configuration.
+        # This allows buy signals to be executed regardless of the sell MA configuration, with
+        # the position being closed based on either the sell crossover or max drawdown.
         
         return True, "Signal validated"
     
@@ -107,6 +110,7 @@ class BasicRiskManager(RiskManager, LoggerMixin):
                 return 0
             
             # Count active positions to determine how many positions we already have
+            # Only count positions with value > $1 (PositionTracker.get_all_positions() now filters dust positions)
             active_positions = len(self.position_tracker.get_all_positions())
             
             # Calculate remaining available positions
@@ -145,6 +149,7 @@ class BasicRiskManager(RiskManager, LoggerMixin):
             List of symbols that have exceeded the maximum drawdown limit
         """
         self.position_tracker.update_positions()
+        # Only check positions with value > $1 (PositionTracker.get_all_positions() now filters dust positions)
         positions = self.position_tracker.get_all_positions()
         
         symbols_to_close = []

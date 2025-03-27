@@ -1,0 +1,33 @@
+exchange:
+  id: bybit
+  api_key: your_api_key_here
+  secret: your_secret_here
+  params:
+    testnet: false
+
+trading:
+  enabled: true
+  timeframe: 1m
+  symbols:
+    - symbol: ETH/USDT
+      market_type: spot
+    - symbol: BTC/USDT
+      market_type: spot
+    - symbol: SOL/USDT
+      market_type: spot
+
+strategy:
+  name: biased_spot_ma_crossover
+  params:
+    buy_short_period: 10
+    buy_long_period: 30
+    sell_short_period: 50
+    sell_long_period: 200
+
+risk:
+  max_open_trades: 5
+  max_drawdown: 0.02  # 2%
+  drawdown_check_interval: 60  # seconds
+  position_sizing:
+    base_size: 0.1  # 10% of available balance
+    max_size: 0.2   # 20% of available balance 

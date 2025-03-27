@@ -1,11 +1,12 @@
 # trading_bot/models/data_models.py
 from dataclasses import dataclass, asdict
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, Union
 from datetime import datetime, timedelta
 import pandas as pd
 from trading_bot.utils.symbol_utils import normalize_symbol, get_base_currency, get_quote_currency
 import json
 import os
+import uuid
 import logging
 from pathlib import Path
 
@@ -201,6 +202,9 @@ class Order:
     amount: float
     price: Optional[float] = None  # Required for limit orders
     params: Dict[str, Any] = None
+    id: Optional[str] = None  # Order ID (typically assigned by exchange after execution)
+    strategy: Optional[str] = None  # Name of the strategy that generated this order
+    signal_price: Optional[float] = None  # Price at which the signal was generated
     
     def __post_init__(self):
         if self.params is None:
@@ -229,6 +233,8 @@ class PositionTracker:
         self.exchange = exchange
         self._positions: Dict[str, Position] = {}  # Symbol -> Position
         self._closed_positions: List[Position] = []  # History of closed positions
+        self._last_update: Optional[datetime] = None  # Track last position update
+        self._update_interval = timedelta(seconds=5)  # Minimum time between updates
         
         # Set default data directory
         self.data_dir = Path("logs")
@@ -237,6 +243,17 @@ class PositionTracker:
         
         # Load persisted positions on startup
         self._load_positions()
+    
+    def _should_update(self) -> bool:
+        """
+        Check if positions should be updated based on time interval
+        
+        Returns:
+            bool: True if positions should be updated
+        """
+        if self._last_update is None:
+            return True
+        return datetime.now() - self._last_update > self._update_interval
     
     def _load_positions(self) -> None:
         """Load position data from disk"""
@@ -340,7 +357,6 @@ class PositionTracker:
             return 0
             
         except Exception as e:
-            import logging
             logging.getLogger(__name__).debug(f"Error getting trade history for {symbol}: {e}")
             return 0
     
@@ -348,8 +364,12 @@ class PositionTracker:
         """
         Update position information from the exchange
         
-        This should be called regularly to keep position data current
+        This should be called regularly to keep position data current.
+        Updates are rate-limited to avoid excessive API calls.
         """
+        if not self._should_update():
+            return
+            
         try:
             # Store existing position data to preserve tracking info
             existing_positions = {symbol: pos for symbol, pos in self._positions.items()}
@@ -408,11 +428,9 @@ class PositionTracker:
                                         entry_time=datetime.now()
                                     )
                             except (ValueError, TypeError) as e:
-                                import logging
                                 logging.getLogger(__name__).debug(f"Error processing position data for {symbol}: {e}")
                                 continue
                 except Exception as e:
-                    import logging
                     logging.getLogger(__name__).error(f"Error fetching positions: {e}")
             
             # Get spot balances (for spot positions)
@@ -420,7 +438,6 @@ class PositionTracker:
             try:
                 balance = self.exchange.fetch_balance()
             except Exception as e:
-                import logging
                 logging.getLogger(__name__).error(f"Error fetching balance: {e}")
                 balance = {}
             
@@ -487,7 +504,6 @@ class PositionTracker:
                                     entry_time=datetime.now()
                                 )
                     except Exception as e:
-                        import logging
                         logging.getLogger(__name__).debug(f"Error getting price for {symbol}: {e}")
                         # Skip if we can't get price info
                         pass
@@ -501,9 +517,11 @@ class PositionTracker:
                 
             # Save updated positions to disk
             self._save_positions()
+            
+            # Update last update timestamp
+            self._last_update = datetime.now()
                 
         except Exception as e:
-            import logging
             logging.getLogger(__name__).error(f"Error updating positions: {e}")
     
     def get_position(self, symbol: str) -> Optional[Position]:
@@ -518,16 +536,69 @@ class PositionTracker:
         """
         # Normalize the input symbol before lookup
         normalized_symbol = normalize_symbol(symbol)
-        return self._positions.get(normalized_symbol)
+        position = self._positions.get(normalized_symbol)
+        
+        # If no position was found in our tracker, try to directly fetch from exchange
+        # This is especially important for spot positions that might not be properly tracked
+        if position is None and self._should_update():
+            try:
+                # For spot positions, check if we have a balance
+                base_currency = get_base_currency(normalized_symbol)
+                if not base_currency:
+                    return None
+                    
+                try:
+                    balance = self.exchange.fetch_balance()
+                    if base_currency in balance:
+                        free_amount = float(balance[base_currency].get('free', 0) or 0)
+                        if free_amount > 0:
+                            # We have a balance - check current price
+                            ticker = self.exchange.fetch_ticker(normalized_symbol)
+                            if isinstance(ticker, dict) and 'last' in ticker:
+                                current_price = float(ticker['last'])
+                                
+                                # Create a position object on-the-fly
+                                position = Position(
+                                    symbol=normalized_symbol,
+                                    side='long',  # Spot positions are always long
+                                    amount=free_amount,
+                                    entry_price=current_price,  # Approximation
+                                    current_price=current_price,
+                                    entry_time=datetime.now()
+                                )
+                                
+                                # Save this in our tracker
+                                self._positions[normalized_symbol] = position
+                                return position
+                except Exception as e:
+                    logging.getLogger(__name__).error(f"Error directly checking position for {normalized_symbol}: {e}")
+            except Exception as e:
+                logging.getLogger(__name__).error(f"Error fetching position for {normalized_symbol}: {e}")
+        
+        return position
     
     def get_all_positions(self) -> List[Position]:
         """
-        Get all current positions
+        Get all current positions with a value greater than $1
+        Positions with value less than $1 are considered dust and ignored
         
         Returns:
-            List of Position objects
+            List of Position objects with value > $1
         """
-        return list(self._positions.values())
+        # Filter out positions with value less than $1
+        valid_positions = []
+        for position in self._positions.values():
+            position_value = position.amount * position.current_price
+            if position_value > 1.0:
+                valid_positions.append(position)
+            else:
+                logging.getLogger(__name__).debug(
+                    f"Ignoring dust position for {position.symbol}: "
+                    f"{position.amount} units at {position.current_price}, "
+                    f"value=${position_value:.2f}"
+                )
+        
+        return valid_positions
     
     def get_closed_positions(self) -> List[Position]:
         """

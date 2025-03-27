@@ -4,6 +4,7 @@ import os
 import sys
 from datetime import datetime
 from typing import Optional, Dict, Any
+from logging.handlers import RotatingFileHandler
 
 def setup_logging(
     level: str = "INFO",
@@ -96,6 +97,106 @@ class LoggerMixin:
     """
     @property
     def logger(self):
-        if not hasattr(self, '_logger'):
-            self._logger = logging.getLogger(self.__class__.__module__ + '.' + self.__class__.__name__)
-        return self._logger
+        """
+        Get logger for this class
+        
+        Returns:
+            Logger instance
+        """
+        name = self.__class__.__module__
+        if hasattr(self, "__class__"):
+            name = f"{name}.{self.__class__.__name__}"
+            
+        return logging.getLogger(name)
+
+def setup_enhanced_logging(config: Optional[Dict[str, Any]] = None):
+    """
+    Set up enhanced logging with rotation and specialized loggers for debugging
+    
+    Args:
+        config: Configuration dictionary
+    """
+    if config is None:
+        config = {}
+    
+    # Get configuration    
+    system_config = config.get('system', {})
+    log_level_name = system_config.get('log_level', 'INFO')
+    log_level = getattr(logging, log_level_name)
+    log_dir = "logs"
+    
+    # Create log directory if it doesn't exist
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+    
+    # Common formatter
+    standard_formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    )
+    
+    # Configure root logger
+    root_logger = logging.getLogger()
+    root_logger.setLevel(log_level)
+    
+    # Clear existing handlers to avoid duplicates
+    for handler in root_logger.handlers[:]:
+        root_logger.removeHandler(handler)
+    
+    # Add console handler to root logger
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(standard_formatter)
+    root_logger.addHandler(console_handler)
+    
+    # Add rotating file handler to root logger
+    root_handler = RotatingFileHandler(
+        f"{log_dir}/trading_bot.log", 
+        maxBytes=10*1024*1024,  # 10MB
+        backupCount=5
+    )
+    root_handler.setFormatter(standard_formatter)
+    root_logger.addHandler(root_handler)
+    
+    # Create specialized loggers
+    loggers = {
+        "indicators": logging.DEBUG,
+        "signal_diagnostics": logging.DEBUG,
+        "ma_values": logging.DEBUG,
+        "crossovers": logging.DEBUG,
+        "positions": logging.DEBUG,
+        "orders": logging.DEBUG,
+        "data": logging.DEBUG
+    }
+    
+    for logger_name, level in loggers.items():
+        logger = logging.getLogger(logger_name)
+        logger.setLevel(level)
+        
+        # Clear existing handlers to avoid duplicates
+        for handler in logger.handlers[:]:
+            logger.removeHandler(handler)
+            
+        # Create appropriate handler based on logger type
+        if logger_name == "ma_values":
+            # CSV format for values that will be stored for analysis
+            handler = RotatingFileHandler(
+                f"{log_dir}/{logger_name}.csv",
+                maxBytes=5*1024*1024,  # 5MB
+                backupCount=3
+            )
+            # No formatter for CSV data
+        else:
+            handler = RotatingFileHandler(
+                f"{log_dir}/{logger_name}.log",
+                maxBytes=5*1024*1024,  # 5MB
+                backupCount=3
+            )
+            handler.setFormatter(standard_formatter)
+            
+        logger.addHandler(handler)
+        logger.propagate = False  # Don't propagate to root
+    
+    # Write CSV header for MA values
+    ma_logger = logging.getLogger("ma_values")
+    ma_logger.debug("timestamp,symbol,price,buy_short_ma,buy_long_ma,sell_short_ma,sell_long_ma")
+    
+    logging.info(f"Enhanced logging setup complete. Log files will be stored in {os.path.abspath(log_dir)}")

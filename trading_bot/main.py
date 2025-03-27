@@ -7,7 +7,7 @@ import sys
 from typing import Dict, Any, List
 
 from trading_bot.utils.config import Config
-from trading_bot.utils.logging import setup_logging, LoggerMixin
+from trading_bot.utils.logging import setup_logging, setup_enhanced_logging, LoggerMixin
 from trading_bot.utils.events import EventBus, EventType, Event
 
 from trading_bot.data.providers.ccxt_provider import CCXTProvider
@@ -34,8 +34,8 @@ class TradingBot(LoggerMixin):
             
         self.config = Config(config_path)
         
-        # Set up logging with config
-        setup_logging(config=self.config.config)
+        # Set up logging with config - use enhanced logging for better debugging
+        setup_enhanced_logging(config=self.config.config)
         
         # Create event bus
         self.event_bus = EventBus()
@@ -60,10 +60,16 @@ class TradingBot(LoggerMixin):
     
     def _setup_components(self):
         """Set up all bot components based on configuration"""
-        # Set up data provider
-        exchange_id = self.config.get('exchange.id', 'bybit')
-        api_key = self.config.get('exchange.api_key')
-        secret = self.config.get('exchange.secret')
+        # Set up data provider with required parameters
+        if not self.config.has_key('exchange'):
+            raise ValueError("Configuration missing required section: 'exchange'")
+            
+        # Required exchange parameters
+        exchange_id = self.config.get_strict('exchange.id')
+        api_key = self.config.get_strict('exchange.api_key')
+        secret = self.config.get_strict('exchange.secret')
+        
+        # Optional exchange parameters (may have defaults)
         params = self.config.get('exchange.params', {})
         
         self.data_provider = CCXTProvider(
@@ -76,50 +82,98 @@ class TradingBot(LoggerMixin):
         # Create strategies for different market types
         self.strategies = {}
         
-        # Get trading symbols
-        trading_symbols = self.config.get('trading.symbols', [])
+        # Required trading parameters
+        if not self.config.has_key('trading'):
+            raise ValueError("Configuration missing required section: 'trading'")
+            
+        if not self.config.has_key('trading.symbols'):
+            raise ValueError("Trading configuration missing required parameter: 'symbols'")
+            
+        trading_symbols = self.config.get_strict('trading.symbols')
         
+        if not trading_symbols:
+            raise ValueError("No trading symbols configured. At least one symbol is required.")
+            
+        # Required trading timeframe - must be in config
+        timeframe = self.config.get_strict('trading.timeframe')
+        
+        # Required strategy configuration
+        if not self.config.has_key('strategy'):
+            raise ValueError("Configuration missing required section: 'strategy'")
+            
         # Count total trading pairs for position sizing
         total_trading_pairs = len(trading_symbols)
         self.logger.info(f"Total trading pairs: {total_trading_pairs}")
         
         for symbol_config in trading_symbols:
             if isinstance(symbol_config, dict):
-                symbol = symbol_config.get('symbol')
-                market_type = symbol_config.get('market_type')
+                if 'symbol' not in symbol_config:
+                    raise ValueError(f"Symbol configuration missing required parameter: 'symbol'")
+                    
+                symbol = symbol_config['symbol']
+                
+                if 'market_type' not in symbol_config:
+                    raise ValueError(f"Symbol configuration for {symbol} missing required parameter: 'market_type'")
+                    
+                market_type = symbol_config['market_type']
                 
                 # Get strategy configuration from config file
-                strategy_config = self.config.get('strategy', {})
+                strategy_config = self.config.config['strategy'].copy()
+                
+                # Add timeframe to strategy config
+                strategy_config['timeframe'] = timeframe
                 
                 # Create the strategy
-                self.strategies[symbol] = StrategyFactory.create_strategy(strategy_config)
+                self.strategies[symbol] = StrategyFactory.create_strategy(
+                    strategy_config,
+                    exchange=self.data_provider.exchange
+                )
                 self.logger.info(f"Created {market_type} strategy for {symbol}")
             else:
                 # If symbol is just a string, assume it's a spot market
-                strategy_config = self.config.get('strategy', {})
-                self.strategies[symbol_config] = StrategyFactory.create_strategy(strategy_config)
-                self.logger.info(f"Created spot strategy for {symbol_config}")
+                symbol = symbol_config
+                
+                strategy_config = self.config.config['strategy'].copy()
+                
+                # Add timeframe to strategy config
+                strategy_config['timeframe'] = timeframe
+                
+                self.strategies[symbol] = StrategyFactory.create_strategy(
+                    strategy_config,
+                    exchange=self.data_provider.exchange
+                )
+                self.logger.info(f"Created spot strategy for {symbol}")
+        
+        # Log the configured timeframe
+        self.logger.info(f"Trading {list(self.strategies.keys())} on {timeframe} timeframe")
         
         # Check if any valid strategies were created
         if not self.strategies:
-            self.logger.warning("No valid trading strategies configured")
+            raise ValueError("No valid trading strategies configured")
         
-        # Set up order executor
-        trading_enabled = self.config.get('trading.enabled', False)
+        # Required trading parameter (must be in config)
+        trading_enabled = self.config.get_strict('trading.enabled')
         dry_run = not trading_enabled
+        
         self.executor = CCXTExecutor(
             exchange=self.data_provider.exchange,
             dry_run=dry_run
         )
         
-        # Set up risk manager with total trading pairs and max drawdown
-        max_drawdown = self.config.get('risk.max_drawdown', 0.25)  # Default 25% max drawdown
+        # Required risk configuration
+        if not self.config.has_key('risk'):
+            raise ValueError("Configuration missing required section: 'risk'")
+            
+        # Required risk parameters (must be in config)
+        max_drawdown = self.config.get_strict('risk.max_drawdown')
+        
         self.risk_manager = BasicRiskManager(
             exchange=self.data_provider.exchange,
-            max_open_trades=total_trading_pairs,  # Use total trading pairs as max open trades
+            max_open_trades=total_trading_pairs,
             max_drawdown=max_drawdown
         )
         
+        # Log risk manager configuration
         self.logger.info(f"Risk manager configured with max drawdown: {max_drawdown*100}%")
     
     def _register_events(self):
@@ -129,102 +183,98 @@ class TradingBot(LoggerMixin):
         self.event_bus.subscribe(EventType.ORDER_FILLED, self._handle_order_filled)
         self.event_bus.subscribe(EventType.ERROR, self._handle_error)
     
-    def _handle_signal(self, event: Event):
-        """Handle a signal event"""
-        signal = event.data
-        self.logger.info(f"Received signal: {signal.signal_type} {signal.symbol} at {signal.price}")
+    def _handle_signal(self, signal: Signal) -> None:
+        """
+        Handle incoming trading signals
         
-        # Special handling for "close" signals from spot strategies
-        if signal.signal_type == 'close':
-            # Find existing position for this symbol
-            position = self.risk_manager.get_position(signal.symbol)
-            if position is None or position.amount == 0:
-                self.logger.warning(f"Received close signal for {signal.symbol} but no position exists")
-                return
-            
-            # Determine the proper side for closing the position
-            close_side = 'sell' if position.side.lower() == 'long' else 'buy'
-                
-            # Create an order to close the position
-            order = Order(
-                symbol=signal.symbol,
-                order_type='market',
-                side=close_side,  # Determine close side based on position side
-                amount=position.amount
-            )
-            
-            try:
-                order_result = self.executor.place_order(order)
-                self.logger.info(f"Position closed: {order_result}")
-                
-                # Publish order placed event
-                self.event_bus.publish(Event(
-                    EventType.ORDER_PLACED,
-                    {
-                        'signal': signal,
-                        'order': order_result
-                    }
-                ))
-            except Exception as e:
-                self.logger.error(f"Error closing position: {e}")
-                # Publish error event
-                self.event_bus.publish(Event(
-                    EventType.ERROR,
-                    {
-                        'source': 'order_execution',
-                        'message': str(e),
-                        'signal': signal
-                    }
-                ))
-            return
-        
-        # Continue with existing code for buy/sell signals
-        # Validate signal with risk manager
-        valid, reason = self.risk_manager.validate_signal(signal)
-        if not valid:
-            self.logger.warning(f"Signal rejected by risk manager: {reason}")
-            return
-        
-        # Calculate position size
-        position_size = self.risk_manager.calculate_position_size(signal)
-        if position_size <= 0:
-            self.logger.warning(f"Position size is zero or negative, skipping order")
-            return
-        
-        # Create order
-        order = Order(
-            symbol=signal.symbol,
-            order_type='market',
-            side=signal.signal_type,  # 'buy' or 'sell'
-            amount=position_size
-        )
-        
-        # Execute order
+        Args:
+            signal: Trading signal to process
+        """
         try:
-            order_result = self.executor.place_order(order)
-            self.logger.info(f"Order placed: {order_result}")
+            self.logger.info(f"Received signal: {signal}")
             
-            # Publish order placed event
-            self.event_bus.publish(Event(
-                EventType.ORDER_PLACED,
-                {
-                    'signal': signal,
-                    'order': order_result
-                }
-            ))
-        
+            # Handle close signals from spot strategies
+            if signal.type == 'close' and signal.strategy_type == 'spot':
+                # Get current position
+                position = self.risk_manager.get_position(signal.symbol)
+                
+                if position:
+                    # Calculate position value in USD
+                    position_value = position.amount * position.current_price
+                    
+                    # Skip if position value is too small
+                    if position_value <= 1.0:
+                        self.logger.warning(
+                            f"Skipping close signal for {signal.symbol} - "
+                            f"position value (${position_value:.2f}) is too small"
+                        )
+                        return
+                    
+                    # Determine side based on position
+                    side = 'sell' if position.side == 'long' else 'buy'
+                    
+                    # Create market order to close position
+                    order = Order(
+                        symbol=signal.symbol,
+                        side=side,
+                        type='market',
+                        amount=position.amount,
+                        price=None,
+                        params={'reduceOnly': True}
+                    )
+                    
+                    # Execute order
+                    result = self.executor.place_order(order)
+                    
+                    if result:
+                        self.logger.info(
+                            f"Position closed for {signal.symbol}: "
+                            f"{position.amount:.8f} units at {position.current_price:.6f}, "
+                            f"value=${position_value:.2f}"
+                        )
+                        self.event_bus.publish(EventType.ORDER_PLACED, result)
+                    else:
+                        self.logger.error(f"Failed to close position for {signal.symbol}")
+                        
+            # Handle buy/sell signals
+            elif signal.type in ['buy', 'sell']:
+                # Validate signal with risk manager
+                validation_result = self.risk_manager.validate_signal(signal)
+                
+                if not validation_result.is_valid:
+                    self.logger.info(f"Signal rejected: {validation_result.reason}")
+                    return
+                
+                # Calculate position size
+                position_size = self.risk_manager.calculate_position_size(signal)
+                
+                if position_size <= 0:
+                    self.logger.warning(f"Invalid position size calculated for {signal.symbol}: {position_size}")
+                    return
+                
+                # Create market order
+                order = Order(
+                    symbol=signal.symbol,
+                    side=signal.type,
+                    type='market',
+                    amount=position_size,
+                    price=None
+                )
+                
+                # Execute order
+                result = self.executor.place_order(order)
+                
+                if result:
+                    self.logger.info(
+                        f"Order executed for {signal.symbol}: "
+                        f"{signal.type.upper()} {position_size:.8f} units"
+                    )
+                    self.event_bus.publish(EventType.ORDER_PLACED, result)
+                else:
+                    self.logger.error(f"Failed to execute {signal.type} order for {signal.symbol}")
+                    
         except Exception as e:
-            self.logger.error(f"Error executing order: {e}")
-            
-            # Publish error event
-            self.event_bus.publish(Event(
-                EventType.ERROR,
-                {
-                    'source': 'order_execution',
-                    'message': str(e),
-                    'signal': signal
-                }
-            ))
+            self.logger.error(f"Error handling signal: {e}")
     
     def _handle_order_placed(self, event: Event):
         """Handle order placed event"""
@@ -259,27 +309,64 @@ class TradingBot(LoggerMixin):
             {'timestamp': time.time()}
         ))
         
-        # Interval for checking drawdown (in seconds)
-        drawdown_check_interval = self.config.get('risk.drawdown_check_interval', 300)  # Default 5 minutes
+        # Get drawdown check interval - required in config
+        drawdown_check_interval = self.config.get_strict('risk.drawdown_check_interval')
         last_drawdown_check = 0
         
-        # Retry interval for failed drawdown closes (in seconds)
-        retry_interval = 60  # Try every minute
+        # Internal retry interval - OK to have a default
+        retry_interval = 60  # This is an internal parameter, not in config
         last_retry_check = 0
+        
+        # Track last signal check time for each timeframe
+        last_signal_check = {}
+        # Map timeframes to seconds for throttling
+        timeframe_seconds = {
+            '1m': 60,
+            '5m': 300,
+            '15m': 900,
+            '30m': 1800,
+            '1h': 3600,
+            '4h': 14400,
+            '1d': 86400
+        }
         
         try:
             while self.running:
                 # Process each trading symbol
+                current_time = time.time()
+                
                 for symbol in self.strategies.keys():
                     # Skip if key isn't in strategies (shouldn't happen, but better be safe)
                     if symbol not in self.strategies:
                         continue
                     
+                    # Determine timeframe from strategy
+                    timeframe = getattr(self.strategies[symbol], 'timeframe', '1h')
+                    
+                    # Only check for signals at appropriate intervals based on timeframe
+                    # Convert timeframe to seconds and add a small buffer (5 seconds)
+                    check_interval = timeframe_seconds.get(timeframe, 3600) + 5  # Default to 1h if unknown
+                    
+                    # Create a key that combines symbol and timeframe for tracking last check time
+                    symbol_timeframe_key = f"{symbol}_{timeframe}"
+                    
+                    # Initialize last check time if not set
+                    if symbol_timeframe_key not in last_signal_check:
+                        last_signal_check[symbol_timeframe_key] = 0
+                    
+                    # Skip if we checked too recently
+                    if current_time - last_signal_check[symbol_timeframe_key] < check_interval:
+                        self.logger.debug(
+                            f"Skipping signal check for {symbol} - next check in "
+                            f"{check_interval - (current_time - last_signal_check[symbol_timeframe_key]):.0f} seconds"
+                        )
+                        continue
+                    
+                    # Update the last check time
+                    last_signal_check[symbol_timeframe_key] = current_time
+                    
                     # Fetch latest market data
                     try:
-                        # Determine timeframe from strategy
-                        timeframe = getattr(self.strategies[symbol], 'timeframe', '1h')
-                        
                         # Get required data points from strategy
                         required_candles = getattr(self.strategies[symbol], 'get_required_data_points', lambda: 100)()
                         
@@ -310,7 +397,6 @@ class TradingBot(LoggerMixin):
                         self.logger.error(f"Error processing {symbol}: {e}")
                 
                 # Check for drawdown limit breaches at regular intervals
-                current_time = time.time()
                 if current_time - last_drawdown_check > drawdown_check_interval:
                     self.logger.debug("Checking positions against drawdown limits")
                     symbols_to_close = self.risk_manager.check_drawdown_limits()
@@ -321,9 +407,63 @@ class TradingBot(LoggerMixin):
                         
                         # Get position details 
                         position = self.risk_manager.get_position(symbol)
+                        
+                        # If position doesn't exist, try to check spot balance directly
+                        if position is None:
+                            # Extract base currency from symbol
+                            base_currency = symbol.split('/')[0]
+                            
+                            try:
+                                # Directly check balance from exchange
+                                balance = self.data_provider.exchange.fetch_balance()
+                                free_amount = float(balance.get(base_currency, {}).get('free', 0) or 0)
+                                
+                                if free_amount > 0:
+                                    # We have a balance, we can directly close this position
+                                    self.logger.info(f"Found {base_currency} balance directly: {free_amount}")
+                                    
+                                    try:
+                                        # Create an order to close the position
+                                        order = Order(
+                                            symbol=symbol,
+                                            order_type='market',
+                                            side='sell',  # Spot positions are always closed with sell
+                                            amount=free_amount,
+                                            strategy="risk_management",  # Add source of order
+                                            signal_price=0  # No signal price for risk management orders
+                                        )
+                                        
+                                        # Execute order
+                                        order_result = self.executor.place_order(order)
+                                        self.logger.info(f"Position closed due to max drawdown: {order_result}")
+                                        
+                                        # Publish order placed event
+                                        self.event_bus.publish(Event(
+                                            EventType.ORDER_PLACED,
+                                            {
+                                                'signal': None,  # No signal for this order
+                                                'order': order_result,
+                                                'reason': 'max_drawdown'
+                                            }
+                                        ))
+                                        
+                                        # If this symbol was in retry list, remove it
+                                        if hasattr(self, '_drawdown_close_retries') and symbol in self._drawdown_close_retries:
+                                            del self._drawdown_close_retries[symbol]
+                                            
+                                        continue  # Skip to next symbol
+                                    except Exception as e:
+                                        self.logger.error(f"Error closing position due to max drawdown: {e}")
+                                        # Add to retry list with timestamp
+                                        if hasattr(self, '_drawdown_close_retries'):
+                                            self._drawdown_close_retries[symbol] = current_time
+                            except Exception as e:
+                                self.logger.error(f"Error checking balance for {base_currency}: {e}")
+                        
+                        # If we have a position object, proceed with normal close
                         if position and position.amount > 0:
                             try:
-                                # Determine the proper side for closing the position based on position side
+                                # Determine the proper side for closing the position
                                 close_side = 'sell' if position.side.lower() == 'long' else 'buy'
                                 
                                 # Create an order to close the position

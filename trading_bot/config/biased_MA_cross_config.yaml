@@ -20,7 +20,9 @@ trading:
     - symbol: BLAST/USDT
       market_type: spot
     - symbol: EIGEN/USDT
-      market_type: spot      
+      market_type: spot
+    - symbol: MNT/USDT
+      market_type: spot
   timeframe: 1m
 
 # Strategy configuration
@@ -40,5 +42,5 @@ system:
   log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 
 risk:
-  max_drawdown: 0.1  # Maximum allowed drawdown (10%)
+  max_drawdown: 0.02  # Maximum allowed drawdown (2%)
   drawdown_check_interval: 300  # Check every 5 minutes (300 seconds)

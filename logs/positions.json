@@ -1,0 +1,90 @@
+{
+  "positions": [
+    {
+      "symbol": "EIGEN/USDT",
+      "side": "long",
+      "amount": 6.25374,
+      "entry_price": 1.193,
+      "current_price": 1.176,
+      "unrealized_pnl": -0.10631358000000078,
+      "realized_pnl": 0.0,
+      "entry_time": "2025-03-27T09:15:15.302072",
+      "max_price": 1.193,
+      "min_price": 1.172
+    },
+    {
+      "symbol": "ETH/USDT",
+      "side": "long",
+      "amount": 0.00606881,
+      "entry_price": 2027.78,
+      "current_price": 2030.19,
+      "unrealized_pnl": 0.014625832100000498,
+      "realized_pnl": 0.0,
+      "entry_time": "2025-03-27T09:11:58.158586",
+      "max_price": 2030.42,
+      "min_price": 2019.12
+    },
+    {
+      "symbol": "BLAST/USDT",
+      "side": "long",
+      "amount": 3227.62385,
+      "entry_price": 0.0038140000000000005,
+      "current_price": 0.003826,
+      "unrealized_pnl": 0.03873148619999814,
+      "realized_pnl": 0.0,
+      "entry_time": "2025-03-27T07:24:33.396841",
+      "max_price": 0.003884,
+      "min_price": 0.003741
+    },
+    {
+      "symbol": "ENA/USDT",
+      "side": "long",
+      "amount": 0.00096,
+      "entry_price": 0.4298,
+      "current_price": 0.4338,
+      "unrealized_pnl": 3.840000000000004e-06,
+      "realized_pnl": 0.0,
+      "entry_time": "2025-03-27T07:17:57.005093",
+      "max_price": 0.4371,
+      "min_price": 0.428
+    },
+    {
+      "symbol": "MNT/USDT",
+      "side": "long",
+      "amount": 9.9950064,
+      "entry_price": 0.8481,
+      "current_price": 0.8457,
+      "unrealized_pnl": -0.023988015359999577,
+      "realized_pnl": 0.0,
+      "entry_time": "2025-03-27T10:18:35.974277",
+      "max_price": 0.8489,
+      "min_price": 0.8452
+    }
+  ],
+  "closed_positions": [
+    {
+      "symbol": "ENA/USDT",
+      "side": "long",
+      "amount": 0.00145,
+      "entry_price": 0.4344,
+      "current_price": 0.4228,
+      "unrealized_pnl": -1.6819999999999998e-05,
+      "realized_pnl": 0.0,
+      "entry_time": "2025-03-26T15:45:10.534859",
+      "max_price": 0.4351,
+      "min_price": 0.4207
+    },
+    {
+      "symbol": "MNT/USDT",
+      "side": "long",
+      "amount": 0.3202064,
+      "entry_price": 0.8479,
+      "current_price": 0.8463,
+      "unrealized_pnl": -0.0005123302399999792,
+      "realized_pnl": 0.0,
+      "entry_time": "2025-03-26T15:09:11.836147",
+      "max_price": 0.8479,
+      "min_price": 0.8382
+    }
+  ]
+}

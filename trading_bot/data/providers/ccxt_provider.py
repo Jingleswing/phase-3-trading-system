@@ -78,6 +78,9 @@ class CCXTProvider(DataProvider, LoggerMixin):
             DataFrame with columns: timestamp, open, high, low, close, volume
         """
         try:
+            data_logger = logging.getLogger("data")
+            data_logger.debug(f"Fetching {symbol} data, timeframe: {timeframe}, limit: {limit}, since: {since}")
+            
             # Convert datetime to timestamp in milliseconds if provided
             if since is not None and isinstance(since, datetime):
                 since = int(since.timestamp() * 1000)
@@ -94,6 +97,8 @@ class CCXTProvider(DataProvider, LoggerMixin):
                 limit=limit
             )
             
+            data_logger.debug(f"Retrieved {len(ohlcv)} raw data points for {symbol}")
+            
             # Convert to DataFrame
             df = pd.DataFrame(
                 ohlcv, 
@@ -106,11 +111,37 @@ class CCXTProvider(DataProvider, LoggerMixin):
             # Add symbol column
             df['symbol'] = symbol
             
+            # Log detailed information
             self.logger.debug(f"Retrieved {len(df)} candles for {symbol} ({timeframe})")
+            
+            if not df.empty:
+                data_logger.debug(
+                    f"Data for {symbol} ({timeframe}):\n"
+                    f"  Time range: {df['timestamp'].min()} to {df['timestamp'].max()}\n"
+                    f"  Price range: {df['low'].min():.6f} - {df['high'].max():.6f}\n" 
+                    f"  Last 3 candles: {df[['timestamp', 'open', 'high', 'low', 'close']].tail(3).to_dict('records')}\n"
+                    f"  Missing data check: {df['timestamp'].diff().describe()}"
+                )
+                
+                # Check for potential data issues
+                if df['close'].isnull().any():
+                    data_logger.warning(f"NULL values detected in close prices for {symbol}")
+                
+                if len(df) < limit:
+                    data_logger.warning(f"Received fewer candles than requested for {symbol}: {len(df)}/{limit}")
+            
+            else:
+                data_logger.warning(f"Empty dataframe returned for {symbol}")
+                
             return df
             
         except Exception as e:
             self.logger.error(f"Error retrieving historical data for {symbol}: {e}")
+            data_logger.error(f"Data retrieval error for {symbol}:\n" 
+                             f"  Error: {str(e)}\n"
+                             f"  Error type: {type(e).__name__}\n"
+                             f"  Exchange: {self.exchange.id}\n"
+                             f"  Params: timeframe={timeframe}, since={since}, limit={limit}")
             raise
     
     def get_ticker(self, symbol: str) -> Dict[str, Any]:
