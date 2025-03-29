@@ -9,35 +9,40 @@ from typing import Dict, Any, List
 from dotenv import load_dotenv
 
 from trading_bot.utils.config import Config
-from trading_bot.utils.logging import setup_logging, setup_enhanced_logging
+from trading_bot.utils.logging import setup_logging
 from trading_bot.utils.events import EventBus, EventType, Event
 
 from trading_bot.data.providers.ccxt_provider import CCXTProvider
 from trading_bot.strategies.factory import StrategyFactory
 from trading_bot.execution.ccxt_executor import CCXTExecutor
 from trading_bot.risk.basic_risk_manager import BasicRiskManager
-from trading_bot.models.data_models import Order, Signal
+from trading_bot.models.data_models import Order, Signal, PositionTracker
 
 class TradingBot:
     """
     Main trading bot class that orchestrates all components
     """
     
-    def __init__(self, config_path: str = None):
+    def __init__(self, 
+                 config_path: str, 
+                 dry_run: bool = False,
+                 log_level: str = "INFO"):
         """
         Initialize the trading bot
         
         Args:
-            config_path: Path to configuration file
+            config_path: Path to the configuration file
+            dry_run: Whether to run in dry run mode (default: False)
+            log_level: Logging level (e.g., DEBUG, INFO, WARNING, ERROR)
         """
-        # Load configuration
-        if not config_path or not os.path.exists(config_path):
-            raise ValueError(f"Config file is required and must exist: {config_path}")
-            
-        self.config = Config(config_path)
+        self.config_path = config_path
+        self.dry_run = dry_run
+        self.config = self._load_config()
         
-        # Set up logging with config - use enhanced logging for better debugging
-        setup_enhanced_logging(config=self.config.config)
+        # Setup logging first, using the provided log_level
+        log_dir = os.path.join(os.getcwd(), "logs")
+        setup_logging(config=self.config.config, level=log_level)
+        
         self.logger = logging.getLogger(__name__)
         
         # Create event bus
@@ -60,6 +65,18 @@ class TradingBot:
         self._drawdown_close_retries = {}
         
         self.logger.info("Trading bot initialized")
+    
+    def _load_config(self) -> Config:
+        """Load configuration from the specified path."""
+        if not self.config_path or not os.path.exists(self.config_path):
+            # Log this critical error before raising, as logging might not be fully set up yet
+            logging.critical(f"Config file is required and must exist: {self.config_path}")
+            raise ValueError(f"Config file is required and must exist: {self.config_path}")
+        try:
+            return Config(self.config_path)
+        except Exception as e:
+            logging.critical(f"Error loading configuration from {self.config_path}: {e}", exc_info=True)
+            raise
     
     def _setup_components(self):
         """Set up all bot components based on configuration"""
@@ -116,6 +133,10 @@ class TradingBot:
         total_trading_pairs = len(trading_symbols)
         self.logger.info(f"Total trading pairs: {total_trading_pairs}")
         
+        # Create PositionTracker instance (shared)
+        self.position_tracker = PositionTracker(exchange=self.data_provider.exchange)
+        self.logger.info("Initialized shared PositionTracker")
+        
         for symbol_config in trading_symbols:
             if isinstance(symbol_config, dict):
                 if 'symbol' not in symbol_config:
@@ -137,7 +158,11 @@ class TradingBot:
                 # Create the strategy
                 self.strategies[symbol] = StrategyFactory.create_strategy(
                     strategy_config,
-                    exchange=self.data_provider.exchange
+                    exchange=self.data_provider.exchange,
+                    data_provider=self.data_provider,
+                    event_bus=self.event_bus,
+                    trading_pairs=[symbol],
+                    position_tracker=self.position_tracker
                 )
                 self.logger.info(f"Created {market_type} strategy for {symbol}")
             else:
@@ -151,7 +176,11 @@ class TradingBot:
                 
                 self.strategies[symbol] = StrategyFactory.create_strategy(
                     strategy_config,
-                    exchange=self.data_provider.exchange
+                    exchange=self.data_provider.exchange,
+                    data_provider=self.data_provider,
+                    event_bus=self.event_bus,
+                    trading_pairs=[symbol],
+                    position_tracker=self.position_tracker
                 )
                 self.logger.info(f"Created spot strategy for {symbol}")
         
@@ -181,7 +210,10 @@ class TradingBot:
         self.risk_manager = BasicRiskManager(
             exchange=self.data_provider.exchange,
             max_open_trades=total_trading_pairs,
-            max_drawdown=max_drawdown
+            max_drawdown=max_drawdown,
+            event_bus=self.event_bus,
+            config=self.config.config['risk'],
+            position_tracker=self.position_tracker
         )
         
         # Log risk manager configuration
@@ -250,10 +282,14 @@ class TradingBot:
             # Handle buy/sell signals
             elif signal.type in ['buy', 'sell']:
                 # Validate signal with risk manager
-                validation_result = self.risk_manager.validate_signal(signal)
+                # Unpack the tuple returned by validate_signal
+                is_valid, reason = self.risk_manager.validate_signal(signal)
+                self.logger.debug(f"Risk validation result for {signal.symbol}: is_valid={is_valid}, reason='{reason}'") # Add DEBUG log
                 
-                if not validation_result.is_valid:
-                    self.logger.info(f"Signal rejected: {validation_result.reason}")
+                # Check the unpacked boolean value
+                if not is_valid:
+                    # Use the reason from the unpacked tuple
+                    self.logger.info(f"Signal rejected: {reason}")
                     return
                 
                 # Calculate position size
@@ -446,7 +482,6 @@ class TradingBot:
                                         
                                         # Execute order
                                         order_result = self.executor.place_order(order)
-                                        self.logger.info(f"Position closed due to max drawdown: {order_result}")
                                         
                                         # Publish order placed event
                                         self.event_bus.publish(Event(
@@ -487,7 +522,6 @@ class TradingBot:
                                 
                                 # Execute order
                                 order_result = self.executor.place_order(order)
-                                self.logger.info(f"Position closed due to max drawdown: {order_result}")
                                 
                                 # Publish order placed event
                                 self.event_bus.publish(Event(
@@ -537,7 +571,6 @@ class TradingBot:
                                 
                                 # Execute order
                                 order_result = self.executor.place_order(order)
-                                self.logger.info(f"Position closed on retry (drawdown limit): {order_result}")
                                 
                                 # Publish order placed event
                                 self.event_bus.publish(Event(
@@ -601,7 +634,14 @@ class TradingBot:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Trading Bot')
     parser.add_argument('--config', type=str, required=True, help='Path to configuration file')
+    parser.add_argument(
+        '--log-level', 
+        type=str, 
+        default='INFO', 
+        choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'], 
+        help='Set the logging level (default: INFO)'
+    )
     args = parser.parse_args()
     
-    bot = TradingBot(config_path=args.config)
+    bot = TradingBot(config_path=args.config, log_level=args.log_level)
     bot.run()

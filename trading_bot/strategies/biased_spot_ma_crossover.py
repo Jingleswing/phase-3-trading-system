@@ -27,7 +27,8 @@ class BiasedSpotMACrossover(Strategy):
                  buy_long_period: int,
                  sell_short_period: int,
                  sell_long_period: int,
-                 exchange=None):
+                 exchange=None,
+                 position_tracker=None):
         """
         Initialize the biased MA crossover strategy
         
@@ -37,21 +38,18 @@ class BiasedSpotMACrossover(Strategy):
             sell_short_period: Short period for sell signals
             sell_long_period: Long period for sell signals
             exchange: Optional exchange object for checking positions
+            position_tracker: Optional shared PositionTracker instance
         """
         self.buy_short_period = buy_short_period
         self.buy_long_period = buy_long_period
         self.sell_short_period = sell_short_period
         self.sell_long_period = sell_long_period
         self.exchange = exchange
-        self.position_tracker = None
+        self.position_tracker = position_tracker
         self.logger = logging.getLogger(__name__)
         self.strategy_name = "BiasedSpotMACrossover"
         self.strategy_type = "spot"
         
-        # Initialize position tracker if exchange is provided
-        if self.exchange:
-            self.position_tracker = PositionTracker(self.exchange)
-            
         self.logger.info(
             f"Initialized biased MA crossover strategy with "
             f"buy MA ({buy_short_period}/{buy_long_period}), "
@@ -133,7 +131,7 @@ class BiasedSpotMACrossover(Strategy):
                   f"  Has Position: {data_dict.get('has_position', 'N/A')}\n"
                   f"  Position Amount: {data_dict.get('position_amount', 'N/A')}")
         
-        self.logger.info(message)
+        self.logger.debug(message)
         
         # Also log to crossovers logger if this is a crossover condition
         if "CROSSOVER" in condition_name or "CONFIGURATION" in condition_name:

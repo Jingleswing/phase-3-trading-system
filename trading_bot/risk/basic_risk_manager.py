@@ -14,7 +14,10 @@ class BasicRiskManager(RiskManager):
     def __init__(self, 
                  exchange,  # CCXT exchange instance
                  max_open_trades: int,  # Maximum number of open trades
-                 max_drawdown: float = 0.25): # Maximum drawdown allowed (25% default)
+                 max_drawdown: float = 0.25, # Maximum drawdown allowed (25% default)
+                 position_tracker: PositionTracker = None, # Keep position_tracker
+                 event_bus = None, # Add event_bus
+                 config: Dict[str, Any] = None): # Add config
         """
         Initialize the risk manager
         
@@ -22,12 +25,19 @@ class BasicRiskManager(RiskManager):
             exchange: CCXT exchange instance for account info
             max_open_trades: Maximum number of open trades (equal to total trading pairs)
             max_drawdown: Maximum drawdown allowed before closing a position (as a decimal, e.g., 0.25 = 25%)
+            position_tracker: Shared PositionTracker instance
+            event_bus: EventBus instance for publishing events
+            config: Risk configuration dictionary
         """
         self.exchange = exchange
-        self.position_tracker = PositionTracker(exchange)
+        if position_tracker is None:
+            raise ValueError("PositionTracker instance must be provided to BasicRiskManager")
+        self.position_tracker = position_tracker # Assign injected tracker
         self.logger = logging.getLogger(__name__)
         self.max_open_trades = max_open_trades
         self.max_drawdown = max_drawdown
+        self.event_bus = event_bus # Assign event_bus
+        self.config = config       # Assign config
         
         self.logger.info(
             f"Initialized BasicRiskManager with max_open_trades={max_open_trades}, "

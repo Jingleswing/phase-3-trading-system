@@ -614,3 +614,16 @@
   Precision - Amount: 0.01
   Precision - Price: 0.0001
 2025-03-29 06:03:46,851 - orders - DEBUG - Order response: {'info': {'orderId': '1916671323602689024', 'orderLinkId': '1916671323602689025'}, 'id': '1916671323602689024', 'clientOrderId': '1916671323602689025', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ENA/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-29 06:21:52,245 - orders - DEBUG - Order details:
+  Symbol: MNT/USDT
+  Order Type: market
+  Side: sell
+  Amount: 11.56310424
+  Price: Market
+2025-03-29 06:21:52,245 - orders - DEBUG - Market info for MNT/USDT:
+  Limits - Amount: {'min': 0.81, 'max': 1539408.866995}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-29 06:21:52,505 - orders - DEBUG - Order response: {'info': {'orderId': '1916680430678187008', 'orderLinkId': '1916680430678187009'}, 'id': '1916680430678187008', 'clientOrderId': '1916680430678187009', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'MNT/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}

@@ -1,5 +1,5 @@
 # trading_bot/strategies/factory.py
-from typing import Dict, Any
+from typing import Dict, Any, List
 import logging  # Add logging import
 from trading_bot.interfaces.strategy import Strategy
 from trading_bot.strategies.moving_average_crossover_spot import MovingAverageCrossoverSpot
@@ -14,13 +14,22 @@ class StrategyFactory: # Remove LoggerMixin inheritance
     """
     
     @staticmethod
-    def create_strategy(config: Dict[str, Any], exchange=None) -> Strategy:
+    def create_strategy(config: Dict[str, Any], 
+                        exchange=None, 
+                        data_provider=None,
+                        event_bus=None,
+                        trading_pairs: List[str] = None,
+                        position_tracker=None) -> Strategy:
         """
         Create a strategy instance based on configuration
         
         Args:
             config: Strategy configuration dictionary
             exchange: Optional exchange instance to pass to the strategy
+            data_provider: Optional DataProvider instance
+            event_bus: Optional EventBus instance
+            trading_pairs: Optional list of trading pairs for this strategy instance
+            position_tracker: Optional shared PositionTracker instance
             
         Returns:
             Strategy instance
@@ -113,7 +122,8 @@ class StrategyFactory: # Remove LoggerMixin inheritance
                 buy_long_period=buy_long_period,
                 sell_short_period=sell_short_period,
                 sell_long_period=sell_long_period,
-                exchange=exchange
+                exchange=exchange,
+                position_tracker=position_tracker
             )
             
             # Set the timeframe property on the strategy
