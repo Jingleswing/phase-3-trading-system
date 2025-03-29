@@ -1,13 +1,13 @@
 # trading_bot/config/futures_config.yaml
 # Futures-only trading bot configuration
 
-# Exchange settings
+# Exchange configuration
 exchange:
-  id: bybit  # Exchange ID (binance, coinbase, etc.)
-  api_key: "hG1MT0tQlGIvLCOx1R"  # API key (fill in your own)
-  secret: "Ho7rwpJqdVfcOqbt7bEm3fIp6lww3NCBkJ4l"   # API secret (fill in your own)
+  id: bybit # Example for Bybit futures
+# api_key: YOUR_BYBIT_API_KEY (REMOVED - Use environment variables)
+# secret: YOUR_BYBIT_SECRET (REMOVED - Use environment variables)
   params:
-    enableRateLimit: true
+    defaultType: 'future' # Ensure futures type is default if needed
 
 # Trading parameters
 trading:

@@ -1,13 +1,12 @@
 # trading_bot/config/spot_config.yaml
 # Spot-only trading bot configuration
 
-# Exchange settings
+# Exchange configuration
 exchange:
-  id: bybit  # Exchange ID (binance, coinbase, etc.)
-  api_key: "hG1MT0tQlGIvLCOx1R"  # API key (fill in your own)
-  secret: "Ho7rwpJqdVfcOqbt7bEm3fIp6lww3NCBkJ4l"   # API secret (fill in your own)
-  params:
-    enableRateLimit: true
+  id: binance # Example for Binance, change if needed
+# api_key: YOUR_BINANCE_API_KEY (REMOVED - Use environment variables)
+# secret: YOUR_BINANCE_SECRET (REMOVED - Use environment variables)
+  params: {} # Optional exchange-specific parameters
 
 # Trading parameters
 trading:

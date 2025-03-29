@@ -1,13 +1,12 @@
 # trading_bot/config/biased_MA_cross_config.yaml
 # Biased Moving Average Crossover Strategy Configuration
 
-# Exchange settings
+# Exchange configuration
 exchange:
-  id: bybit
-  api_key: "hG1MT0tQlGIvLCOx1R"
-  secret: "Ho7rwpJqdVfcOqbt7bEm3fIp6lww3NCBkJ4l"
-  params:
-    enableRateLimit: true
+  id: bybit # CCXT exchange ID
+# api_key: YOUR_BYBIT_API_KEY (REMOVED - Use environment variables)
+# secret: YOUR_BYBIT_SECRET (REMOVED - Use environment variables)
+  params: {} # Optional exchange-specific parameters
 
 # Trading parameters
 trading:

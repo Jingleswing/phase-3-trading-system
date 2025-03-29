@@ -6,6 +6,7 @@ import signal
 import sys
 import logging
 from typing import Dict, Any, List
+from dotenv import load_dotenv
 
 from trading_bot.utils.config import Config
 from trading_bot.utils.logging import setup_logging, setup_enhanced_logging
@@ -62,14 +63,22 @@ class TradingBot:
     
     def _setup_components(self):
         """Set up all bot components based on configuration"""
+        load_dotenv()
+
         # Set up data provider with required parameters
         if not self.config.has_key('exchange'):
             raise ValueError("Configuration missing required section: 'exchange'")
             
         # Required exchange parameters
         exchange_id = self.config.get_strict('exchange.id')
-        api_key = self.config.get_strict('exchange.api_key')
-        secret = self.config.get_strict('exchange.secret')
+        api_key = os.environ.get('EXCHANGE_API_KEY')
+        secret = os.environ.get('EXCHANGE_SECRET')
+        
+        # Validate that keys were found
+        if not api_key:
+            raise ValueError("API key not found. Please set EXCHANGE_API_KEY environment variable.")
+        if not secret:
+            raise ValueError("API secret not found. Please set EXCHANGE_SECRET environment variable.")
         
         # Optional exchange parameters (may have defaults)
         params = self.config.get('exchange.params', {})

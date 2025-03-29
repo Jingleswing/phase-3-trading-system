@@ -679,3 +679,4 @@ timestamp,symbol,price,buy_short_ma,buy_long_ma,sell_short_ma,sell_long_ma
 2025-03-29 04:03:00,BLAST/USDT,0.003425,0.003409,0.003400,0.003390,0.003419
 2025-03-29 04:03:00,EIGEN/USDT,1.007000,1.009300,1.009033,1.005820,1.020590
 2025-03-29 04:03:00,MNT/USDT,0.832300,0.833250,0.833163,0.832254,0.833249
+timestamp,symbol,price,buy_short_ma,buy_long_ma,sell_short_ma,sell_long_ma

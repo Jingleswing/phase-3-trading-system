@@ -1,9 +1,9 @@
+# Exchange configuration
 exchange:
-  id: bybit
-  api_key: your_api_key_here
-  secret: your_secret_here
-  params:
-    testnet: false
+  id: bybit # Example: Use the CCXT ID for your exchange (e.g., binance, coinbase, kraken, bybit)
+# api_key: YOUR_EXCHANGE_API_KEY (REMOVED - Set via EXCHANGE_API_KEY environment variable)
+# secret: YOUR_EXCHANGE_SECRET (REMOVED - Set via EXCHANGE_SECRET environment variable)
+  params: {} # Optional: Add any exchange-specific parameters here if needed
 
 trading:
   enabled: true
