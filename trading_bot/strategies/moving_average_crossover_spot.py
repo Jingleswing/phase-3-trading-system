@@ -1,14 +1,14 @@
 # trading_bot/strategies/moving_average_spot.py
 import pandas as pd
+import logging
 from datetime import datetime
 from typing import Dict, List, Any, Optional
 
 from trading_bot.interfaces.strategy import Strategy
 from trading_bot.models.data_models import Signal
 from trading_bot.analysis.indicators import calculate_indicators
-from trading_bot.utils.logging import LoggerMixin
 
-class MovingAverageCrossoverSpot(Strategy, LoggerMixin):
+class MovingAverageCrossoverSpot(Strategy):
     """
     Moving Average Crossover strategy for spot markets.
     
@@ -30,6 +30,7 @@ class MovingAverageCrossoverSpot(Strategy, LoggerMixin):
         """
         self.short_period = short_period
         self.long_period = long_period
+        self.logger = logging.getLogger(__name__)
         self.strategy_name = f"MA_Crossover_Spot_{short_period}_{long_period}"
         self.market_type = "spot"
         self.logger.info(f"Initialized {self.strategy_name} strategy for {self.market_type} market")

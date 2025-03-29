@@ -5,9 +5,8 @@ import logging
 from typing import Dict, List, Any, Optional, Union
 from datetime import datetime
 from trading_bot.interfaces.data_provider import DataProvider
-from trading_bot.utils.logging import LoggerMixin
 
-class CCXTProvider(DataProvider, LoggerMixin):
+class CCXTProvider(DataProvider):
     """
     Data provider using the CCXT library to connect to cryptocurrency exchanges.
     
@@ -29,6 +28,7 @@ class CCXTProvider(DataProvider, LoggerMixin):
             params: Additional parameters for the exchange
         """
         self.exchange_id = exchange_id
+        self.logger = logging.getLogger(__name__)
         
         # Initialize exchange parameters
         exchange_params = {

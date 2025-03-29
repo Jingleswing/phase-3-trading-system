@@ -18618,3 +18618,143 @@
 2025-03-27 10:19:35,567 - indicators - DEBUG - Sample values (last 3 rows):
 [{'sma_200': nan}, {'sma_200': 0.8461924999999999}, {'sma_200': 0.8462049999999999}]
 2025-03-27 10:19:35,567 - indicators - DEBUG - Indicators calculation complete. Output columns: ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'symbol', 'sma_10', 'sma_30', 'sma_50', 'sma_200']
+2025-03-29 06:03:38,859 - indicators - DEBUG - Calculating indicators with input data shape: (201, 7)
+2025-03-29 06:03:38,859 - indicators - DEBUG - Input columns: ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'symbol']
+2025-03-29 06:03:38,860 - indicators - DEBUG - Indicator configurations: [{'name': 'sma', 'params': {'period': 10, 'column': 'close'}, 'output_column': 'sma_10'}, {'name': 'sma', 'params': {'period': 30, 'column': 'close'}, 'output_column': 'sma_30'}, {'name': 'sma', 'params': {'period': 50, 'column': 'close'}, 'output_column': 'sma_50'}, {'name': 'sma', 'params': {'period': 200, 'column': 'close'}, 'output_column': 'sma_200'}]
+2025-03-29 06:03:38,860 - indicators - DEBUG - Calculating sma with params: {'period': 10, 'column': 'close'}
+2025-03-29 06:03:38,860 - indicators - DEBUG - Calculating SMA with period=10 on column='close', data shape: (201, 7)
+2025-03-29 06:03:38,860 - indicators - DEBUG - SMA period=10 results: 9 NaN values (4.48%), range: 1891.426000 - 1911.385000
+2025-03-29 06:03:38,860 - indicators - DEBUG - sma calculation for sma_10 completed.
+2025-03-29 06:03:38,861 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_10': 1900.8709999999999}, {'sma_10': 1900.693}, {'sma_10': 1900.489}]
+2025-03-29 06:03:38,861 - indicators - DEBUG - Calculating sma with params: {'period': 30, 'column': 'close'}
+2025-03-29 06:03:38,861 - indicators - DEBUG - Calculating SMA with period=30 on column='close', data shape: (201, 8)
+2025-03-29 06:03:38,861 - indicators - DEBUG - SMA period=30 results: 29 NaN values (14.43%), range: 1894.643000 - 1910.164667
+2025-03-29 06:03:38,861 - indicators - DEBUG - sma calculation for sma_30 completed.
+2025-03-29 06:03:38,862 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_30': 1902.1196666666665}, {'sma_30': 1902.0023333333334}, {'sma_30': 1901.9233333333332}]
+2025-03-29 06:03:38,862 - indicators - DEBUG - Calculating sma with params: {'period': 50, 'column': 'close'}
+2025-03-29 06:03:38,862 - indicators - DEBUG - Calculating SMA with period=50 on column='close', data shape: (201, 9)
+2025-03-29 06:03:38,862 - indicators - DEBUG - SMA period=50 results: 49 NaN values (24.38%), range: 1897.063000 - 1909.855800
+2025-03-29 06:03:38,862 - indicators - DEBUG - sma calculation for sma_50 completed.
+2025-03-29 06:03:38,863 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_50': 1899.6688000000001}, {'sma_50': 1899.8578}, {'sma_50': 1900.0395999999998}]
+2025-03-29 06:03:38,863 - indicators - DEBUG - Calculating sma with params: {'period': 200, 'column': 'close'}
+2025-03-29 06:03:38,863 - indicators - DEBUG - Calculating SMA with period=200 on column='close', data shape: (201, 10)
+2025-03-29 06:03:38,863 - indicators - DEBUG - SMA period=200 results: 199 NaN values (99.00%), range: 1904.096400 - 1904.154050
+2025-03-29 06:03:38,863 - indicators - DEBUG - sma calculation for sma_200 completed.
+2025-03-29 06:03:38,864 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_200': nan}, {'sma_200': 1904.15405}, {'sma_200': 1904.0964000000001}]
+2025-03-29 06:03:38,864 - indicators - DEBUG - Indicators calculation complete. Output columns: ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'symbol', 'sma_10', 'sma_30', 'sma_50', 'sma_200']
+2025-03-29 06:03:39,561 - indicators - DEBUG - Calculating indicators with input data shape: (201, 7)
+2025-03-29 06:03:39,561 - indicators - DEBUG - Input columns: ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'symbol']
+2025-03-29 06:03:39,561 - indicators - DEBUG - Indicator configurations: [{'name': 'sma', 'params': {'period': 10, 'column': 'close'}, 'output_column': 'sma_10'}, {'name': 'sma', 'params': {'period': 30, 'column': 'close'}, 'output_column': 'sma_30'}, {'name': 'sma', 'params': {'period': 50, 'column': 'close'}, 'output_column': 'sma_50'}, {'name': 'sma', 'params': {'period': 200, 'column': 'close'}, 'output_column': 'sma_200'}]
+2025-03-29 06:03:39,561 - indicators - DEBUG - Calculating sma with params: {'period': 10, 'column': 'close'}
+2025-03-29 06:03:39,561 - indicators - DEBUG - Calculating SMA with period=10 on column='close', data shape: (201, 7)
+2025-03-29 06:03:39,562 - indicators - DEBUG - SMA period=10 results: 9 NaN values (4.48%), range: 0.384690 - 0.393420
+2025-03-29 06:03:39,562 - indicators - DEBUG - sma calculation for sma_10 completed.
+2025-03-29 06:03:39,562 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_10': 0.39342}, {'sma_10': 0.39325}, {'sma_10': 0.39308}]
+2025-03-29 06:03:39,562 - indicators - DEBUG - Calculating sma with params: {'period': 30, 'column': 'close'}
+2025-03-29 06:03:39,562 - indicators - DEBUG - Calculating SMA with period=30 on column='close', data shape: (201, 8)
+2025-03-29 06:03:39,563 - indicators - DEBUG - SMA period=30 results: 29 NaN values (14.43%), range: 0.385330 - 0.392100
+2025-03-29 06:03:39,563 - indicators - DEBUG - sma calculation for sma_30 completed.
+2025-03-29 06:03:39,563 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_30': 0.3919066666666666}, {'sma_30': 0.392}, {'sma_30': 0.3921}]
+2025-03-29 06:03:39,563 - indicators - DEBUG - Calculating sma with params: {'period': 50, 'column': 'close'}
+2025-03-29 06:03:39,563 - indicators - DEBUG - Calculating SMA with period=50 on column='close', data shape: (201, 9)
+2025-03-29 06:03:39,563 - indicators - DEBUG - SMA period=50 results: 49 NaN values (24.38%), range: 0.385844 - 0.389954
+2025-03-29 06:03:39,564 - indicators - DEBUG - sma calculation for sma_50 completed.
+2025-03-29 06:03:39,564 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_50': 0.389548}, {'sma_50': 0.38968600000000003}, {'sma_50': 0.38982799999999995}]
+2025-03-29 06:03:39,564 - indicators - DEBUG - Calculating sma with params: {'period': 200, 'column': 'close'}
+2025-03-29 06:03:39,564 - indicators - DEBUG - Calculating SMA with period=200 on column='close', data shape: (201, 10)
+2025-03-29 06:03:39,564 - indicators - DEBUG - SMA period=200 results: 199 NaN values (99.00%), range: 0.388375 - 0.388393
+2025-03-29 06:03:39,565 - indicators - DEBUG - sma calculation for sma_200 completed.
+2025-03-29 06:03:39,565 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_200': nan}, {'sma_200': 0.38837499999999997}, {'sma_200': 0.388393}]
+2025-03-29 06:03:39,565 - indicators - DEBUG - Indicators calculation complete. Output columns: ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'symbol', 'sma_10', 'sma_30', 'sma_50', 'sma_200']
+2025-03-29 06:03:40,264 - indicators - DEBUG - Calculating indicators with input data shape: (201, 7)
+2025-03-29 06:03:40,264 - indicators - DEBUG - Input columns: ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'symbol']
+2025-03-29 06:03:40,264 - indicators - DEBUG - Indicator configurations: [{'name': 'sma', 'params': {'period': 10, 'column': 'close'}, 'output_column': 'sma_10'}, {'name': 'sma', 'params': {'period': 30, 'column': 'close'}, 'output_column': 'sma_30'}, {'name': 'sma', 'params': {'period': 50, 'column': 'close'}, 'output_column': 'sma_50'}, {'name': 'sma', 'params': {'period': 200, 'column': 'close'}, 'output_column': 'sma_200'}]
+2025-03-29 06:03:40,264 - indicators - DEBUG - Calculating sma with params: {'period': 10, 'column': 'close'}
+2025-03-29 06:03:40,264 - indicators - DEBUG - Calculating SMA with period=10 on column='close', data shape: (201, 7)
+2025-03-29 06:03:40,264 - indicators - DEBUG - SMA period=10 results: 9 NaN values (4.48%), range: 0.003363 - 0.003462
+2025-03-29 06:03:40,265 - indicators - DEBUG - sma calculation for sma_10 completed.
+2025-03-29 06:03:40,265 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_10': 0.0034054000000000003}, {'sma_10': 0.0034067}, {'sma_10': 0.0034088}]
+2025-03-29 06:03:40,265 - indicators - DEBUG - Calculating sma with params: {'period': 30, 'column': 'close'}
+2025-03-29 06:03:40,265 - indicators - DEBUG - Calculating SMA with period=30 on column='close', data shape: (201, 8)
+2025-03-29 06:03:40,266 - indicators - DEBUG - SMA period=30 results: 29 NaN values (14.43%), range: 0.003372 - 0.003453
+2025-03-29 06:03:40,266 - indicators - DEBUG - sma calculation for sma_30 completed.
+2025-03-29 06:03:40,266 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_30': 0.0033976333333333333}, {'sma_30': 0.0033987666666666664}, {'sma_30': 0.0034002333333333335}]
+2025-03-29 06:03:40,266 - indicators - DEBUG - Calculating sma with params: {'period': 50, 'column': 'close'}
+2025-03-29 06:03:40,266 - indicators - DEBUG - Calculating SMA with period=50 on column='close', data shape: (201, 9)
+2025-03-29 06:03:40,267 - indicators - DEBUG - SMA period=50 results: 49 NaN values (24.38%), range: 0.003378 - 0.003450
+2025-03-29 06:03:40,267 - indicators - DEBUG - sma calculation for sma_50 completed.
+2025-03-29 06:03:40,267 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_50': 0.0033871999999999995}, {'sma_50': 0.0033882799999999996}, {'sma_50': 0.00338956}]
+2025-03-29 06:03:40,267 - indicators - DEBUG - Calculating sma with params: {'period': 200, 'column': 'close'}
+2025-03-29 06:03:40,267 - indicators - DEBUG - Calculating SMA with period=200 on column='close', data shape: (201, 10)
+2025-03-29 06:03:40,267 - indicators - DEBUG - SMA period=200 results: 199 NaN values (99.00%), range: 0.003419 - 0.003419
+2025-03-29 06:03:40,268 - indicators - DEBUG - sma calculation for sma_200 completed.
+2025-03-29 06:03:40,268 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_200': nan}, {'sma_200': 0.00341925}, {'sma_200': 0.0034190299999999996}]
+2025-03-29 06:03:40,268 - indicators - DEBUG - Indicators calculation complete. Output columns: ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'symbol', 'sma_10', 'sma_30', 'sma_50', 'sma_200']
+2025-03-29 06:03:40,494 - indicators - DEBUG - Calculating indicators with input data shape: (201, 7)
+2025-03-29 06:03:40,494 - indicators - DEBUG - Input columns: ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'symbol']
+2025-03-29 06:03:40,495 - indicators - DEBUG - Indicator configurations: [{'name': 'sma', 'params': {'period': 10, 'column': 'close'}, 'output_column': 'sma_10'}, {'name': 'sma', 'params': {'period': 30, 'column': 'close'}, 'output_column': 'sma_30'}, {'name': 'sma', 'params': {'period': 50, 'column': 'close'}, 'output_column': 'sma_50'}, {'name': 'sma', 'params': {'period': 200, 'column': 'close'}, 'output_column': 'sma_200'}]
+2025-03-29 06:03:40,495 - indicators - DEBUG - Calculating sma with params: {'period': 10, 'column': 'close'}
+2025-03-29 06:03:40,495 - indicators - DEBUG - Calculating SMA with period=10 on column='close', data shape: (201, 7)
+2025-03-29 06:03:40,495 - indicators - DEBUG - SMA period=10 results: 9 NaN values (4.48%), range: 0.994000 - 1.037900
+2025-03-29 06:03:40,495 - indicators - DEBUG - sma calculation for sma_10 completed.
+2025-03-29 06:03:40,495 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_10': 1.0101}, {'sma_10': 1.0097}, {'sma_10': 1.0093}]
+2025-03-29 06:03:40,496 - indicators - DEBUG - Calculating sma with params: {'period': 30, 'column': 'close'}
+2025-03-29 06:03:40,496 - indicators - DEBUG - Calculating SMA with period=30 on column='close', data shape: (201, 8)
+2025-03-29 06:03:40,496 - indicators - DEBUG - SMA period=30 results: 29 NaN values (14.43%), range: 1.000233 - 1.034800
+2025-03-29 06:03:40,496 - indicators - DEBUG - sma calculation for sma_30 completed.
+2025-03-29 06:03:40,496 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_30': 1.0089666666666666}, {'sma_30': 1.009}, {'sma_30': 1.0090333333333332}]
+2025-03-29 06:03:40,496 - indicators - DEBUG - Calculating sma with params: {'period': 50, 'column': 'close'}
+2025-03-29 06:03:40,497 - indicators - DEBUG - Calculating SMA with period=50 on column='close', data shape: (201, 9)
+2025-03-29 06:03:40,497 - indicators - DEBUG - SMA period=50 results: 49 NaN values (24.38%), range: 1.003320 - 1.033200
+2025-03-29 06:03:40,497 - indicators - DEBUG - sma calculation for sma_50 completed.
+2025-03-29 06:03:40,498 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_50': 1.0050999999999999}, {'sma_50': 1.00548}, {'sma_50': 1.00582}]
+2025-03-29 06:03:40,498 - indicators - DEBUG - Calculating sma with params: {'period': 200, 'column': 'close'}
+2025-03-29 06:03:40,498 - indicators - DEBUG - Calculating SMA with period=200 on column='close', data shape: (201, 10)
+2025-03-29 06:03:40,498 - indicators - DEBUG - SMA period=200 results: 199 NaN values (99.00%), range: 1.020590 - 1.020755
+2025-03-29 06:03:40,498 - indicators - DEBUG - sma calculation for sma_200 completed.
+2025-03-29 06:03:40,499 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_200': nan}, {'sma_200': 1.0207549999999999}, {'sma_200': 1.0205899999999999}]
+2025-03-29 06:03:40,499 - indicators - DEBUG - Indicators calculation complete. Output columns: ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'symbol', 'sma_10', 'sma_30', 'sma_50', 'sma_200']
+2025-03-29 06:03:41,194 - indicators - DEBUG - Calculating indicators with input data shape: (201, 7)
+2025-03-29 06:03:41,194 - indicators - DEBUG - Input columns: ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'symbol']
+2025-03-29 06:03:41,194 - indicators - DEBUG - Indicator configurations: [{'name': 'sma', 'params': {'period': 10, 'column': 'close'}, 'output_column': 'sma_10'}, {'name': 'sma', 'params': {'period': 30, 'column': 'close'}, 'output_column': 'sma_30'}, {'name': 'sma', 'params': {'period': 50, 'column': 'close'}, 'output_column': 'sma_50'}, {'name': 'sma', 'params': {'period': 200, 'column': 'close'}, 'output_column': 'sma_200'}]
+2025-03-29 06:03:41,194 - indicators - DEBUG - Calculating sma with params: {'period': 10, 'column': 'close'}
+2025-03-29 06:03:41,194 - indicators - DEBUG - Calculating SMA with period=10 on column='close', data shape: (201, 7)
+2025-03-29 06:03:41,194 - indicators - DEBUG - SMA period=10 results: 9 NaN values (4.48%), range: 0.828550 - 0.836320
+2025-03-29 06:03:41,195 - indicators - DEBUG - sma calculation for sma_10 completed.
+2025-03-29 06:03:41,195 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_10': 0.83355}, {'sma_10': 0.8333999999999999}, {'sma_10': 0.8332499999999999}]
+2025-03-29 06:03:41,195 - indicators - DEBUG - Calculating sma with params: {'period': 30, 'column': 'close'}
+2025-03-29 06:03:41,195 - indicators - DEBUG - Calculating SMA with period=30 on column='close', data shape: (201, 8)
+2025-03-29 06:03:41,195 - indicators - DEBUG - SMA period=30 results: 29 NaN values (14.43%), range: 0.829497 - 0.836140
+2025-03-29 06:03:41,195 - indicators - DEBUG - sma calculation for sma_30 completed.
+2025-03-29 06:03:41,196 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_30': 0.83311}, {'sma_30': 0.8331433333333335}, {'sma_30': 0.8331633333333334}]
+2025-03-29 06:03:41,196 - indicators - DEBUG - Calculating sma with params: {'period': 50, 'column': 'close'}
+2025-03-29 06:03:41,196 - indicators - DEBUG - Calculating SMA with period=50 on column='close', data shape: (201, 9)
+2025-03-29 06:03:41,196 - indicators - DEBUG - SMA period=50 results: 49 NaN values (24.38%), range: 0.830128 - 0.835926
+2025-03-29 06:03:41,196 - indicators - DEBUG - sma calculation for sma_50 completed.
+2025-03-29 06:03:41,197 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_50': 0.8321160000000001}, {'sma_50': 0.832192}, {'sma_50': 0.832254}]
+2025-03-29 06:03:41,197 - indicators - DEBUG - Calculating sma with params: {'period': 200, 'column': 'close'}
+2025-03-29 06:03:41,197 - indicators - DEBUG - Calculating SMA with period=200 on column='close', data shape: (201, 10)
+2025-03-29 06:03:41,197 - indicators - DEBUG - SMA period=200 results: 199 NaN values (99.00%), range: 0.833249 - 0.833266
+2025-03-29 06:03:41,197 - indicators - DEBUG - sma calculation for sma_200 completed.
+2025-03-29 06:03:41,198 - indicators - DEBUG - Sample values (last 3 rows):
+[{'sma_200': nan}, {'sma_200': 0.833266}, {'sma_200': 0.8332495}]
+2025-03-29 06:03:41,198 - indicators - DEBUG - Indicators calculation complete. Output columns: ['timestamp', 'open', 'high', 'low', 'close', 'volume', 'symbol', 'sma_10', 'sma_30', 'sma_50', 'sma_200']

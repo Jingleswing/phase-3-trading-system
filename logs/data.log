@@ -15343,3 +15343,78 @@ min      0 days 00:01:00
 75%      0 days 00:01:00
 max      0 days 00:01:00
 Name: timestamp, dtype: object
+2025-03-29 06:03:38,167 - data - DEBUG - Fetching ETH/USDT data, timeframe: 1m, limit: 201, since: None
+2025-03-29 06:03:38,852 - data - DEBUG - Retrieved 201 raw data points for ETH/USDT
+2025-03-29 06:03:38,859 - data - DEBUG - Data for ETH/USDT (1m):
+  Time range: 2025-03-29 00:43:00 to 2025-03-29 04:03:00
+  Price range: 1886.430000 - 1913.920000
+  Last 3 candles: [{'timestamp': Timestamp('2025-03-29 04:01:00'), 'open': 1900.84, 'high': 1900.84, 'low': 1899.65, 'close': 1900.02}, {'timestamp': Timestamp('2025-03-29 04:02:00'), 'open': 1900.02, 'high': 1900.14, 'low': 1898.57, 'close': 1898.79}, {'timestamp': Timestamp('2025-03-29 04:03:00'), 'open': 1898.79, 'high': 1899.47, 'low': 1898.41, 'close': 1899.47}]
+  Missing data check: count                200
+mean     0 days 00:01:00
+std      0 days 00:00:00
+min      0 days 00:01:00
+25%      0 days 00:01:00
+50%      0 days 00:01:00
+75%      0 days 00:01:00
+max      0 days 00:01:00
+Name: timestamp, dtype: object
+2025-03-29 06:03:38,866 - data - DEBUG - Fetching ENA/USDT data, timeframe: 1m, limit: 201, since: None
+2025-03-29 06:03:39,556 - data - DEBUG - Retrieved 201 raw data points for ENA/USDT
+2025-03-29 06:03:39,561 - data - DEBUG - Data for ENA/USDT (1m):
+  Time range: 2025-03-29 00:43:00 to 2025-03-29 04:03:00
+  Price range: 0.382900 - 0.394600
+  Last 3 candles: [{'timestamp': Timestamp('2025-03-29 04:01:00'), 'open': 0.3944, 'high': 0.3944, 'low': 0.3927, 'close': 0.3927}, {'timestamp': Timestamp('2025-03-29 04:02:00'), 'open': 0.3927, 'high': 0.3927, 'low': 0.3915, 'close': 0.3915}, {'timestamp': Timestamp('2025-03-29 04:03:00'), 'open': 0.3915, 'high': 0.392, 'low': 0.3914, 'close': 0.3919}]
+  Missing data check: count                200
+mean     0 days 00:01:00
+std      0 days 00:00:00
+min      0 days 00:01:00
+25%      0 days 00:01:00
+50%      0 days 00:01:00
+75%      0 days 00:01:00
+max      0 days 00:01:00
+Name: timestamp, dtype: object
+2025-03-29 06:03:39,567 - data - DEBUG - Fetching BLAST/USDT data, timeframe: 1m, limit: 201, since: None
+2025-03-29 06:03:40,260 - data - DEBUG - Retrieved 201 raw data points for BLAST/USDT
+2025-03-29 06:03:40,263 - data - DEBUG - Data for BLAST/USDT (1m):
+  Time range: 2025-03-29 00:43:00 to 2025-03-29 04:03:00
+  Price range: 0.003355 - 0.003474
+  Last 3 candles: [{'timestamp': Timestamp('2025-03-29 04:01:00'), 'open': 0.003416, 'high': 0.003416, 'low': 0.003413, 'close': 0.003415}, {'timestamp': Timestamp('2025-03-29 04:02:00'), 'open': 0.003415, 'high': 0.003417, 'low': 0.003415, 'close': 0.003415}, {'timestamp': Timestamp('2025-03-29 04:03:00'), 'open': 0.003415, 'high': 0.003427, 'low': 0.003415, 'close': 0.003425}]
+  Missing data check: count                200
+mean     0 days 00:01:00
+std      0 days 00:00:00
+min      0 days 00:01:00
+25%      0 days 00:01:00
+50%      0 days 00:01:00
+75%      0 days 00:01:00
+max      0 days 00:01:00
+Name: timestamp, dtype: object
+2025-03-29 06:03:40,270 - data - DEBUG - Fetching EIGEN/USDT data, timeframe: 1m, limit: 201, since: None
+2025-03-29 06:03:40,490 - data - DEBUG - Retrieved 201 raw data points for EIGEN/USDT
+2025-03-29 06:03:40,494 - data - DEBUG - Data for EIGEN/USDT (1m):
+  Time range: 2025-03-29 00:43:00 to 2025-03-29 04:03:00
+  Price range: 0.983000 - 1.041000
+  Last 3 candles: [{'timestamp': Timestamp('2025-03-29 04:01:00'), 'open': 1.009, 'high': 1.009, 'low': 1.008, 'close': 1.008}, {'timestamp': Timestamp('2025-03-29 04:02:00'), 'open': 1.008, 'high': 1.008, 'low': 1.006, 'close': 1.007}, {'timestamp': Timestamp('2025-03-29 04:03:00'), 'open': 1.007, 'high': 1.007, 'low': 1.007, 'close': 1.007}]
+  Missing data check: count                200
+mean     0 days 00:01:00
+std      0 days 00:00:00
+min      0 days 00:01:00
+25%      0 days 00:01:00
+50%      0 days 00:01:00
+75%      0 days 00:01:00
+max      0 days 00:01:00
+Name: timestamp, dtype: object
+2025-03-29 06:03:40,500 - data - DEBUG - Fetching MNT/USDT data, timeframe: 1m, limit: 201, since: None
+2025-03-29 06:03:41,190 - data - DEBUG - Retrieved 201 raw data points for MNT/USDT
+2025-03-29 06:03:41,194 - data - DEBUG - Data for MNT/USDT (1m):
+  Time range: 2025-03-29 00:43:00 to 2025-03-29 04:03:00
+  Price range: 0.827700 - 0.837200
+  Last 3 candles: [{'timestamp': Timestamp('2025-03-29 04:01:00'), 'open': 0.8332, 'high': 0.8332, 'low': 0.833, 'close': 0.8332}, {'timestamp': Timestamp('2025-03-29 04:02:00'), 'open': 0.8332, 'high': 0.8332, 'low': 0.8323, 'close': 0.8323}, {'timestamp': Timestamp('2025-03-29 04:03:00'), 'open': 0.8323, 'high': 0.8324, 'low': 0.8321, 'close': 0.8323}]
+  Missing data check: count                200
+mean     0 days 00:01:00
+std      0 days 00:00:00
+min      0 days 00:01:00
+25%      0 days 00:01:00
+50%      0 days 00:01:00
+75%      0 days 00:01:00
+max      0 days 00:01:00
+Name: timestamp, dtype: object

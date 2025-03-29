@@ -2,10 +2,10 @@
 from typing import Dict, Tuple, Any, Optional, List
 from trading_bot.interfaces.risk_manager import RiskManager
 from trading_bot.models.data_models import Signal, Order, Position, PositionTracker
-from trading_bot.utils.logging import LoggerMixin
+import logging
 from trading_bot.utils.symbol_utils import normalize_symbol, get_base_currency, get_quote_currency
 
-class BasicRiskManager(RiskManager, LoggerMixin):
+class BasicRiskManager(RiskManager):
     """
     Basic risk management implementation that uses equal division sizing
     based on total number of trading pairs.
@@ -24,9 +24,10 @@ class BasicRiskManager(RiskManager, LoggerMixin):
             max_drawdown: Maximum drawdown allowed before closing a position (as a decimal, e.g., 0.25 = 25%)
         """
         self.exchange = exchange
+        self.position_tracker = PositionTracker(exchange)
+        self.logger = logging.getLogger(__name__)
         self.max_open_trades = max_open_trades
         self.max_drawdown = max_drawdown
-        self.position_tracker = PositionTracker(exchange)
         
         self.logger.info(
             f"Initialized BasicRiskManager with max_open_trades={max_open_trades}, "

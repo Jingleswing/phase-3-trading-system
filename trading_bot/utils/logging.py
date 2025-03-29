@@ -86,29 +86,6 @@ def get_logger(name: str) -> logging.Logger:
     """
     return logging.getLogger(name)
 
-class LoggerMixin:
-    """
-    Mixin class to add logging capability to any class
-    
-    Usage:
-        class MyClass(LoggerMixin):
-            def __init__(self):
-                self.logger.info("Initialized")
-    """
-    @property
-    def logger(self):
-        """
-        Get logger for this class
-        
-        Returns:
-            Logger instance
-        """
-        name = self.__class__.__module__
-        if hasattr(self, "__class__"):
-            name = f"{name}.{self.__class__.__name__}"
-            
-        return logging.getLogger(name)
-
 def setup_enhanced_logging(config: Optional[Dict[str, Any]] = None):
     """
     Set up enhanced logging with rotation and specialized loggers for debugging

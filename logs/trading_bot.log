@@ -1196,3 +1196,281 @@ pandas._libs.tslibs.parsing.DateParseError: Unknown datetime string format, unab
 2025-03-27 11:37:08,539 - __main__.TradingBot - INFO - Order placed: {'info': {'orderId': '1915389558175046656', 'orderLinkId': '1915389558175046657'}, 'id': '1915389558175046656', 'clientOrderId': '1915389558175046657', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'MNT/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
 2025-03-27 11:37:08,539 - __main__.TradingBot - INFO - Order placed successfully: 1915389558175046656
 2025-03-27 11:38:05,939 - trading_bot.strategies.biased_spot_ma_crossover.BiasedSpotMACrossover - INFO - Buy crossover detected for EIGEN/USDT but position already exists, not generating signal
+2025-03-29 06:03:28,460 - root - INFO - Enhanced logging setup complete. Log files will be stored in C:\Users\fabso\Documents\Projects\Phase 3 Tradingbot\phase-3-system\logs
+2025-03-29 06:03:28,466 - trading_bot.data.providers.ccxt_provider - INFO - Initialized connection to bybit
+2025-03-29 06:03:38,130 - trading_bot.data.providers.ccxt_provider - INFO - Loaded markets for bybit
+2025-03-29 06:03:38,131 - __main__ - INFO - Total trading pairs: 5
+2025-03-29 06:03:38,149 - trading_bot.models.data_models - INFO - Loaded position: EIGEN/USDT, entry_price: 1.193, max_price: 1.193, min_price: 1.172
+2025-03-29 06:03:38,150 - trading_bot.models.data_models - INFO - Loaded position: ETH/USDT, entry_price: 2027.78, max_price: 2030.42, min_price: 2019.12
+2025-03-29 06:03:38,150 - trading_bot.models.data_models - INFO - Loaded position: BLAST/USDT, entry_price: 0.0038140000000000005, max_price: 0.003884, min_price: 0.003741
+2025-03-29 06:03:38,150 - trading_bot.models.data_models - INFO - Loaded position: ENA/USDT, entry_price: 0.4298, max_price: 0.4371, min_price: 0.428
+2025-03-29 06:03:38,150 - trading_bot.models.data_models - INFO - Loaded position: MNT/USDT, entry_price: 0.8481, max_price: 0.8489, min_price: 0.8452
+2025-03-29 06:03:38,151 - trading_bot.models.data_models - INFO - Loaded 5 positions and 2 closed positions
+2025-03-29 06:03:38,151 - trading_bot.strategies.biased_spot_ma_crossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-29 06:03:38,151 - trading_bot.strategies.factory - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-29 06:03:38,152 - __main__ - INFO - Created spot strategy for ETH/USDT
+2025-03-29 06:03:38,153 - trading_bot.models.data_models - INFO - Loaded position: EIGEN/USDT, entry_price: 1.193, max_price: 1.193, min_price: 1.172
+2025-03-29 06:03:38,154 - trading_bot.models.data_models - INFO - Loaded position: ETH/USDT, entry_price: 2027.78, max_price: 2030.42, min_price: 2019.12
+2025-03-29 06:03:38,154 - trading_bot.models.data_models - INFO - Loaded position: BLAST/USDT, entry_price: 0.0038140000000000005, max_price: 0.003884, min_price: 0.003741
+2025-03-29 06:03:38,154 - trading_bot.models.data_models - INFO - Loaded position: ENA/USDT, entry_price: 0.4298, max_price: 0.4371, min_price: 0.428
+2025-03-29 06:03:38,154 - trading_bot.models.data_models - INFO - Loaded position: MNT/USDT, entry_price: 0.8481, max_price: 0.8489, min_price: 0.8452
+2025-03-29 06:03:38,155 - trading_bot.models.data_models - INFO - Loaded 5 positions and 2 closed positions
+2025-03-29 06:03:38,155 - trading_bot.strategies.biased_spot_ma_crossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-29 06:03:38,155 - trading_bot.strategies.factory - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-29 06:03:38,155 - __main__ - INFO - Created spot strategy for ENA/USDT
+2025-03-29 06:03:38,156 - trading_bot.models.data_models - INFO - Loaded position: EIGEN/USDT, entry_price: 1.193, max_price: 1.193, min_price: 1.172
+2025-03-29 06:03:38,156 - trading_bot.models.data_models - INFO - Loaded position: ETH/USDT, entry_price: 2027.78, max_price: 2030.42, min_price: 2019.12
+2025-03-29 06:03:38,157 - trading_bot.models.data_models - INFO - Loaded position: BLAST/USDT, entry_price: 0.0038140000000000005, max_price: 0.003884, min_price: 0.003741
+2025-03-29 06:03:38,157 - trading_bot.models.data_models - INFO - Loaded position: ENA/USDT, entry_price: 0.4298, max_price: 0.4371, min_price: 0.428
+2025-03-29 06:03:38,157 - trading_bot.models.data_models - INFO - Loaded position: MNT/USDT, entry_price: 0.8481, max_price: 0.8489, min_price: 0.8452
+2025-03-29 06:03:38,157 - trading_bot.models.data_models - INFO - Loaded 5 positions and 2 closed positions
+2025-03-29 06:03:38,157 - trading_bot.strategies.biased_spot_ma_crossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-29 06:03:38,158 - trading_bot.strategies.factory - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-29 06:03:38,158 - __main__ - INFO - Created spot strategy for BLAST/USDT
+2025-03-29 06:03:38,159 - trading_bot.models.data_models - INFO - Loaded position: EIGEN/USDT, entry_price: 1.193, max_price: 1.193, min_price: 1.172
+2025-03-29 06:03:38,159 - trading_bot.models.data_models - INFO - Loaded position: ETH/USDT, entry_price: 2027.78, max_price: 2030.42, min_price: 2019.12
+2025-03-29 06:03:38,159 - trading_bot.models.data_models - INFO - Loaded position: BLAST/USDT, entry_price: 0.0038140000000000005, max_price: 0.003884, min_price: 0.003741
+2025-03-29 06:03:38,159 - trading_bot.models.data_models - INFO - Loaded position: ENA/USDT, entry_price: 0.4298, max_price: 0.4371, min_price: 0.428
+2025-03-29 06:03:38,159 - trading_bot.models.data_models - INFO - Loaded position: MNT/USDT, entry_price: 0.8481, max_price: 0.8489, min_price: 0.8452
+2025-03-29 06:03:38,159 - trading_bot.models.data_models - INFO - Loaded 5 positions and 2 closed positions
+2025-03-29 06:03:38,160 - trading_bot.strategies.biased_spot_ma_crossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-29 06:03:38,160 - trading_bot.strategies.factory - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-29 06:03:38,160 - __main__ - INFO - Created spot strategy for EIGEN/USDT
+2025-03-29 06:03:38,160 - trading_bot.models.data_models - INFO - Loaded position: EIGEN/USDT, entry_price: 1.193, max_price: 1.193, min_price: 1.172
+2025-03-29 06:03:38,160 - trading_bot.models.data_models - INFO - Loaded position: ETH/USDT, entry_price: 2027.78, max_price: 2030.42, min_price: 2019.12
+2025-03-29 06:03:38,161 - trading_bot.models.data_models - INFO - Loaded position: BLAST/USDT, entry_price: 0.0038140000000000005, max_price: 0.003884, min_price: 0.003741
+2025-03-29 06:03:38,161 - trading_bot.models.data_models - INFO - Loaded position: ENA/USDT, entry_price: 0.4298, max_price: 0.4371, min_price: 0.428
+2025-03-29 06:03:38,161 - trading_bot.models.data_models - INFO - Loaded position: MNT/USDT, entry_price: 0.8481, max_price: 0.8489, min_price: 0.8452
+2025-03-29 06:03:38,161 - trading_bot.models.data_models - INFO - Loaded 5 positions and 2 closed positions
+2025-03-29 06:03:38,162 - trading_bot.strategies.biased_spot_ma_crossover - INFO - Initialized biased MA crossover strategy with buy MA (10/30), sell MA (50/200)
+2025-03-29 06:03:38,162 - trading_bot.strategies.factory - INFO - Created biased_spot_ma_crossover strategy with buy MA (10/30), sell MA (50/200), timeframe=1m
+2025-03-29 06:03:38,162 - __main__ - INFO - Created spot strategy for MNT/USDT
+2025-03-29 06:03:38,162 - __main__ - INFO - Trading ['ETH/USDT', 'ENA/USDT', 'BLAST/USDT', 'EIGEN/USDT', 'MNT/USDT'] on 1m timeframe
+2025-03-29 06:03:38,163 - trading_bot.execution.ccxt_executor - INFO - Initialized CCXTExecutor (dry_run=False)
+2025-03-29 06:03:38,164 - trading_bot.models.data_models - INFO - Loaded position: EIGEN/USDT, entry_price: 1.193, max_price: 1.193, min_price: 1.172
+2025-03-29 06:03:38,164 - trading_bot.models.data_models - INFO - Loaded position: ETH/USDT, entry_price: 2027.78, max_price: 2030.42, min_price: 2019.12
+2025-03-29 06:03:38,165 - trading_bot.models.data_models - INFO - Loaded position: BLAST/USDT, entry_price: 0.0038140000000000005, max_price: 0.003884, min_price: 0.003741
+2025-03-29 06:03:38,165 - trading_bot.models.data_models - INFO - Loaded position: ENA/USDT, entry_price: 0.4298, max_price: 0.4371, min_price: 0.428
+2025-03-29 06:03:38,165 - trading_bot.models.data_models - INFO - Loaded position: MNT/USDT, entry_price: 0.8481, max_price: 0.8489, min_price: 0.8452
+2025-03-29 06:03:38,165 - trading_bot.models.data_models - INFO - Loaded 5 positions and 2 closed positions
+2025-03-29 06:03:38,166 - trading_bot.risk.basic_risk_manager - INFO - Initialized BasicRiskManager with max_open_trades=5, max_drawdown=2.0%
+2025-03-29 06:03:38,166 - __main__ - INFO - Risk manager configured with max drawdown: 2.0%
+2025-03-29 06:03:38,166 - __main__ - INFO - Trading bot initialized
+2025-03-29 06:03:38,167 - __main__ - INFO - Starting trading bot...
+2025-03-29 06:03:38,864 - trading_bot.strategies.biased_spot_ma_crossover - INFO - Processing ETH/USDT - Current price: 1899.47
+  Previous MAs: Buy Short=1900.693000, Buy Long=1902.002333, Sell Short=1899.857800, Sell Long=1904.154050
+  Current MAs: Buy Short=1900.489000, Buy Long=1901.923333, Sell Short=1900.039600, Sell Long=1904.096400
+2025-03-29 06:03:38,865 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: ETH/USDT - BUY_CONDITION: False
+  Current Price: 1899.47
+  Buy MAs: Short(10)=1900.489000, Long(30)=1901.923333
+  Sell MAs: Short(50)=1900.039600, Long(200)=1904.096400
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 0.00606881
+2025-03-29 06:03:38,865 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: ETH/USDT - SELL_CROSSOVER: False
+  Current Price: 1899.47
+  Buy MAs: Short(10)=1900.489000, Long(30)=1901.923333
+  Sell MAs: Short(50)=1900.039600, Long(200)=1904.096400
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 0.00606881
+2025-03-29 06:03:38,865 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: ETH/USDT - SELL_CONFIGURATION_WITH_POSITION: True
+  Current Price: 1899.47
+  Buy MAs: Short(10)=1900.489000, Long(30)=1901.923333
+  Sell MAs: Short(50)=1900.039600, Long(200)=1904.096400
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 0.00606881
+2025-03-29 06:03:38,866 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: ETH/USDT - SHOULD_CLOSE: False
+  Current Price: 1899.47
+  Buy MAs: Short(10)=1900.489000, Long(30)=1901.923333
+  Sell MAs: Short(50)=1900.039600, Long(200)=1904.096400
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 0.00606881
+2025-03-29 06:03:39,565 - trading_bot.strategies.biased_spot_ma_crossover - INFO - Processing ENA/USDT - Current price: 0.3919
+  Previous MAs: Buy Short=0.393250, Buy Long=0.392000, Sell Short=0.389686, Sell Long=0.388375
+  Current MAs: Buy Short=0.393080, Buy Long=0.392100, Sell Short=0.389828, Sell Long=0.388393
+2025-03-29 06:03:39,566 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: ENA/USDT - BUY_CONDITION: False
+  Current Price: 0.3919
+  Buy MAs: Short(10)=0.393080, Long(30)=0.392100
+  Sell MAs: Short(50)=0.389828, Long(200)=0.388393
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: False
+  Has Position: False
+  Position Amount: 0.00096
+2025-03-29 06:03:39,566 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: ENA/USDT - SELL_CROSSOVER: False
+  Current Price: 0.3919
+  Buy MAs: Short(10)=0.393080, Long(30)=0.392100
+  Sell MAs: Short(50)=0.389828, Long(200)=0.388393
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: False
+  Has Position: False
+  Position Amount: 0.00096
+2025-03-29 06:03:39,566 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: ENA/USDT - SELL_CONFIGURATION_WITH_POSITION: False
+  Current Price: 0.3919
+  Buy MAs: Short(10)=0.393080, Long(30)=0.392100
+  Sell MAs: Short(50)=0.389828, Long(200)=0.388393
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: False
+  Has Position: False
+  Position Amount: 0.00096
+2025-03-29 06:03:39,566 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: ENA/USDT - SHOULD_CLOSE: False
+  Current Price: 0.3919
+  Buy MAs: Short(10)=0.393080, Long(30)=0.392100
+  Sell MAs: Short(50)=0.389828, Long(200)=0.388393
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: False
+  Has Position: False
+  Position Amount: 0.00096
+2025-03-29 06:03:40,268 - trading_bot.strategies.biased_spot_ma_crossover - INFO - Processing BLAST/USDT - Current price: 0.003425
+  Previous MAs: Buy Short=0.003407, Buy Long=0.003399, Sell Short=0.003388, Sell Long=0.003419
+  Current MAs: Buy Short=0.003409, Buy Long=0.003400, Sell Short=0.003390, Sell Long=0.003419
+2025-03-29 06:03:40,269 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: BLAST/USDT - BUY_CONDITION: False
+  Current Price: 0.003425
+  Buy MAs: Short(10)=0.003409, Long(30)=0.003400
+  Sell MAs: Short(50)=0.003390, Long(200)=0.003419
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 3227.62385
+2025-03-29 06:03:40,269 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: BLAST/USDT - SELL_CROSSOVER: False
+  Current Price: 0.003425
+  Buy MAs: Short(10)=0.003409, Long(30)=0.003400
+  Sell MAs: Short(50)=0.003390, Long(200)=0.003419
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 3227.62385
+2025-03-29 06:03:40,269 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: BLAST/USDT - SELL_CONFIGURATION_WITH_POSITION: True
+  Current Price: 0.003425
+  Buy MAs: Short(10)=0.003409, Long(30)=0.003400
+  Sell MAs: Short(50)=0.003390, Long(200)=0.003419
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 3227.62385
+2025-03-29 06:03:40,270 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: BLAST/USDT - SHOULD_CLOSE: False
+  Current Price: 0.003425
+  Buy MAs: Short(10)=0.003409, Long(30)=0.003400
+  Sell MAs: Short(50)=0.003390, Long(200)=0.003419
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 3227.62385
+2025-03-29 06:03:40,499 - trading_bot.strategies.biased_spot_ma_crossover - INFO - Processing EIGEN/USDT - Current price: 1.007
+  Previous MAs: Buy Short=1.009700, Buy Long=1.009000, Sell Short=1.005480, Sell Long=1.020755
+  Current MAs: Buy Short=1.009300, Buy Long=1.009033, Sell Short=1.005820, Sell Long=1.020590
+2025-03-29 06:03:40,499 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: EIGEN/USDT - BUY_CONDITION: False
+  Current Price: 1.007
+  Buy MAs: Short(10)=1.009300, Long(30)=1.009033
+  Sell MAs: Short(50)=1.005820, Long(200)=1.020590
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 6.25374
+2025-03-29 06:03:40,499 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: EIGEN/USDT - SELL_CROSSOVER: False
+  Current Price: 1.007
+  Buy MAs: Short(10)=1.009300, Long(30)=1.009033
+  Sell MAs: Short(50)=1.005820, Long(200)=1.020590
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 6.25374
+2025-03-29 06:03:40,500 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: EIGEN/USDT - SELL_CONFIGURATION_WITH_POSITION: True
+  Current Price: 1.007
+  Buy MAs: Short(10)=1.009300, Long(30)=1.009033
+  Sell MAs: Short(50)=1.005820, Long(200)=1.020590
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 6.25374
+2025-03-29 06:03:40,500 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: EIGEN/USDT - SHOULD_CLOSE: False
+  Current Price: 1.007
+  Buy MAs: Short(10)=1.009300, Long(30)=1.009033
+  Sell MAs: Short(50)=1.005820, Long(200)=1.020590
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 6.25374
+2025-03-29 06:03:41,198 - trading_bot.strategies.biased_spot_ma_crossover - INFO - Processing MNT/USDT - Current price: 0.8323
+  Previous MAs: Buy Short=0.833400, Buy Long=0.833143, Sell Short=0.832192, Sell Long=0.833266
+  Current MAs: Buy Short=0.833250, Buy Long=0.833163, Sell Short=0.832254, Sell Long=0.833249
+2025-03-29 06:03:41,198 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: MNT/USDT - BUY_CONDITION: False
+  Current Price: 0.8323
+  Buy MAs: Short(10)=0.833250, Long(30)=0.833163
+  Sell MAs: Short(50)=0.832254, Long(200)=0.833249
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 9.9950064
+2025-03-29 06:03:41,199 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: MNT/USDT - SELL_CROSSOVER: False
+  Current Price: 0.8323
+  Buy MAs: Short(10)=0.833250, Long(30)=0.833163
+  Sell MAs: Short(50)=0.832254, Long(200)=0.833249
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 9.9950064
+2025-03-29 06:03:41,199 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: MNT/USDT - SELL_CONFIGURATION_WITH_POSITION: True
+  Current Price: 0.8323
+  Buy MAs: Short(10)=0.833250, Long(30)=0.833163
+  Sell MAs: Short(50)=0.832254, Long(200)=0.833249
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 9.9950064
+2025-03-29 06:03:41,199 - trading_bot.strategies.biased_spot_ma_crossover - INFO - SIGNAL DIAGNOSTIC: MNT/USDT - SHOULD_CLOSE: False
+  Current Price: 0.8323
+  Buy MAs: Short(10)=0.833250, Long(30)=0.833163
+  Sell MAs: Short(50)=0.832254, Long(200)=0.833249
+  Buy Crossover: False
+  Sell Crossover: False
+  In Sell Configuration: True
+  Has Position: True
+  Position Amount: 9.9950064
+2025-03-29 06:03:45,353 - trading_bot.models.data_models - INFO - Position BLAST/USDT closed (no longer on exchange)
+2025-03-29 06:03:45,355 - trading_bot.risk.basic_risk_manager - WARNING - Position EIGEN/USDT has exceeded maximum drawdown: 15.59% > 2.00%
+2025-03-29 06:03:45,355 - trading_bot.risk.basic_risk_manager - WARNING - Position ETH/USDT has exceeded maximum drawdown: 6.43% > 2.00%
+2025-03-29 06:03:45,356 - trading_bot.risk.basic_risk_manager - WARNING - Position ENA/USDT has exceeded maximum drawdown: 10.34% > 2.00%
+2025-03-29 06:03:45,356 - __main__ - WARNING - Maximum drawdown exceeded for EIGEN/USDT, generating close signal
+2025-03-29 06:03:45,356 - trading_bot.execution.ccxt_executor - INFO - Order: sell 9.02097 EIGEN/USDT at market price
+2025-03-29 06:03:45,903 - trading_bot.execution.ccxt_executor - INFO - Order placed successfully: 1916671315658677248
+2025-03-29 06:03:45,904 - __main__ - INFO - Position closed due to max drawdown: {'info': {'orderId': '1916671315658677248', 'orderLinkId': '1916671315658677249'}, 'id': '1916671315658677248', 'clientOrderId': '1916671315658677249', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'EIGEN/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-29 06:03:45,905 - __main__ - INFO - Order placed successfully: 1916671315658677248
+2025-03-29 06:03:45,905 - __main__ - WARNING - Maximum drawdown exceeded for ETH/USDT, generating close signal
+2025-03-29 06:03:45,905 - trading_bot.execution.ccxt_executor - INFO - Order: sell 0.00503496 ETH/USDT at market price
+2025-03-29 06:03:46,145 - trading_bot.execution.ccxt_executor - INFO - Order placed successfully: 1916671317680331776
+2025-03-29 06:03:46,145 - __main__ - INFO - Position closed due to max drawdown: {'info': {'orderId': '1916671317680331776', 'orderLinkId': '1916671317680331777'}, 'id': '1916671317680331776', 'clientOrderId': '1916671317680331777', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ETH/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-29 06:03:46,145 - __main__ - INFO - Order placed successfully: 1916671317680331776
+2025-03-29 06:03:46,145 - __main__ - WARNING - Maximum drawdown exceeded for ENA/USDT, generating close signal
+2025-03-29 06:03:46,146 - trading_bot.execution.ccxt_executor - INFO - Order: sell 24.40557 ENA/USDT at market price
+2025-03-29 06:03:46,851 - trading_bot.execution.ccxt_executor - INFO - Order placed successfully: 1916671323602689024
+2025-03-29 06:03:46,852 - __main__ - INFO - Position closed due to max drawdown: {'info': {'orderId': '1916671323602689024', 'orderLinkId': '1916671323602689025'}, 'id': '1916671323602689024', 'clientOrderId': '1916671323602689025', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ENA/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-29 06:03:46,852 - __main__ - INFO - Order placed successfully: 1916671323602689024
+2025-03-29 06:03:49,606 - __main__ - INFO - Received signal 2, shutting down...
+2025-03-29 06:03:49,606 - __main__ - INFO - Stopping trading bot...
+2025-03-29 06:03:49,854 - __main__ - INFO - Trading bot stopped

@@ -6517,3 +6517,48 @@
   Unrealized PnL: 0.00230615
   Entry time: 2025-03-27 09:11:58.158586
   Valid position (value > $1): True
+2025-03-29 06:03:38,865 - positions - DEBUG - Position details for ETH/USDT:
+  Amount: 0.00606881
+  Entry price: 2027.780000
+  Current price: 2030.190000
+  Position value: $12.32
+  Side: long
+  Unrealized PnL: 0.01462583
+  Entry time: 2025-03-27 09:11:58.158586
+  Valid position (value > $1): True
+2025-03-29 06:03:39,566 - positions - DEBUG - Position details for ENA/USDT:
+  Amount: 0.00096000
+  Entry price: 0.429800
+  Current price: 0.433800
+  Position value: $0.00
+  Side: long
+  Unrealized PnL: 0.00000384
+  Entry time: 2025-03-27 07:17:57.005093
+  Valid position (value > $1): False
+2025-03-29 06:03:40,269 - positions - DEBUG - Position details for BLAST/USDT:
+  Amount: 3227.62385000
+  Entry price: 0.003814
+  Current price: 0.003826
+  Position value: $12.35
+  Side: long
+  Unrealized PnL: 0.03873149
+  Entry time: 2025-03-27 07:24:33.396841
+  Valid position (value > $1): True
+2025-03-29 06:03:40,499 - positions - DEBUG - Position details for EIGEN/USDT:
+  Amount: 6.25374000
+  Entry price: 1.193000
+  Current price: 1.176000
+  Position value: $7.35
+  Side: long
+  Unrealized PnL: -0.10631358
+  Entry time: 2025-03-27 09:15:15.302072
+  Valid position (value > $1): True
+2025-03-29 06:03:41,198 - positions - DEBUG - Position details for MNT/USDT:
+  Amount: 9.99500640
+  Entry price: 0.848100
+  Current price: 0.845700
+  Position value: $8.45
+  Side: long
+  Unrealized PnL: -0.02398802
+  Entry time: 2025-03-27 10:18:35.974277
+  Valid position (value > $1): True

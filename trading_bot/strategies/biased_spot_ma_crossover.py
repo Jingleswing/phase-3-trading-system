@@ -4,13 +4,13 @@ from datetime import datetime
 import logging
 from typing import Dict, List, Any, Optional
 import os
+import numpy as np
 
 from trading_bot.interfaces.strategy import Strategy
-from trading_bot.models.data_models import Signal, PositionTracker
+from trading_bot.models.data_models import Signal, PositionTracker, Candle
 from trading_bot.analysis.indicators import calculate_indicators
-from trading_bot.utils.logging import LoggerMixin
 
-class BiasedSpotMACrossover(Strategy, LoggerMixin):
+class BiasedSpotMACrossover(Strategy):
     """
     Biased Moving Average Crossover strategy for spot markets.
     
@@ -44,7 +44,9 @@ class BiasedSpotMACrossover(Strategy, LoggerMixin):
         self.sell_long_period = sell_long_period
         self.exchange = exchange
         self.position_tracker = None
-        self.debug_logger = self._setup_debug_logger()
+        self.logger = logging.getLogger(__name__)
+        self.strategy_name = "BiasedSpotMACrossover"
+        self.strategy_type = "spot"
         
         # Initialize position tracker if exchange is provided
         if self.exchange:
@@ -55,34 +57,6 @@ class BiasedSpotMACrossover(Strategy, LoggerMixin):
             f"buy MA ({buy_short_period}/{buy_long_period}), "
             f"sell MA ({sell_short_period}/{sell_long_period})"
         )
-    
-    def _setup_debug_logger(self):
-        """Set up a dedicated logger for signal diagnostics"""
-        logger = logging.getLogger("signal_diagnostics")
-        
-        # Create logs directory if it doesn't exist
-        if not os.path.exists("logs"):
-            os.makedirs("logs")
-            
-        # Check if handler already exists to avoid duplicate handlers
-        if not logger.handlers:
-            # Create file handler for signal diagnostics
-            fh = logging.FileHandler("logs/signal_diagnostics.log")
-            fh.setLevel(logging.DEBUG)
-            
-            # Create formatter for detailed diagnostics
-            formatter = logging.Formatter(
-                '%(asctime)s - %(name)s - %(levelname)s - '
-                '%(message)s [%(filename)s:%(lineno)d]'
-            )
-            fh.setFormatter(formatter)
-            
-            # Add the handler to logger
-            logger.addHandler(fh)
-            logger.setLevel(logging.DEBUG)
-            logger.propagate = False  # Don't propagate to root logger
-        
-        return logger
     
     def get_required_indicators(self) -> List[Dict[str, Any]]:
         """
@@ -159,7 +133,7 @@ class BiasedSpotMACrossover(Strategy, LoggerMixin):
                   f"  Has Position: {data_dict.get('has_position', 'N/A')}\n"
                   f"  Position Amount: {data_dict.get('position_amount', 'N/A')}")
         
-        self.debug_logger.info(message)
+        self.logger.info(message)
         
         # Also log to crossovers logger if this is a crossover condition
         if "CROSSOVER" in condition_name or "CONFIGURATION" in condition_name:
@@ -270,7 +244,7 @@ class BiasedSpotMACrossover(Strategy, LoggerMixin):
             current_price = current['close']
             
             # Log all MA values at the beginning of processing
-            self.debug_logger.info(
+            self.logger.info(
                 f"Processing {symbol} - Current price: {current_price}\n"
                 f"  Previous MAs: Buy Short={previous[buy_short_col]:.6f}, Buy Long={previous[buy_long_col]:.6f}, "
                 f"Sell Short={previous[sell_short_col]:.6f}, Sell Long={previous[sell_long_col]:.6f}\n"

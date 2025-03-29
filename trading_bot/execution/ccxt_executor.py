@@ -3,10 +3,10 @@ import ccxt
 from typing import Dict, List, Any, Optional
 from trading_bot.interfaces.order_executor import OrderExecutor
 from trading_bot.models.data_models import Order, Trade, Position
-from trading_bot.utils.logging import LoggerMixin
 import logging
+import time
 
-class CCXTExecutor(OrderExecutor, LoggerMixin):
+class CCXTExecutor(OrderExecutor):
     """
     Order executor using CCXT to place orders on exchanges
     """
@@ -21,6 +21,8 @@ class CCXTExecutor(OrderExecutor, LoggerMixin):
         """
         self.exchange = exchange
         self.dry_run = dry_run
+        self.logger = logging.getLogger(__name__)
+        self.orders_logger = logging.getLogger("orders")
         self.logger.info(f"Initialized CCXTExecutor (dry_run={dry_run})")
     
     def place_order(self, order: Order) -> Dict[str, Any]:

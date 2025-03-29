@@ -1,12 +1,14 @@
 # trading_bot/strategies/factory.py
 from typing import Dict, Any
+import logging  # Add logging import
 from trading_bot.interfaces.strategy import Strategy
-from trading_bot.utils.logging import LoggerMixin
 from trading_bot.strategies.moving_average_crossover_spot import MovingAverageCrossoverSpot
 from trading_bot.strategies.moving_average_crossover_futures import MovingAverageCrossoverFutures
 from trading_bot.strategies.biased_spot_ma_crossover import BiasedSpotMACrossover
 
-class StrategyFactory(LoggerMixin):
+logger = logging.getLogger(__name__) # Initialize module-level logger
+
+class StrategyFactory: # Remove LoggerMixin inheritance
     """
     Factory class for creating strategy instances based on configuration
     """
@@ -65,7 +67,7 @@ class StrategyFactory(LoggerMixin):
             # Set the timeframe property on the strategy
             instance.timeframe = timeframe
             
-            LoggerMixin().logger.info(f"Created {strategy_type} strategy with short_period={short_period}, long_period={long_period}, timeframe={timeframe}")
+            logger.info(f"Created {strategy_type} strategy with short_period={short_period}, long_period={long_period}, timeframe={timeframe}") # Use module logger
             return instance
             
         elif strategy_type == 'moving_average_crossover_futures':
@@ -88,7 +90,7 @@ class StrategyFactory(LoggerMixin):
             # Set the timeframe property on the strategy
             instance.timeframe = timeframe
             
-            LoggerMixin().logger.info(
+            logger.info( # Use module logger
                 f"Created {strategy_type} strategy with short_period={short_period}, "
                 f"long_period={long_period}, leverage={leverage}, timeframe={timeframe}"
             )
@@ -117,7 +119,7 @@ class StrategyFactory(LoggerMixin):
             # Set the timeframe property on the strategy
             instance.timeframe = timeframe
             
-            LoggerMixin().logger.info(
+            logger.info( # Use module logger
                 f"Created {strategy_type} strategy with "
                 f"buy MA ({buy_short_period}/{buy_long_period}), "
                 f"sell MA ({sell_short_period}/{sell_long_period}), "

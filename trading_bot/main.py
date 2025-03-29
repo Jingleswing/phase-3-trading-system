@@ -4,19 +4,20 @@ import argparse
 import os
 import signal
 import sys
+import logging
 from typing import Dict, Any, List
 
 from trading_bot.utils.config import Config
-from trading_bot.utils.logging import setup_logging, setup_enhanced_logging, LoggerMixin
+from trading_bot.utils.logging import setup_logging, setup_enhanced_logging
 from trading_bot.utils.events import EventBus, EventType, Event
 
 from trading_bot.data.providers.ccxt_provider import CCXTProvider
 from trading_bot.strategies.factory import StrategyFactory
 from trading_bot.execution.ccxt_executor import CCXTExecutor
 from trading_bot.risk.basic_risk_manager import BasicRiskManager
-from trading_bot.models.data_models import Order
+from trading_bot.models.data_models import Order, Signal
 
-class TradingBot(LoggerMixin):
+class TradingBot:
     """
     Main trading bot class that orchestrates all components
     """
@@ -36,6 +37,7 @@ class TradingBot(LoggerMixin):
         
         # Set up logging with config - use enhanced logging for better debugging
         setup_enhanced_logging(config=self.config.config)
+        self.logger = logging.getLogger(__name__)
         
         # Create event bus
         self.event_bus = EventBus()

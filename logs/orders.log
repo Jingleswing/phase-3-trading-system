@@ -575,3 +575,42 @@
   Precision - Amount: 0.01
   Precision - Price: 0.0001
 2025-03-27 11:37:08,539 - orders - DEBUG - Order response: {'info': {'orderId': '1915389558175046656', 'orderLinkId': '1915389558175046657'}, 'id': '1915389558175046656', 'clientOrderId': '1915389558175046657', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'MNT/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-29 06:03:45,357 - orders - DEBUG - Order details:
+  Symbol: EIGEN/USDT
+  Order Type: market
+  Side: sell
+  Amount: 9.02097000
+  Price: Market
+2025-03-29 06:03:45,357 - orders - DEBUG - Market info for EIGEN/USDT:
+  Limits - Amount: {'min': 0.9, 'max': 172711.57168}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 200000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.001
+2025-03-29 06:03:45,903 - orders - DEBUG - Order response: {'info': {'orderId': '1916671315658677248', 'orderLinkId': '1916671315658677249'}, 'id': '1916671315658677248', 'clientOrderId': '1916671315658677249', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'EIGEN/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-29 06:03:45,905 - orders - DEBUG - Order details:
+  Symbol: ETH/USDT
+  Order Type: market
+  Side: sell
+  Amount: 0.00503496
+  Price: Market
+2025-03-29 06:03:45,905 - orders - DEBUG - Market info for ETH/USDT:
+  Limits - Amount: {'min': 0.00029, 'max': 3070.458244}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 7000000.0}
+  Precision - Amount: 1e-05
+  Precision - Price: 0.01
+2025-03-29 06:03:46,145 - orders - DEBUG - Order response: {'info': {'orderId': '1916671317680331776', 'orderLinkId': '1916671317680331777'}, 'id': '1916671317680331776', 'clientOrderId': '1916671317680331777', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ETH/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
+2025-03-29 06:03:46,146 - orders - DEBUG - Order details:
+  Symbol: ENA/USDT
+  Order Type: market
+  Side: sell
+  Amount: 24.40557000
+  Price: Market
+2025-03-29 06:03:46,146 - orders - DEBUG - Market info for ENA/USDT:
+  Limits - Amount: {'min': 2.4, 'max': 1288659.793814}
+  Limits - Price: {'min': None, 'max': None}
+  Limits - Cost: {'min': 5.0, 'max': 600000.0}
+  Precision - Amount: 0.01
+  Precision - Price: 0.0001
+2025-03-29 06:03:46,851 - orders - DEBUG - Order response: {'info': {'orderId': '1916671323602689024', 'orderLinkId': '1916671323602689025'}, 'id': '1916671323602689024', 'clientOrderId': '1916671323602689025', 'timestamp': None, 'datetime': None, 'lastTradeTimestamp': None, 'lastUpdateTimestamp': None, 'symbol': 'ENA/USDT', 'type': None, 'timeInForce': None, 'postOnly': None, 'reduceOnly': None, 'side': None, 'price': None, 'triggerPrice': None, 'takeProfitPrice': None, 'stopLossPrice': None, 'amount': None, 'cost': None, 'average': None, 'filled': None, 'remaining': None, 'status': None, 'fee': None, 'trades': [], 'fees': [], 'stopPrice': None}
